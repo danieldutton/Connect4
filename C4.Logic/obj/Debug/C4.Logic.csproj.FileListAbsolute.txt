@@ -1,0 +1,7 @@
+C:\Users\Dan\Desktop\C4\C4\C4.Logic\bin\Debug\C4.Logic.dll
+C:\Users\Dan\Desktop\C4\C4\C4.Logic\bin\Debug\C4.Logic.pdb
+C:\Users\Dan\Desktop\C4\C4\C4.Logic\obj\Debug\C4.Logic.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\C4\C4\C4.Logic\obj\Debug\C4.Logic.dll
+C:\Users\Dan\Desktop\C4\C4\C4.Logic\obj\Debug\C4.Logic.pdb
+C:\Users\Dan\Desktop\C4\C4\C4.Logic\bin\Debug\C4.Model.dll
+C:\Users\Dan\Desktop\C4\C4\C4.Logic\bin\Debug\C4.Model.pdb

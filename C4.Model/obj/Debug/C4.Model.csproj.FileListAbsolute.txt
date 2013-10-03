@@ -1,0 +1,5 @@
+C:\Users\Dan\Desktop\C4\C4\C4.Model\bin\Debug\C4.Model.dll
+C:\Users\Dan\Desktop\C4\C4\C4.Model\bin\Debug\C4.Model.pdb
+C:\Users\Dan\Desktop\C4\C4\C4.Model\obj\Debug\C4.Model.dll
+C:\Users\Dan\Desktop\C4\C4\C4.Model\obj\Debug\C4.Model.pdb
+C:\Users\Dan\Desktop\C4\C4\C4.Model\obj\Debug\C4.Model.csprojResolveAssemblyReference.cache

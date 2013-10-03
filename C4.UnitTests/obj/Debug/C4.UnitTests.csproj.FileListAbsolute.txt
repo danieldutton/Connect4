@@ -1,0 +1,13 @@
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\C4.UnitTests.dll
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\C4.UnitTests.pdb
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\C4.Logic.dll
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\C4.Model.dll
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\Moq.dll
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\C4.Logic.pdb
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\C4.Model.pdb
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\Moq.xml
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\obj\Debug\C4.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\obj\Debug\C4.UnitTests.dll
+C:\Users\Dan\Desktop\C4\C4\C4.UnitTests\obj\Debug\C4.UnitTests.pdb
