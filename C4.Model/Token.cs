@@ -1,9 +1,8 @@
-﻿using System.Drawing;
-
-namespace C4.Model
+﻿namespace C4.Model
 {
-    public class Token
+    public enum Token
     {
-        public Color Color;
+        Red = 0,
+        Yellow = 1,
     }
 }

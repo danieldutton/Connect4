@@ -8,13 +8,24 @@ namespace C4.UnitTests
     [TestFixture]
     public class GridGenerator_Should
     {
+        private GridGenerator<Tile> _sut;
+
+        private const int GridXCount = 7;
+
+        private const int GridYCount = 6;
+
+
+        [SetUp]
+        public void Init()
+        {
+            _sut = new GridGenerator<Tile>();
+        }
+
         [Test]
         public void Generate_SevenElementsOnXDimension()
         {
-            var sut = new GridGenerator<Tile>();
-            
             const int expected = 7;
-            int actual = sut.GetGrid(7, 6).GetLength(0);
+            int actual = _sut.GetGrid(GridXCount, GridYCount).GetLength(0);
 
             Assert.AreEqual(expected, actual);
         }
@@ -22,10 +33,8 @@ namespace C4.UnitTests
         [Test]
         public void Generate_SixElementsOnYDimension()
         {
-            var sut = new GridGenerator<Tile>();
-
             const int expected = 6;
-            int actual = sut.GetGrid(7, 6).GetLength(1);
+            int actual = _sut.GetGrid(GridXCount, GridYCount).GetLength(1);
 
             Assert.AreEqual(expected, actual);
         }
@@ -33,10 +42,8 @@ namespace C4.UnitTests
         [Test]
         public void Generate_FortyTwoElementsInCompleteArray()
         {
-            var sut = new GridGenerator<Tile>();
-
             const int expected = 42;
-            int actual = sut.GetGrid(7, 6).Length;
+            int actual = _sut.GetGrid(GridXCount, GridYCount).Length;
 
             Assert.AreEqual(expected, actual);
         }
@@ -44,20 +51,15 @@ namespace C4.UnitTests
         [Test]
         public void AllTokenElementsInGridAreNotNull()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[] grid = sut.GetGrid(7, 6).Cast<Tile>().ToArray();
+            Tile[] grid = _sut.GetGrid(GridXCount, GridYCount).Cast<Tile>().ToArray();
             
-
             Assert.IsTrue(grid.All(t => t != null));
         }
 
         [Test]
         public void AllTokenElementsInGridAreofTypeTile()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[] grid = sut.GetGrid(7, 6).Cast<Tile>().ToArray();
+            Tile[] grid = _sut.GetGrid(GridXCount, GridYCount).Cast<Tile>().ToArray();
 
             CollectionAssert.AllItemsAreInstancesOfType(grid, typeof (Tile));
         }
@@ -67,9 +69,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_0_0()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 0;
             const int expectedY = 0;
@@ -84,9 +84,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_0_1()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 0;
             const int expectedY = 1;
@@ -101,9 +99,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_0_2()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 0;
             const int expectedY = 2;
@@ -118,9 +114,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_0_3()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 0;
             const int expectedY = 3;
@@ -135,9 +129,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_0_4()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 0;
             const int expectedY = 4;
@@ -152,9 +144,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_0_5()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 0;
             const int expectedY = 5;
@@ -173,9 +163,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_1_0()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 1;
             const int expectedY = 0;
@@ -190,9 +178,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_1_1()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 1;
             const int expectedY = 1;
@@ -207,9 +193,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_1_2()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 1;
             const int expectedY = 2;
@@ -224,9 +208,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_1_3()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 1;
             const int expectedY = 3;
@@ -241,9 +223,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_1_4()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 1;
             const int expectedY = 4;
@@ -258,9 +238,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_1_5()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 1;
             const int expectedY = 5;
@@ -279,9 +257,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_2_0()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 2;
             const int expectedY = 0;
@@ -296,9 +272,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_2_1()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 2;
             const int expectedY = 1;
@@ -313,9 +287,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_2_2()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 2;
             const int expectedY = 2;
@@ -330,9 +302,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_2_3()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 2;
             const int expectedY = 3;
@@ -347,9 +317,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_2_4()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 2;
             const int expectedY = 4;
@@ -364,9 +332,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_2_5()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 2;
             const int expectedY = 5;
@@ -385,9 +351,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_3_0()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 3;
             const int expectedY = 0;
@@ -402,9 +366,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_3_1()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 3;
             const int expectedY = 1;
@@ -419,9 +381,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_3_2()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 3;
             const int expectedY = 2;
@@ -436,9 +396,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_3_3()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 3;
             const int expectedY = 3;
@@ -453,9 +411,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_3_4()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 3;
             const int expectedY = 4;
@@ -470,9 +426,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_3_5()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 3;
             const int expectedY = 5;
@@ -491,9 +445,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_4_0()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 4;
             const int expectedY = 0;
@@ -508,9 +460,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_4_1()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 4;
             const int expectedY = 1;
@@ -525,9 +475,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_4_2()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 4;
             const int expectedY = 2;
@@ -542,9 +490,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_4_3()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 4;
             const int expectedY = 3;
@@ -559,9 +505,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_4_4()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 4;
             const int expectedY = 4;
@@ -576,9 +520,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_4_5()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 4;
             const int expectedY = 5;
@@ -590,7 +532,6 @@ namespace C4.UnitTests
             Assert.AreEqual(expectedY, actualY);
         }
 
-
         #endregion
 
         #region X Index 5
@@ -598,9 +539,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_5_0()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 5;
             const int expectedY = 0;
@@ -615,9 +554,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_5_1()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 5;
             const int expectedY = 1;
@@ -632,9 +569,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_5_2()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 5;
             const int expectedY = 2;
@@ -649,9 +584,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_5_3()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 5;
             const int expectedY = 3;
@@ -666,9 +599,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_5_4()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 5;
             const int expectedY = 4;
@@ -683,9 +614,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_5_5()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 5;
             const int expectedY = 5;
@@ -704,9 +633,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_6_0()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 6;
             const int expectedY = 0;
@@ -721,9 +648,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_6_1()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 6;
             const int expectedY = 1;
@@ -738,9 +663,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_6_2()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 6;
             const int expectedY = 2;
@@ -755,9 +678,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_6_3()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 6;
             const int expectedY = 3;
@@ -772,9 +693,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_6_4()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 6;
             const int expectedY = 4;
@@ -789,9 +708,7 @@ namespace C4.UnitTests
         [Test]
         public void InitIndexXYPositionPropertyCorrectlyFor_6_5()
         {
-            var sut = new GridGenerator<Tile>();
-
-            Tile[,] grid = sut.GetGrid(7, 6);
+            Tile[,] grid = _sut.GetGrid(GridXCount, GridYCount);
 
             const int expectedX = 6;
             const int expectedY = 5;
@@ -804,5 +721,11 @@ namespace C4.UnitTests
         }
 
         #endregion
+
+        [TearDown]
+        public void TearDown()
+        {
+            _sut = null;
+        }
     }
 }

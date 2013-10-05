@@ -1,12 +1,13 @@
-﻿using C4.Logic.Interfaces;
+﻿using C4.Logic.EventArg;
+using C4.Logic.Interfaces;
 using System;
 
 namespace C4.Logic
 {
     public class GameGrid<T>
     {
-        public event EventHandler<EventArgs> TokenAdded;
-
+        public event EventHandler<TokenEventArg> TokenAdded;
+       
         public event EventHandler<EventArgs> GridFull;
 
         public event EventHandler<EventArgs> GridEmptied;
@@ -14,6 +15,12 @@ namespace C4.Logic
         private readonly IGridGenerator<T> _iGridGenerator;
 
         public T[,] Grid { get; set; }
+
+
+        public GameGrid()
+        {
+            InitGrid();
+        }
 
 
         public GameGrid(IGridGenerator<T> gridGenerator)
@@ -34,10 +41,10 @@ namespace C4.Logic
 
         #region Event Invocators
 
-        protected virtual void OnTokenAdded()
+        protected virtual void OnTokenAdded(TokenEventArg e)
         {
-            EventHandler<EventArgs> handler = TokenAdded;
-            if (handler != null) handler(this, EventArgs.Empty);
+            EventHandler<TokenEventArg> handler = TokenAdded;
+            if (handler != null) handler(this, e);
         }
 
         protected virtual void OnGridFull()

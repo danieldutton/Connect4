@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArg\TokenEventArg.cs" />
     <Compile Include="GameGrid.cs" />
     <Compile Include="GridGenerator.cs" />
     <Compile Include="Interfaces\IGridGenerator.cs" />
