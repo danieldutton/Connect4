@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArg\ColumnFullEventArgs.cs" />
     <Compile Include="EventArg\TokenEventArg.cs" />
-    <Compile Include="GameGrid.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="GridGenerator.cs" />
     <Compile Include="Interfaces\IGridGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,7 +14,7 @@ namespace C4.Logic
             {
                 for (int j = 0; j < yDim; j++)
                 {
-                    grid[i, j] = new T{XPos = i, YPos = j};
+                    grid[i, j] = new T{XPosition = i, YPosition = j};
                 }
             }
             return grid;

@@ -1,0 +1,10 @@
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\bin\Debug\TestConsole.exe.config
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\bin\Debug\TestConsole.exe
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\bin\Debug\TestConsole.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\bin\Debug\C4.Logic.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\bin\Debug\C4.Model.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\bin\Debug\C4.Logic.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\bin\Debug\C4.Model.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\obj\Debug\TestConsole.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\obj\Debug\TestConsole.exe
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\obj\Debug\TestConsole.pdb

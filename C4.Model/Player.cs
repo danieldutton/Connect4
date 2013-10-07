@@ -8,6 +8,8 @@
 
         public int MovesLeft { get; set; }
 
+        public bool IsTurn { get; set; }
+
         public void MakeAMove() { }
     }
 }

@@ -9,28 +9,25 @@ namespace C4.Presentation
     {
         private readonly IGridGenerator<Tile> _gridGeneratorl; 
 
-        private GameGrid<Tile> GameGrid { get; set; }
+        private Game Game { get; set; }
 
         private Panel panel = new Panel();
 
         public Form1()
         {
-            _gridGeneratorl = new GridGenerator<Tile>();
-            var gameGrid = new GameGrid<Tile>(_gridGeneratorl);
-
             InitializeComponent();
             Init();
         }
 
         public void Init()
         {
-            for (int i = 0; i < GameGrid.Grid.Length; i++)
-            {
-                for (int j = 0; j < GameGrid.Grid.Length; j++)
-                {
-                    panel1.Controls.Add(GameGrid.Grid[i, j]);
-                }
-            }
+            
+        }
+
+        private void _btnStartGame_Click(object sender, System.EventArgs e)
+        {
+            var game = Game.GetGameInstance(new GridGenerator<Tile>());
+            game.TakeMove(3);
         }
     }
 }
