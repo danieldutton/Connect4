@@ -10,9 +10,18 @@ namespace TestConsole
         static void Main()
         {
             var sut = Game.GetGameInstance(new GridGenerator<Tile>());
-            sut.TakeMove(0);
-            var grid = sut.Gameboard;
-            Tile[] tiles = grid.Cast<Tile>().Take(6).ToArray();
+            bool wasCalled = false;
+            sut.ColumnFull += (o, e) => wasCalled = true;
+
+            sut.TakeMove(1);
+            sut.TakeMove(1);
+            sut.TakeMove(1);
+            sut.TakeMove(1);
+            sut.TakeMove(1);
+            sut.TakeMove(1);
+            sut.TakeMove(1);
+
+            var grid = sut.Gameboard.Cast<Tile>().Take(5).ToArray();
             Console.ReadKey();
         }
     }

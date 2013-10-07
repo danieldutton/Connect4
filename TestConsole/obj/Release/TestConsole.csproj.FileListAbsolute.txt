@@ -1,0 +1,1 @@
+C:\Users\Dan\Documents\GitHub\Connect_4\TestConsole\bin\Release\TestConsole.exe.config
