@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="EventArg\ColumnFullEventArgs.cs" />
     <Compile Include="EventArg\TokenEventArg.cs" />
-    <Compile Include="Game.cs" />
+    <Compile Include="GameBoard.cs" />
     <Compile Include="GridGenerator.cs" />
     <Compile Include="Interfaces\IGridGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

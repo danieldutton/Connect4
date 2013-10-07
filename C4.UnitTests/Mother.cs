@@ -24,16 +24,15 @@ namespace C4.UnitTests
             return grid;
         }
 
-        public static Tile[,] GetGridOneTokenOffBeingFull()
+        public static Tile[,] GetGridOneTokenOffBeingFull(int xDim, int yDim)
         {
-            var grid = new Tile[7, 6];
+            var grid = new Tile[xDim, yDim];
 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < xDim; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < yDim; j++)
                 {
-                    grid[i, j] = new Tile();
-                    grid[i, j].GameToken = GameToken.Red;
+                    grid[i, j] = new Tile {GameToken = GameToken.Red};
                 } 
             }
 
@@ -53,7 +52,6 @@ namespace C4.UnitTests
                     grid[i, j].GameToken = GameToken.Red;
                 }
             }
-
             return grid;
         }
     }

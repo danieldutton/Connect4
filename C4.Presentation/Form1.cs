@@ -7,13 +7,11 @@ namespace C4.Presentation
 {
     public partial class Form1 : Form
     {
-        private readonly IGridGenerator<Tile> _gridGeneratorl; 
-
-        private Game Game { get; set; }
+        private GameBoard GameBoard { get; set; }
 
         private Panel panel = new Panel();
 
-        public Form1()
+        public Form1(GameBoard gameBoard)
         {
             InitializeComponent();
             Init();
@@ -26,7 +24,7 @@ namespace C4.Presentation
 
         private void _btnStartGame_Click(object sender, System.EventArgs e)
         {
-            var game = Game.GetGameInstance(new GridGenerator<Tile>());
+            var game = GameBoard.GetGameInstance(new GridGenerator<Tile>());
             game.TakeMove(3);
         }
     }

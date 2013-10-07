@@ -8,12 +8,12 @@ namespace C4.UnitTests.Logic
     [TestFixture]
     public class Game_Should
     {
-        private Game _sut;
+        private GameBoard _sut;
 
         [SetUp]
         public void Init()
         {
-            _sut = Game.GetGameInstance(new GridGenerator<Tile>());
+            _sut = GameBoard.GetGameInstance(new GridGenerator<Tile>());
         }        
 
         #region Column 0
@@ -45,7 +45,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(0);
 
-            GameToken gameToken = _sut.Gameboard[0, 5].GameToken;
+            GameToken gameToken = _sut.Grid[0, 5].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -55,7 +55,7 @@ namespace C4.UnitTests.Logic
         {
            _sut.TakeMove(0);
 
-            var grid =_sut.Gameboard;
+            var grid =_sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -67,7 +67,7 @@ namespace C4.UnitTests.Logic
            _sut.TakeMove(0);
            _sut.TakeMove(0);
 
-            GameToken gameToken =_sut.Gameboard[0, 4].GameToken;
+            GameToken gameToken =_sut.Grid[0, 4].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -78,7 +78,7 @@ namespace C4.UnitTests.Logic
            _sut.TakeMove(0);
            _sut.TakeMove(0);
 
-            var grid =_sut.Gameboard;
+            var grid =_sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -91,7 +91,7 @@ namespace C4.UnitTests.Logic
            _sut.TakeMove(0);
            _sut.TakeMove(0);
 
-            GameToken gameToken =_sut.Gameboard[0, 3].GameToken;
+            GameToken gameToken =_sut.Grid[0, 3].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -103,7 +103,7 @@ namespace C4.UnitTests.Logic
            _sut.TakeMove(0);
            _sut.TakeMove(0);
 
-            var grid =_sut.Gameboard;
+            var grid =_sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -117,7 +117,7 @@ namespace C4.UnitTests.Logic
            _sut.TakeMove(0);
            _sut.TakeMove(0);
 
-            GameToken gameToken =_sut.Gameboard[0, 2].GameToken;
+            GameToken gameToken =_sut.Grid[0, 2].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -130,7 +130,7 @@ namespace C4.UnitTests.Logic
            _sut.TakeMove(0);
            _sut.TakeMove(0);
 
-            var grid =_sut.Gameboard;
+            var grid =_sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -145,7 +145,7 @@ namespace C4.UnitTests.Logic
            _sut.TakeMove(0);
            _sut.TakeMove(0);
 
-            GameToken gameToken =_sut.Gameboard[0, 1].GameToken;
+            GameToken gameToken =_sut.Grid[0, 1].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -159,7 +159,7 @@ namespace C4.UnitTests.Logic
            _sut.TakeMove(0);
            _sut.TakeMove(0);
 
-            var grid =_sut.Gameboard;
+            var grid =_sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -175,7 +175,7 @@ namespace C4.UnitTests.Logic
            _sut.TakeMove(0);
            _sut.TakeMove(0);
 
-            GameToken gameToken =_sut.Gameboard[0, 0].GameToken;
+            GameToken gameToken =_sut.Grid[0, 0].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -191,7 +191,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(0);
 
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -205,7 +205,7 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(0);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
 
             Assert.IsTrue(wasCalled);
         }
@@ -241,7 +241,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(1);
 
-            GameToken gameToken = _sut.Gameboard[1, 5].GameToken;
+            GameToken gameToken = _sut.Grid[1, 5].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -251,7 +251,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(1);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -263,7 +263,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
             _sut.TakeMove(1);
 
-            GameToken gameToken = _sut.Gameboard[1, 4].GameToken;
+            GameToken gameToken = _sut.Grid[1, 4].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -274,7 +274,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
             _sut.TakeMove(1);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -287,7 +287,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(0);
             _sut.TakeMove(0);
 
-            GameToken gameToken = _sut.Gameboard[0, 3].GameToken;
+            GameToken gameToken = _sut.Grid[0, 3].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -299,7 +299,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
             _sut.TakeMove(1);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -313,7 +313,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
             _sut.TakeMove(1);
 
-            GameToken gameToken = _sut.Gameboard[1, 2].GameToken;
+            GameToken gameToken = _sut.Grid[1, 2].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -326,7 +326,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
             _sut.TakeMove(1);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -341,7 +341,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
             _sut.TakeMove(1);
 
-            GameToken gameToken = _sut.Gameboard[1, 1].GameToken;
+            GameToken gameToken = _sut.Grid[1, 1].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -355,7 +355,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
             _sut.TakeMove(1);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -371,7 +371,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
             _sut.TakeMove(1);
 
-            GameToken gameToken = _sut.Gameboard[1, 0].GameToken;
+            GameToken gameToken = _sut.Grid[1, 0].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -387,7 +387,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
 
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -401,7 +401,7 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(1);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
 
             Assert.IsTrue(wasCalled);
         }
@@ -437,7 +437,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(2);
 
-            GameToken gameToken = _sut.Gameboard[2, 5].GameToken;
+            GameToken gameToken = _sut.Grid[2, 5].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -447,7 +447,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(2);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -459,7 +459,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            GameToken gameToken = _sut.Gameboard[2, 4].GameToken;
+            GameToken gameToken = _sut.Grid[2, 4].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -470,7 +470,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -483,7 +483,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            GameToken gameToken = _sut.Gameboard[2, 3].GameToken;
+            GameToken gameToken = _sut.Grid[2, 3].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -495,7 +495,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -509,7 +509,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            GameToken gameToken = _sut.Gameboard[2, 2].GameToken;
+            GameToken gameToken = _sut.Grid[2, 2].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -522,7 +522,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -537,7 +537,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            GameToken gameToken = _sut.Gameboard[2, 1].GameToken;
+            GameToken gameToken = _sut.Grid[2, 1].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -551,7 +551,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -567,7 +567,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            GameToken gameToken = _sut.Gameboard[2, 0].GameToken;
+            GameToken gameToken = _sut.Grid[2, 0].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -582,7 +582,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
             _sut.TakeMove(2);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -596,7 +596,7 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(2);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
 
             Assert.IsTrue(wasCalled);
         }
@@ -632,7 +632,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(3);
 
-            GameToken gameToken = _sut.Gameboard[3, 5].GameToken;
+            GameToken gameToken = _sut.Grid[3, 5].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -642,7 +642,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(3);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -654,7 +654,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
             _sut.TakeMove(3);
 
-            GameToken gameToken = _sut.Gameboard[3, 4].GameToken;
+            GameToken gameToken = _sut.Grid[3, 4].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -665,7 +665,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
             _sut.TakeMove(3);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -678,7 +678,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
             _sut.TakeMove(3);
 
-            GameToken gameToken = _sut.Gameboard[3, 3].GameToken;
+            GameToken gameToken = _sut.Grid[3, 3].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -690,7 +690,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
             _sut.TakeMove(3);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -704,7 +704,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
             _sut.TakeMove(3);
 
-            GameToken gameToken = _sut.Gameboard[3, 2].GameToken;
+            GameToken gameToken = _sut.Grid[3, 2].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -717,7 +717,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
             _sut.TakeMove(3);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -732,7 +732,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
             _sut.TakeMove(3);
 
-            GameToken gameToken = _sut.Gameboard[3, 1].GameToken;
+            GameToken gameToken = _sut.Grid[3, 1].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -746,7 +746,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
             _sut.TakeMove(3);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -762,7 +762,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
             _sut.TakeMove(3);
 
-            GameToken gameToken = _sut.Gameboard[3, 0].GameToken;
+            GameToken gameToken = _sut.Grid[3, 0].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -778,7 +778,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
 
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -792,7 +792,7 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(3);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
 
             Assert.IsTrue(wasCalled);
         }
@@ -828,7 +828,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(4);
 
-            GameToken gameToken = _sut.Gameboard[4, 5].GameToken;
+            GameToken gameToken = _sut.Grid[4, 5].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -838,7 +838,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(4);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -850,7 +850,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            GameToken gameToken = _sut.Gameboard[4, 4].GameToken;
+            GameToken gameToken = _sut.Grid[4, 4].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -861,7 +861,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -874,7 +874,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            GameToken gameToken = _sut.Gameboard[4, 3].GameToken;
+            GameToken gameToken = _sut.Grid[4, 3].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -886,7 +886,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -900,7 +900,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            GameToken gameToken = _sut.Gameboard[4, 2].GameToken;
+            GameToken gameToken = _sut.Grid[4, 2].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -913,7 +913,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -928,7 +928,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            GameToken gameToken = _sut.Gameboard[4, 1].GameToken;
+            GameToken gameToken = _sut.Grid[4, 1].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -942,7 +942,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -958,7 +958,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            GameToken gameToken = _sut.Gameboard[4, 0].GameToken;
+            GameToken gameToken = _sut.Grid[4, 0].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -973,7 +973,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
             _sut.TakeMove(4);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -987,7 +987,7 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(4);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
 
             Assert.IsTrue(wasCalled);
         }
@@ -1023,7 +1023,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(5);
 
-            GameToken gameToken = _sut.Gameboard[5, 5].GameToken;
+            GameToken gameToken = _sut.Grid[5, 5].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1033,7 +1033,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(5);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1045,7 +1045,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
 
-            GameToken gameToken = _sut.Gameboard[5, 4].GameToken;
+            GameToken gameToken = _sut.Grid[5, 4].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1056,7 +1056,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1069,7 +1069,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
 
-            GameToken gameToken = _sut.Gameboard[5, 3].GameToken;
+            GameToken gameToken = _sut.Grid[5, 3].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1081,7 +1081,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1095,7 +1095,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
 
-            GameToken gameToken = _sut.Gameboard[5, 2].GameToken;
+            GameToken gameToken = _sut.Grid[5, 2].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1108,7 +1108,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1123,7 +1123,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
 
-            GameToken gameToken = _sut.Gameboard[5, 1].GameToken;
+            GameToken gameToken = _sut.Grid[5, 1].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1137,7 +1137,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1153,7 +1153,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
 
-            GameToken gameToken = _sut.Gameboard[5, 0].GameToken;
+            GameToken gameToken = _sut.Grid[5, 0].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1169,7 +1169,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
 
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1183,7 +1183,7 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(5);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
 
             Assert.IsTrue(wasCalled);
         }
@@ -1219,7 +1219,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(6);
 
-            GameToken gameToken = _sut.Gameboard[6, 5].GameToken;
+            GameToken gameToken = _sut.Grid[6, 5].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1229,7 +1229,7 @@ namespace C4.UnitTests.Logic
         {
             _sut.TakeMove(6);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1241,7 +1241,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-            GameToken gameToken = _sut.Gameboard[6, 4].GameToken;
+            GameToken gameToken = _sut.Grid[6, 4].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1252,7 +1252,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1265,7 +1265,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-            GameToken gameToken = _sut.Gameboard[6, 3].GameToken;
+            GameToken gameToken = _sut.Grid[6, 3].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1277,7 +1277,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1291,7 +1291,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-            GameToken gameToken = _sut.Gameboard[6, 2].GameToken;
+            GameToken gameToken = _sut.Grid[6, 2].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1304,7 +1304,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1319,7 +1319,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-            GameToken gameToken = _sut.Gameboard[6, 1].GameToken;
+            GameToken gameToken = _sut.Grid[6, 1].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1333,7 +1333,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1349,7 +1349,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-            GameToken gameToken = _sut.Gameboard[6, 0].GameToken;
+            GameToken gameToken = _sut.Grid[6, 0].GameToken;
 
             Assert.AreEqual(GameToken.Red, gameToken);
         }
@@ -1365,7 +1365,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
 
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
@@ -1379,7 +1379,7 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(6);
 
-            var grid = _sut.Gameboard;
+            var grid = _sut.Grid;
 
             Assert.IsTrue(wasCalled);
         }
@@ -1389,23 +1389,22 @@ namespace C4.UnitTests.Logic
         [Test]
         public void TakeMove_FireAGridFullEventWhenTheGameboardIsFull()
         {
-            var oneAwayFromFullGrid = Mother.GetGridOneTokenOffBeingFull();
-            var game = Game.GetGameInstance(new GridGenerator<Tile>());
+            var oneAwayFromFullGrid = Mother.GetGridOneTokenOffBeingFull(7, 6);
             bool wasCalled = false;
-            game.GridFull += (o, e) => wasCalled = true;
-            game.Gameboard = oneAwayFromFullGrid;
-            game.TakeMove(5);
+            _sut.GridFull += (o, e) => wasCalled = true;
+            _sut.Grid = oneAwayFromFullGrid;
+            
+            _sut.TakeMove(6);
+           
             Assert.IsTrue(wasCalled);
         }
-
-
 
         [TearDown]
         public void TearDown()
         {
             _sut = null;
             //singleton so always reset instance to null before each test
-            Game.GameInstance = null;
+            GameBoard.GameBoardInstance = null;
         }
     }
 }

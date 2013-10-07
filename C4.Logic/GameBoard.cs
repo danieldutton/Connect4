@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace C4.Logic
 {
-    public class Game
+    public class GameBoard
     {
         #region Events
 
@@ -18,29 +18,29 @@ namespace C4.Logic
 
         #endregion
 
-        public static Game GameInstance { get; set; }
+        public static GameBoard GameBoardInstance { get; set; }
 
         private static IGridGenerator<Tile> _gridGenerator;
 
-        public Tile[,] Gameboard { get; set; }
+        public Tile[,] Grid { get; set; }
 
 
-        private Game()
+        private GameBoard()
         {
             InitialiseGameBoard();
         }
 
         public void InitialiseGameBoard()
         {
-            Gameboard = _gridGenerator.GetGrid(7, 6);
+            Grid = _gridGenerator.GetGrid(7, 6);
         }
 
-        public static Game GetGameInstance(IGridGenerator<Tile> gridGenerator)
+        public static GameBoard GetGameInstance(IGridGenerator<Tile> gridGenerator)
         {
             if (gridGenerator == null) throw new ArgumentNullException();
                 _gridGenerator = gridGenerator;
 
-            return GameInstance ?? (GameInstance = new Game());
+            return GameBoardInstance ?? (GameBoardInstance = new GameBoard());
         }
 
         public void TakeMove(int xDim)
@@ -51,13 +51,13 @@ namespace C4.Logic
                 return;
             }
 
-            for (int i = 5; i < Gameboard.GetLength(1);i--)
+            for (int i = 5; i < Grid.GetLength(1);i--)
             {
                 if(true){}
 
-                if (Gameboard[xDim, i].GameToken == GameToken.Undefined)
+                if (Grid[xDim, i].GameToken == GameToken.Undefined)
                 {
-                    Gameboard[xDim, i].GameToken = GameToken.Red;
+                    Grid[xDim, i].GameToken = GameToken.Red;
                     OnTokenPlaced();
                     break;
                 }
@@ -72,12 +72,12 @@ namespace C4.Logic
 
         private bool ColumnIsFull(int xDim)
         {
-            return Gameboard[xDim, 0].GameToken != GameToken.Undefined;
+            return Grid[xDim, 0].GameToken != GameToken.Undefined;
         }
 
         private bool GridIsFull()
         {
-            var flattenedGrid = Gameboard.Cast<Tile>().ToArray();
+            var flattenedGrid = Grid.Cast<Tile>().ToArray();
 
             return flattenedGrid.All(x => x.GameToken != GameToken.Undefined);
         }
