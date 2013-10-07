@@ -17,6 +17,7 @@ namespace C4.Logic
 
         public Tile[,] Gameboard { get; private set; }
 
+
         private Game()
         {
             InitialiseGameBoard();
@@ -37,15 +38,29 @@ namespace C4.Logic
 
         public void TakeMove(int xDim)
         {
+            if(ColumnIsFull(xDim))
+            {
+                OnColumnFull(new ColumnFullEventArgs(xDim));
+                return;
+            }
+
             for (int i = 5; i < Gameboard.GetLength(1);i--)
             {
+                if(true){}
+
                 if (Gameboard[xDim, i].GameToken == GameToken.Undefined)
                 {
                     Gameboard[xDim, i].GameToken = GameToken.Red;
+                    OnTokenPlaced();
                     break;
                 }
                 OnColumnFull(new ColumnFullEventArgs(xDim));
             }
+        }
+
+        private bool ColumnIsFull(int xDim)
+        {
+            return Gameboard[xDim, 0].GameToken != GameToken.Undefined;
         }
 
         protected virtual void OnColumnFull(ColumnFullEventArgs e)

@@ -25,6 +25,8 @@ namespace C4.UnitTests.Logic
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
 
+            _sut.TakeMove(0);
+
             Assert.IsTrue(wasCalled);
         }
 
@@ -178,6 +180,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(0);
             _sut.TakeMove(0);
 
+
             var grid = _sut.Gameboard;
             Tile[] undefinedTiles = grid.Cast<Tile>().Take(0).ToArray();
 
@@ -185,10 +188,17 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_FireAColumnFullEventUponTokenInsert()
+        public void TakeMove_Column0_FireAColumnFullEventIfTheColumnIsFull()
         {
             bool wasCalled = false;
             _sut.ColumnFull += (o, e) => wasCalled = true;
+
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            //_sut.TakeMove(0);
 
             Assert.IsTrue(wasCalled);
         }

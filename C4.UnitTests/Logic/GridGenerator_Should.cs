@@ -40,7 +40,7 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void GetGrid_GenerateAGridWithATotalOf42Indexes()
+        public void GetGrid_GenerateAGridWithATotalOfFortyTwoIndexes()
         {
             const int expected = 42;
             int actual = _sut.GetGrid(XDimensionLength, YDimensionLength).Length;
