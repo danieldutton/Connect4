@@ -14,8 +14,7 @@ namespace C4.UnitTests.Logic
         public void Init()
         {
             _sut = Game.GetGameInstance(new GridGenerator<Tile>());
-        }
-        
+        }        
 
         #region Column 0
         
@@ -31,7 +30,7 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column0_FailsToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column0_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -227,7 +226,7 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column1_FailsToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column1_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -253,7 +252,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(5).Take(5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -276,7 +275,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -301,7 +300,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(3).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -328,7 +327,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(2).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -357,7 +356,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(1);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -389,7 +388,7 @@ namespace C4.UnitTests.Logic
 
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(6).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -423,7 +422,7 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column2_FailsToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column2_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -449,7 +448,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(5).Take(5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -472,7 +471,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -497,7 +496,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(3).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -524,7 +523,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(2).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -553,7 +552,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -584,7 +583,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(2);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(12).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -618,7 +617,7 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column3_FailsToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column3_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -644,7 +643,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(5).Take(5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -667,7 +666,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -692,7 +691,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(3).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -719,7 +718,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(2).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -748,7 +747,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(3);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -780,7 +779,7 @@ namespace C4.UnitTests.Logic
 
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(18).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -814,7 +813,7 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column4_FailsToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column4_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -840,7 +839,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(5).Take(5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -863,7 +862,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -888,7 +887,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(3).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -915,7 +914,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(2).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -944,7 +943,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -975,7 +974,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(4);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(24).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1009,7 +1008,7 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column5_FailsToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column5_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -1035,7 +1034,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(5).Take(5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1058,7 +1057,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1083,7 +1082,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(3).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1110,7 +1109,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(2).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1139,7 +1138,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1171,7 +1170,7 @@ namespace C4.UnitTests.Logic
 
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(30).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1205,7 +1204,7 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column6_FailsToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column6_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -1231,7 +1230,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(5).Take(5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1254,7 +1253,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1279,7 +1278,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(3).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1306,7 +1305,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(2).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1335,7 +1334,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1367,7 +1366,7 @@ namespace C4.UnitTests.Logic
 
 
             var grid = _sut.Gameboard;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Take(0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1386,6 +1385,20 @@ namespace C4.UnitTests.Logic
         }
 
         #endregion
+
+        [Test]
+        public void TakeMove_FireAGridFullEventWhenTheGameboardIsFull()
+        {
+            var oneAwayFromFullGrid = Mother.GetGridOneTokenOffBeingFull();
+            var game = Game.GetGameInstance(new GridGenerator<Tile>());
+            bool wasCalled = false;
+            game.GridFull += (o, e) => wasCalled = true;
+            game.Gameboard = oneAwayFromFullGrid;
+            game.TakeMove(5);
+            Assert.IsTrue(wasCalled);
+        }
+
+
 
         [TearDown]
         public void TearDown()

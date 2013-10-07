@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Logic\Game_Should.cs" />
     <Compile Include="Logic\GridGenerator_Should.cs" />
+    <Compile Include="Mother.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,20 +2,27 @@
 using C4.Logic.Interfaces;
 using C4.Model;
 using System;
+using System.Linq;
 
 namespace C4.Logic
 {
     public class Game
     {
+        #region Events
+
+        public event EventHandler<EventArgs> GridFull;
+       
         public event EventHandler<ColumnFullEventArgs> ColumnFull;
 
         public event EventHandler<EventArgs> GameTokenPlaced;
+
+        #endregion
 
         public static Game GameInstance { get; set; }
 
         private static IGridGenerator<Tile> _gridGenerator;
 
-        public Tile[,] Gameboard { get; private set; }
+        public Tile[,] Gameboard { get; set; }
 
 
         private Game()
@@ -56,12 +63,26 @@ namespace C4.Logic
                 }
                 OnColumnFull(new ColumnFullEventArgs(xDim));
             }
+
+            if (GridIsFull())
+            {
+                OnGridFull();
+            }
         }
 
         private bool ColumnIsFull(int xDim)
         {
             return Gameboard[xDim, 0].GameToken != GameToken.Undefined;
         }
+
+        private bool GridIsFull()
+        {
+            var flattenedGrid = Gameboard.Cast<Tile>().ToArray();
+
+            return flattenedGrid.All(x => x.GameToken != GameToken.Undefined);
+        }
+
+        #region Event Invocators
 
         protected virtual void OnColumnFull(ColumnFullEventArgs e)
         {
@@ -74,5 +95,13 @@ namespace C4.Logic
             EventHandler<EventArgs> handler = GameTokenPlaced;
             if (handler != null) handler(this, EventArgs.Empty);
         }
+
+        protected virtual void OnGridFull()
+        {
+            EventHandler<EventArgs> handler = GridFull;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        #endregion
     }
 }

@@ -10,6 +10,5 @@
 
         public bool IsTurn { get; set; }
 
-        public void MakeAMove() { }
     }
 }
