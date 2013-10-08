@@ -2,7 +2,7 @@
 
 namespace C4.Logic.EventArg
 {
-    public class TokenEventArg : EventArgs
+    public class TokenPlacedEventArgs : EventArgs
     {
     }
 }

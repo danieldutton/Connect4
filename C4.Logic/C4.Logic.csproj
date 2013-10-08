@@ -41,11 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventArg\ColumnFullEventArgs.cs" />
-    <Compile Include="EventArg\TokenEventArg.cs" />
+    <Compile Include="EventArg\TokenPlacedEventArgs.cs" />
+    <Compile Include="EventArg\WinnerDetailsEventArgs.cs" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="GridGenerator.cs" />
     <Compile Include="Interfaces\IGridGenerator.cs" />
+    <Compile Include="Interfaces\IReferee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Referee.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\C4.Model\C4.Model.csproj">

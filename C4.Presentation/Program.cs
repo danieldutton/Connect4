@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using C4.Logic;
+using C4.Model;
 
 namespace C4.Presentation
 {
@@ -16,7 +15,11 @@ namespace C4.Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            var gridGenerator = new GridGenerator<Tile>();
+
+
+            Application.Run(new Form1(gridGenerator));
         }
     }
 }
