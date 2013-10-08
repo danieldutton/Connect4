@@ -48,5 +48,22 @@ namespace C4.Presentation
         {
             GameBoard.TakeMove(0);
         }
+
+        private void OnMouseDown(object sender, MouseEventArgs e)
+        {
+            DoDragDrop(sender, DragDropEffects.Move);
+        }
+
+        private void panelDrop0_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof (Label)))
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
     }
 }
