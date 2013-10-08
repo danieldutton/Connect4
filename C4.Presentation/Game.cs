@@ -56,7 +56,7 @@ namespace C4.Presentation
 
         private void panelDrop0_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof (Label)))
+            if (e.Data.GetDataPresent(typeof(Label)))
             {
                 e.Effect = DragDropEffects.Move;
             }
@@ -64,6 +64,19 @@ namespace C4.Presentation
             {
                 e.Effect = DragDropEffects.None;
             }
+
+            var panel = sender as Panel;
+
+            int column;
+            
+            int.TryParse(panel.Tag.ToString(), out column);
+
+            GameBoard.TakeMove(column);
+
+            int i = 10;
+            //get the tag to determine colum index.  then take the move
+
+
         }
     }
 }

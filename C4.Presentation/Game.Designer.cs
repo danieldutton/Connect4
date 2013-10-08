@@ -40,11 +40,12 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.panelDropPanels = new System.Windows.Forms.Panel();
             this.panelDrop0 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panelDrop1 = new System.Windows.Forms.Panel();
+            this.panelDrop2 = new System.Windows.Forms.Panel();
+            this.panelDrop3 = new System.Windows.Forms.Panel();
+            this.panelDrop4 = new System.Windows.Forms.Panel();
+            this.panelDrop5 = new System.Windows.Forms.Panel();
+            this.panelDrop6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panelYellow.SuspendLayout();
             this.panelRed.SuspendLayout();
@@ -67,7 +68,7 @@
             // 
             // panelGrid
             // 
-            this.panelGrid.Location = new System.Drawing.Point(10, 35);
+            this.panelGrid.Location = new System.Drawing.Point(10, 33);
             this.panelGrid.Name = "panelGrid";
             this.panelGrid.Size = new System.Drawing.Size(244, 220);
             this.panelGrid.TabIndex = 2;
@@ -136,76 +137,94 @@
             // 
             // panelDropPanels
             // 
-            this.panelDropPanels.Controls.Add(this.panel6);
-            this.panelDropPanels.Controls.Add(this.panel5);
-            this.panelDropPanels.Controls.Add(this.panel4);
-            this.panelDropPanels.Controls.Add(this.panel3);
-            this.panelDropPanels.Controls.Add(this.panel2);
+            this.panelDropPanels.Controls.Add(this.panelDrop6);
+            this.panelDropPanels.Controls.Add(this.panelDrop5);
+            this.panelDropPanels.Controls.Add(this.panelDrop4);
+            this.panelDropPanels.Controls.Add(this.panelDrop3);
+            this.panelDropPanels.Controls.Add(this.panelDrop2);
+            this.panelDropPanels.Controls.Add(this.panelDrop1);
             this.panelDropPanels.Controls.Add(this.panelDrop0);
-            this.panelDropPanels.Location = new System.Drawing.Point(10, 4);
+            this.panelDropPanels.Location = new System.Drawing.Point(11, 15);
             this.panelDropPanels.Name = "panelDropPanels";
-            this.panelDropPanels.Size = new System.Drawing.Size(244, 25);
+            this.panelDropPanels.Size = new System.Drawing.Size(244, 14);
             this.panelDropPanels.TabIndex = 3;
             // 
             // panelDrop0
             // 
             this.panelDrop0.AllowDrop = true;
             this.panelDrop0.BackColor = System.Drawing.Color.Brown;
-            this.panelDrop0.Location = new System.Drawing.Point(4, 3);
+            this.panelDrop0.Location = new System.Drawing.Point(1, 3);
             this.panelDrop0.Name = "panelDrop0";
-            this.panelDrop0.Size = new System.Drawing.Size(27, 10);
+            this.panelDrop0.Size = new System.Drawing.Size(30, 10);
             this.panelDrop0.TabIndex = 0;
+            this.panelDrop0.Tag = "0";
             this.panelDrop0.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
             // 
-            // panel2
+            // panelDrop1
             // 
-            this.panel2.AllowDrop = true;
-            this.panel2.BackColor = System.Drawing.Color.Brown;
-            this.panel2.Location = new System.Drawing.Point(37, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(27, 10);
-            this.panel2.TabIndex = 0;
-            this.panel2.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop1.AllowDrop = true;
+            this.panelDrop1.BackColor = System.Drawing.Color.Brown;
+            this.panelDrop1.Location = new System.Drawing.Point(35, 3);
+            this.panelDrop1.Name = "panelDrop1";
+            this.panelDrop1.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop1.TabIndex = 1;
+            this.panelDrop1.Tag = "1";
+            this.panelDrop1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
             // 
-            // panel3
+            // panelDrop2
             // 
-            this.panel3.AllowDrop = true;
-            this.panel3.BackColor = System.Drawing.Color.Brown;
-            this.panel3.Location = new System.Drawing.Point(70, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(27, 10);
-            this.panel3.TabIndex = 0;
-            this.panel3.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop2.AllowDrop = true;
+            this.panelDrop2.BackColor = System.Drawing.Color.Brown;
+            this.panelDrop2.Location = new System.Drawing.Point(70, 3);
+            this.panelDrop2.Name = "panelDrop2";
+            this.panelDrop2.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop2.TabIndex = 2;
+            this.panelDrop2.Tag = "2";
+            this.panelDrop2.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
             // 
-            // panel4
+            // panelDrop3
             // 
-            this.panel4.AllowDrop = true;
-            this.panel4.BackColor = System.Drawing.Color.Brown;
-            this.panel4.Location = new System.Drawing.Point(103, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(27, 10);
-            this.panel4.TabIndex = 0;
-            this.panel4.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop3.AllowDrop = true;
+            this.panelDrop3.BackColor = System.Drawing.Color.Brown;
+            this.panelDrop3.Location = new System.Drawing.Point(105, 3);
+            this.panelDrop3.Name = "panelDrop3";
+            this.panelDrop3.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop3.TabIndex = 0;
+            this.panelDrop3.Tag = "3";
+            this.panelDrop3.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
             // 
-            // panel5
+            // panelDrop4
             // 
-            this.panel5.AllowDrop = true;
-            this.panel5.BackColor = System.Drawing.Color.Brown;
-            this.panel5.Location = new System.Drawing.Point(136, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(27, 10);
-            this.panel5.TabIndex = 0;
-            this.panel5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop4.AllowDrop = true;
+            this.panelDrop4.BackColor = System.Drawing.Color.Brown;
+            this.panelDrop4.Location = new System.Drawing.Point(140, 3);
+            this.panelDrop4.Name = "panelDrop4";
+            this.panelDrop4.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop4.TabIndex = 4;
+            this.panelDrop4.Tag = "4";
+            this.panelDrop4.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
             // 
-            // panel6
+            // panelDrop5
             // 
-            this.panel6.AllowDrop = true;
-            this.panel6.BackColor = System.Drawing.Color.Brown;
-            this.panel6.Location = new System.Drawing.Point(169, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(27, 10);
-            this.panel6.TabIndex = 0;
-            this.panel6.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop5.AllowDrop = true;
+            this.panelDrop5.BackColor = System.Drawing.Color.Brown;
+            this.panelDrop5.Location = new System.Drawing.Point(175, 3);
+            this.panelDrop5.Name = "panelDrop5";
+            this.panelDrop5.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop5.TabIndex = 5;
+            this.panelDrop5.Tag = "5";
+            this.panelDrop5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            // 
+            // panelDrop6
+            // 
+            this.panelDrop6.AllowDrop = true;
+            this.panelDrop6.BackColor = System.Drawing.Color.Brown;
+            this.panelDrop6.Location = new System.Drawing.Point(210, 3);
+            this.panelDrop6.Name = "panelDrop6";
+            this.panelDrop6.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop6.TabIndex = 6;
+            this.panelDrop6.Tag = "6";
+            this.panelDrop6.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
             // 
             // Game
             // 
@@ -242,11 +261,12 @@
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Panel panelDropPanels;
         private System.Windows.Forms.Panel panelDrop0;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelDrop6;
+        private System.Windows.Forms.Panel panelDrop5;
+        private System.Windows.Forms.Panel panelDrop4;
+        private System.Windows.Forms.Panel panelDrop3;
+        private System.Windows.Forms.Panel panelDrop2;
+        private System.Windows.Forms.Panel panelDrop1;
     }
 }
 
