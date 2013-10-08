@@ -2,57 +2,33 @@
 using C4.Logic.Interfaces;
 using C4.Model;
 using System;
-using System.Linq;
 
 namespace C4.Logic
 {
     public class GameBoard
     {
-        #region Events
-
-        public event EventHandler<EventArgs> GridFull;
+        public event EventHandler<EventArgs> GridFull;  //declare game to be a draw
        
         public event EventHandler<ColumnFullEventArgs> ColumnFull;
 
-        public event EventHandler<EventArgs> GameTokenPlaced;
-
-        #endregion
-
-        #region Properties
+        public event EventHandler<EventArgs> GameTokenPlaced;   //check with refereee for winner
 
         public static GameBoard GameBoardInstance { get; set; }
 
-        private static IGridGenerator<Tile> _gridGenerator;
+        public IReferee _referee;
 
         public Tile[,] Grid { get; set; }
 
-        private IReferee _referee;
 
-        #endregion
-
-        #region Constructor(s)
-
-        private GameBoard()
+        private GameBoard(IReferee gameReferee, Tile[,] grid)
         {
-            InitialiseGameBoard();
+            _referee = gameReferee;
+            Grid = grid;
         }
 
-        #endregion
-
-        #region Method(s)
-
-        public void InitialiseGameBoard()
+        public static GameBoard GetGameInstance(IReferee gameReferee, Tile[,] grid)
         {
-            Grid = _gridGenerator.GetGrid(7, 6);
-        }
-
-        public static GameBoard GetGameInstance(IGridGenerator<Tile> gridGenerator, IReferee gameReferee)
-        {
-            if (gridGenerator == null) throw new ArgumentNullException();
-                _gridGenerator = gridGenerator;
-            if (gameReferee == null) throw new ArgumentNullException();
-
-            return GameBoardInstance ?? (GameBoardInstance = new GameBoard());
+            return GameBoardInstance ?? (GameBoardInstance = new GameBoard(gameReferee, grid));
         }
 
         public void TakeMove(int xDim)
@@ -75,26 +51,12 @@ namespace C4.Logic
                 }
                 OnColumnFull(new ColumnFullEventArgs(xDim));
             }
-
-            if (GridIsFull())
-            {
-                OnGridFull();
-            }
         }
 
         private bool ColumnIsFull(int xDim)
         {
             return Grid[xDim, 0].GameToken != GameToken.Undefined;
         }
-
-        private bool GridIsFull()
-        {
-            var flattenedGrid = Grid.Cast<Tile>().ToArray();
-
-            return flattenedGrid.All(x => x.GameToken != GameToken.Undefined);
-        }
-
-        #endregion
 
         #region Event Invocators
 

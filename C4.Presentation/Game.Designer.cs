@@ -1,6 +1,6 @@
 ﻿namespace C4.Presentation
 {
-    partial class Form1
+    partial class Game
     {
         /// <summary>
         /// Required designer variable.

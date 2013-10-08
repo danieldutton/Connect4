@@ -1,17 +1,14 @@
 ﻿using C4.Logic;
 using C4.Logic.Interfaces;
-using C4.Model;
 using System.Windows.Forms;
 
 namespace C4.Presentation
 {
-    public partial class Form1 : Form
+    public partial class Game : Form
     {
-        private GameBoard GameBoard { get; set; }
+        public GameBoard GameBoard { get; private set; }
 
-        private readonly IReferee _referee;
-
-        public Form1(GameBoard gameBoard)
+        public Game(GameBoard gameBoard)
         {
             InitializeComponent();
             DrawGrid();
@@ -33,8 +30,8 @@ namespace C4.Presentation
 
         private void _btnStartGame_Click(object sender, System.EventArgs e)
         {
-            var game = GameBoard.GetGameInstance(new GridGenerator<Tile>(), _referee);
-            game.TakeMove(3);
+            //var game = GameBoard.GetGameInstance(new GridGenerator<Tile>(), _referee);
+            //game.TakeMove(3);
         }
     }
 }

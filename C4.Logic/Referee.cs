@@ -2,26 +2,45 @@
 using C4.Logic.Interfaces;
 using C4.Model;
 using System;
+using System.Linq;
 
 namespace C4.Logic
 {
     public class Referee : IReferee
     {
-        public event EventHandler<WinnerDetailsEventArgs> DeclareWinner;
+        public event EventHandler<WinnerDetailsEventArgs> GameWon;
+
+        public event EventHandler<EventArgs> GameNotWon;
+
+        public event EventHandler<EventArgs> GameDrawn;
 
         public Tile[,] GameGrid { get; set; }
 
-        public Player PlayerRed { get; set; }
 
-        public Player PlayerYellow{ get;set; }
-
-
-        public void Foo(Tile[,] gameGrid)
+        public void CheckForWinner()
         {
-            GameGrid = gameGrid;
+            if (CheckForDraw()) { OnGameDrawn(); return; }
+
+            GameToken gameTokenRow = CheckRowsForWin();
+            if (gameTokenRow != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenRow)); return; }
+
+            GameToken gameTokenColumn = CheckColumnsForWin();
+            if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenColumn)); return; }
+
+            GameToken gameTokenDiagonal = CheckDiagonalRowsForWin();
+            if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenDiagonal)); return; }
+            
+            OnGameNotWon();
         }
 
-        public bool CheckRowsForWin()
+        public bool CheckForDraw()
+        {
+            Tile[] flattenedGrid = GameGrid.Cast<Tile>().ToArray();
+
+            return flattenedGrid.All(x => x.GameToken != GameToken.Undefined);
+        }
+
+        public GameToken CheckRowsForWin()
         {
             int counter = 0;
 
@@ -32,34 +51,50 @@ namespace C4.Logic
                     if (GameGrid[i, j].GameToken == GameToken.Red)
                     {
                         counter++;
-                        if (counter == 4) return true;
+                        if (counter == 4) return GameToken.Red;
                     } 
                     else if (GameGrid[i, j].GameToken == GameToken.Yellow && counter <= 0)
                     {
                         counter--;
-                        if (counter == -4) return true;
+                        if (counter == -4) return GameToken.Yellow;
                     }
                 }
                 //set winning player in here to property
             }
 
-            return true;
+            throw new NotImplementedException();
         }
 
-        public bool CheckColumnsForWin()
+        public GameToken CheckColumnsForWin()
         {
             throw new NotImplementedException();
         }
 
-        public bool CheckDiagonalRowsForWin()
+        public GameToken CheckDiagonalRowsForWin()
         {
             throw new NotImplementedException();
         }
 
-        protected virtual void OnDeclareWinner(WinnerDetailsEventArgs e)
+        #region Event Invocators
+
+        protected virtual void OnGameWon(WinnerDetailsEventArgs e)
         {
-            EventHandler<WinnerDetailsEventArgs> handler = DeclareWinner;
+            EventHandler<WinnerDetailsEventArgs> handler = GameWon;
             if (handler != null) handler(this, e);
         }
-  }
+
+        protected virtual void OnGameNotWon()
+        {
+            EventHandler<EventArgs> handler = GameNotWon;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnGameDrawn()
+        {
+            EventHandler<EventArgs> handler = GameDrawn;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        #endregion
+    }
 }

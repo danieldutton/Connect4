@@ -8,18 +8,21 @@ using System.Linq;
 namespace C4.UnitTests.Logic
 {
     [TestFixture]
-    public class Game_Should
+    public class GameBoard_Should
     {
         private Mock<IReferee> _fakeReferee;
 
-        private GameBoard _sut;
+        private IGridGenerator<Tile> _gridGenerator;
 
+        private GameBoard _sut;
 
         [SetUp]
         public void Init()
         {
+            _gridGenerator = new GridGenerator<Tile>();
+            var grid = _gridGenerator.GetGrid(7, 6);
             _fakeReferee = new Mock<IReferee>();
-            _sut = GameBoard.GetGameInstance(new GridGenerator<Tile>(), _fakeReferee.Object);
+            _sut = GameBoard.GetGameInstance(_fakeReferee.Object, grid);
         }        
 
         #region Column 0

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using C4.Logic;
+﻿using C4.Logic;
 using C4.Logic.Interfaces;
 using C4.Model;
+using System;
+using System.Windows.Forms;
 
 namespace C4.Presentation
 {
@@ -17,17 +17,12 @@ namespace C4.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var gridGenerator = new GridGenerator<Tile>();
-
+            IGridGenerator<Tile> gridGenerator = new GridGenerator<Tile>();
+            Tile[,] grid = gridGenerator.GetGrid(7, 6);
             IReferee referee = new Referee();
+            GameBoard gameBoard = GameBoard.GetGameInstance(referee, grid);
 
-            var playerRed = new Player();
-            var playerYellow = new Player();
-
-            referee.PlayerRed = playerRed;
-            referee.PlayerYellow = playerRed;
-
-            Application.Run(new Form1(gridGenerator));
+            Application.Run(new Game(gameBoard));
         }
     }
 }

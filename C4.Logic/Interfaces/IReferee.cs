@@ -1,21 +1,18 @@
 ﻿using C4.Logic.EventArg;
-using C4.Model;
 using System;
 
 namespace C4.Logic.Interfaces
 {
     public interface IReferee
     {
-        event EventHandler<WinnerDetailsEventArgs> DeclareWinner;
+        event EventHandler<WinnerDetailsEventArgs> GameWon;
 
-        Player PlayerRed{get; set;}
+        event EventHandler<EventArgs> GameNotWon;
 
-        Player PlayerYellow{get;set;}
+        event EventHandler<EventArgs> GameDrawn;
 
-        bool CheckRowsForWin();
+        void CheckForWinner();
 
-        bool CheckColumnsForWin();
-
-        bool CheckDiagonalRowsForWin();
+        bool CheckForDraw();
     }
 }

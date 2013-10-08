@@ -4,13 +4,13 @@ namespace C4.Logic.EventArg
 {
     public class WinnerDetailsEventArgs
     {
-        public Player WinningPlayer { get; private set; }
+        public GameToken WinningGameToken { get; private set; }
 
-        //winning plot
+        //ToDo add location of winning row to highlight on grid
 
-        public WinnerDetailsEventArgs(Player winningPlayer)
+        public WinnerDetailsEventArgs(GameToken winningGameToken)
         {
-            winningPlayer = winningPlayer;
+            WinningGameToken = winningGameToken;
         }
     }
 }
