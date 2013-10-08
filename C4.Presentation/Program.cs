@@ -19,8 +19,8 @@ namespace C4.Presentation
 
             IGridGenerator<Tile> gridGenerator = new GridGenerator<Tile>();
             Tile[,] grid = gridGenerator.GetGrid(7, 6);
-            IReferee referee = new Referee();
-            GameBoard gameBoard = GameBoard.GetGameInstance(referee, grid);
+            
+            GameBoard gameBoard = GameBoard.GetGameInstance(grid);
 
             Application.Run(new Game(gameBoard));
         }

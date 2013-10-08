@@ -1,5 +1,5 @@
 ﻿using C4.Logic;
-using C4.Logic.Interfaces;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace C4.Presentation
@@ -10,6 +10,7 @@ namespace C4.Presentation
 
         public Game(GameBoard gameBoard)
         {
+            GameBoard = gameBoard;
             InitializeComponent();
             DrawGrid();
         }
@@ -18,12 +19,27 @@ namespace C4.Presentation
         {
             var grid = GameBoard.Grid;
 
+            int x = 0, y = 0;
+            
             //now draw it
-            for (int i = 0; i < grid.Length; i++)
+            for (int i = 0; i < grid.GetLength(0); i++)
             {
-                for (int j = 0; j < grid.Length; i++)
+                for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                        
+                    GameBoard.Grid[i, j].BackColor = Color.Red;
+                    GameBoard.Grid[i, j].BorderStyle = BorderStyle.FixedSingle;
+                    GameBoard.Grid[i, j].Width = 5;
+                    GameBoard.Grid[i, j].Height = 5;
+                    GameBoard.Grid[i, j].Location = new Point(x, y);
+                    panelGrid.Controls.Add(GameBoard.Grid[i, j]);
+                    
+                    x += 16;
+                    
+                    if (x > panelGrid.Width)
+                    {
+                        y += 16;
+                        x = 0;
+                    }
                 }
             }
         }

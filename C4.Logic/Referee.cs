@@ -14,8 +14,25 @@ namespace C4.Logic
 
         public event EventHandler<EventArgs> GameDrawn;
 
-        public Tile[,] GameGrid { get; set; }
+        public GameBoard GameBoard { get; set; }
 
+
+        public Referee(GameBoard gameBoard)
+        {
+            GameBoard = gameBoard;
+            SubScribeToGameBoardEvents();
+        }
+
+        private void SubScribeToGameBoardEvents()
+        {
+            GameBoard.GameTokenPlaced +=GameBoard_GameTokenPlaced;
+        }
+
+        private void GameBoard_GameTokenPlaced(object sender, TokenPlacedEventArgs e)
+        {
+            GameBoard.Grid = e.CurrentGrid;
+            CheckForWinner();
+        }
 
         public void CheckForWinner()
         {
@@ -35,7 +52,7 @@ namespace C4.Logic
 
         public bool CheckForDraw()
         {
-            Tile[] flattenedGrid = GameGrid.Cast<Tile>().ToArray();
+            Tile[] flattenedGrid = GameBoard.Grid.Cast<Tile>().ToArray();
 
             return flattenedGrid.All(x => x.GameToken != GameToken.Undefined);
         }
@@ -44,16 +61,16 @@ namespace C4.Logic
         {
             int counter = 0;
 
-            for (int i = 0; i < GameGrid.GetLength(0); i++)
+            for (int i = 0; i < GameBoard.Grid.GetLength(0); i++)
             {
-                for (int j = 0; j < GameGrid.GetLength(1); j++)
+                for (int j = 0; j < GameBoard.Grid.GetLength(1); j++)
                 {
-                    if (GameGrid[i, j].GameToken == GameToken.Red)
+                    if (GameBoard.Grid[i, j].GameToken == GameToken.Red)
                     {
                         counter++;
                         if (counter == 4) return GameToken.Red;
-                    } 
-                    else if (GameGrid[i, j].GameToken == GameToken.Yellow && counter <= 0)
+                    }
+                    else if (GameBoard.Grid[i, j].GameToken == GameToken.Yellow && counter <= 0)
                     {
                         counter--;
                         if (counter == -4) return GameToken.Yellow;
@@ -75,8 +92,6 @@ namespace C4.Logic
             throw new NotImplementedException();
         }
 
-        #region Event Invocators
-
         protected virtual void OnGameWon(WinnerDetailsEventArgs e)
         {
             EventHandler<WinnerDetailsEventArgs> handler = GameWon;
@@ -95,6 +110,5 @@ namespace C4.Logic
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
-        #endregion
     }
 }

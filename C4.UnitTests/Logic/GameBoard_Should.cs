@@ -1,8 +1,8 @@
 ﻿using C4.Logic;
 using C4.Logic.Interfaces;
 using C4.Model;
-using Moq;
 using NUnit.Framework;
+using System;
 using System.Linq;
 
 namespace C4.UnitTests.Logic
@@ -10,8 +10,6 @@ namespace C4.UnitTests.Logic
     [TestFixture]
     public class GameBoard_Should
     {
-        private Mock<IReferee> _fakeReferee;
-
         private IGridGenerator<Tile> _gridGenerator;
 
         private GameBoard _sut;
@@ -21,12 +19,17 @@ namespace C4.UnitTests.Logic
         {
             _gridGenerator = new GridGenerator<Tile>();
             var grid = _gridGenerator.GetGrid(7, 6);
-            _fakeReferee = new Mock<IReferee>();
-            _sut = GameBoard.GetGameInstance(_fakeReferee.Object, grid);
-        }        
+            
+            _sut = GameBoard.GetGameInstance(grid);
+        }   
+     
+        [Test]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetGameInstance_ThrowAnArgumentNullExceptionIfGridParameterIsNull()
+        {
+            GameBoard.GetGameInstance(null);
+        }
 
-        #region Column 0
-        
         [Test]
         public void TakeMove_Column0_FireAGameTokenPlacedEventWhenATokenIsInserted()
         {
@@ -214,14 +217,8 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(0);
 
-            var grid = _sut.Grid;
-
             Assert.IsTrue(wasCalled);
         }
-
-        #endregion
-
-        #region Column 1
 
         [Test]
         public void TakeMove_Column1_FireAGameTokenPlacedEventWhenATokenIsInserted()
@@ -410,14 +407,8 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(1);
 
-            var grid = _sut.Grid;
-
             Assert.IsTrue(wasCalled);
         }
-
-        #endregion
-
-        #region Column 2
 
         [Test]
         public void TakeMove_Column2_FireAGameTokenPlacedEventWhenATokenIsInserted()
@@ -605,14 +596,8 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(2);
 
-            var grid = _sut.Grid;
-
             Assert.IsTrue(wasCalled);
         }
-
-        #endregion
-
-        #region Column 3
 
         [Test]
         public void TakeMove_Column3_FireAGameTokenPlacedEventWhenATokenIsInserted()
@@ -801,14 +786,8 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(3);
 
-            var grid = _sut.Grid;
-
             Assert.IsTrue(wasCalled);
         }
-
-        #endregion
-
-        #region Column 4
 
         [Test]
         public void TakeMove_Column4_FireAGameTokenPlacedEventWhenATokenIsInserted()
@@ -996,14 +975,8 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(4);
 
-            var grid = _sut.Grid;
-
             Assert.IsTrue(wasCalled);
         }
-
-        #endregion
-
-        #region Column 5
 
         [Test]
         public void TakeMove_Column5_FireAGameTokenPlacedEventWhenATokenIsInserted()
@@ -1192,14 +1165,8 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(5);
 
-            var grid = _sut.Grid;
-
             Assert.IsTrue(wasCalled);
         }
-
-        #endregion
-
-        #region Column 6
 
         [Test]
         public void TakeMove_Column6_FireAGameTokenPlacedEventWhenATokenIsInserted()
@@ -1373,7 +1340,6 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
             _sut.TakeMove(6);
 
-
             var grid = _sut.Grid;
             Tile[] undefinedTiles = grid.Cast<Tile>().Skip(36).Take(0).ToArray();
 
@@ -1388,30 +1354,15 @@ namespace C4.UnitTests.Logic
 
             _sut.TakeMove(6);
 
-            var grid = _sut.Grid;
-
-            Assert.IsTrue(wasCalled);
-        }
-
-        #endregion
-
-        [Test]
-        public void TakeMove_FireAGridFullEventWhenTheGameboardIsFull()
-        {
-            var oneAwayFromFullGrid = Mother.GetGridOneTokenOffBeingFull(7, 6);
-            bool wasCalled = false;
-            _sut.GridFull += (o, e) => wasCalled = true;
-            _sut.Grid = oneAwayFromFullGrid;
-            
-            _sut.TakeMove(6);
-           
             Assert.IsTrue(wasCalled);
         }
 
         [TearDown]
         public void TearDown()
         {
+            _gridGenerator = null;
             _sut = null;
+
             //singleton so always reset instance to null before each test
             GameBoard.GameBoardInstance = null;
         }

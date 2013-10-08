@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelGrid = new System.Windows.Forms.Panel();
             this.panelYellow = new System.Windows.Forms.Panel();
             this._lblYellowToken = new System.Windows.Forms.Label();
             this.panelRed = new System.Windows.Forms.Panel();
             this.lblRedToken = new System.Windows.Forms.Label();
             this._btnStartGame = new System.Windows.Forms.Button();
-            this.panelGrid = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panelYellow.SuspendLayout();
             this.panelRed.SuspendLayout();
@@ -48,8 +48,15 @@
             this.panel1.Controls.Add(this._btnStartGame);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(466, 317);
+            this.panel1.Size = new System.Drawing.Size(891, 317);
             this.panel1.TabIndex = 0;
+            // 
+            // panelGrid
+            // 
+            this.panelGrid.Location = new System.Drawing.Point(10, 24);
+            this.panelGrid.Name = "panelGrid";
+            this.panelGrid.Size = new System.Drawing.Size(481, 247);
+            this.panelGrid.TabIndex = 2;
             // 
             // panelYellow
             // 
@@ -95,20 +102,13 @@
             this._btnStartGame.UseVisualStyleBackColor = true;
             this._btnStartGame.Click += new System.EventHandler(this._btnStartGame_Click);
             // 
-            // panelGrid
-            // 
-            this.panelGrid.Location = new System.Drawing.Point(10, 24);
-            this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(444, 247);
-            this.panelGrid.TabIndex = 2;
-            // 
-            // Form1
+            // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 342);
+            this.ClientSize = new System.Drawing.Size(938, 342);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Name = "Game";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panelYellow.ResumeLayout(false);
