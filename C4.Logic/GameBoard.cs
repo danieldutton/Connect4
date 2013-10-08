@@ -10,12 +10,6 @@ namespace C4.Logic
 
         public event EventHandler<TokenPlacedEventArgs> GameTokenPlaced;   //referee subscribe to - to check the winner
 
-        protected virtual void OnGameTokenPlaced(TokenPlacedEventArgs e)
-        {
-            EventHandler<TokenPlacedEventArgs> handler = GameTokenPlaced;
-            if (handler != null) handler(this, e);
-        }
-
         public static GameBoard GameBoardInstance { get; set; }
 
         public Tile[,] Grid { get; set; }
@@ -66,6 +60,10 @@ namespace C4.Logic
             if (handler != null) handler(this, e);
         }
 
-        
+        protected virtual void OnGameTokenPlaced(TokenPlacedEventArgs e)
+        {
+            EventHandler<TokenPlacedEventArgs> handler = GameTokenPlaced;
+            if (handler != null) handler(this, e);
+        }
     }
 }

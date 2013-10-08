@@ -26,18 +26,18 @@ namespace C4.Presentation
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    GameBoard.Grid[i, j].BackColor = Color.Red;
+                    GameBoard.Grid[i, j].BackColor = Color.Gray;
                     GameBoard.Grid[i, j].BorderStyle = BorderStyle.FixedSingle;
                     GameBoard.Grid[i, j].Width = 32;
                     GameBoard.Grid[i, j].Height = 32;
                     GameBoard.Grid[i, j].Location = new Point(x, y);
                     panelGrid.Controls.Add(GameBoard.Grid[i, j]);
                     
-                    x += 60;
+                    x += 35;
                     
                     if (x > panelGrid.Width)
                     {
-                        y += 45;
+                        y += 35;
                         x = 0;
                     }
                 }
@@ -46,8 +46,7 @@ namespace C4.Presentation
 
         private void _btnStartGame_Click(object sender, System.EventArgs e)
         {
-            //var game = GameBoard.GetGameInstance(new GridGenerator<Tile>(), _referee);
-            //game.TakeMove(3);
+            GameBoard.TakeMove(0);
         }
     }
 }

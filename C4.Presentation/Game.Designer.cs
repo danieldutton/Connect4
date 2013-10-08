@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
             this.panelYellow = new System.Windows.Forms.Panel();
@@ -35,36 +36,39 @@
             this.panelRed = new System.Windows.Forms.Panel();
             this.lblRedToken = new System.Windows.Forms.Label();
             this._btnStartGame = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelHeader = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panelGrid.SuspendLayout();
             this.panelYellow.SuspendLayout();
             this.panelRed.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this._btnStartGame);
             this.panel1.Controls.Add(this.panelGrid);
             this.panel1.Controls.Add(this.panelYellow);
             this.panel1.Controls.Add(this.panelRed);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Location = new System.Drawing.Point(12, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(424, 373);
+            this.panel1.Size = new System.Drawing.Size(263, 272);
             this.panel1.TabIndex = 0;
             // 
             // panelGrid
             // 
-            this.panelGrid.Controls.Add(this._btnStartGame);
-            this.panelGrid.Location = new System.Drawing.Point(10, 24);
+            this.panelGrid.Location = new System.Drawing.Point(10, 14);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(405, 303);
+            this.panelGrid.Size = new System.Drawing.Size(244, 207);
             this.panelGrid.TabIndex = 2;
             // 
             // panelYellow
             // 
             this.panelYellow.Controls.Add(this._lblYellowToken);
-            this.panelYellow.Location = new System.Drawing.Point(215, 333);
+            this.panelYellow.Location = new System.Drawing.Point(160, 227);
             this.panelYellow.Name = "panelYellow";
-            this.panelYellow.Size = new System.Drawing.Size(200, 37);
+            this.panelYellow.Size = new System.Drawing.Size(94, 37);
             this.panelYellow.TabIndex = 1;
             // 
             // _lblYellowToken
@@ -79,9 +83,9 @@
             // panelRed
             // 
             this.panelRed.Controls.Add(this.lblRedToken);
-            this.panelRed.Location = new System.Drawing.Point(10, 333);
+            this.panelRed.Location = new System.Drawing.Point(10, 227);
             this.panelRed.Name = "panelRed";
-            this.panelRed.Size = new System.Drawing.Size(200, 37);
+            this.panelRed.Size = new System.Drawing.Size(97, 37);
             this.panelRed.TabIndex = 1;
             // 
             // lblRedToken
@@ -95,28 +99,48 @@
             // 
             // _btnStartGame
             // 
-            this._btnStartGame.Location = new System.Drawing.Point(160, 277);
+            this._btnStartGame.Location = new System.Drawing.Point(113, 242);
             this._btnStartGame.Name = "_btnStartGame";
-            this._btnStartGame.Size = new System.Drawing.Size(75, 23);
+            this._btnStartGame.Size = new System.Drawing.Size(40, 23);
             this._btnStartGame.TabIndex = 0;
             this._btnStartGame.Text = "Start";
             this._btnStartGame.UseVisualStyleBackColor = true;
             this._btnStartGame.Click += new System.EventHandler(this._btnStartGame_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(262, 40);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panelHeader
+            // 
+            this.panelHeader.Controls.Add(this.pictureBox1);
+            this.panelHeader.Location = new System.Drawing.Point(13, 13);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(262, 43);
+            this.panelHeader.TabIndex = 1;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 398);
+            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.ClientSize = new System.Drawing.Size(280, 340);
+            this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
             this.Name = "Game";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
-            this.panelGrid.ResumeLayout(false);
             this.panelYellow.ResumeLayout(false);
             this.panelYellow.PerformLayout();
             this.panelRed.ResumeLayout(false);
             this.panelRed.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelHeader.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -130,6 +154,8 @@
         private System.Windows.Forms.Label _lblYellowToken;
         private System.Windows.Forms.Label lblRedToken;
         private System.Windows.Forms.Panel panelGrid;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelHeader;
     }
 }
 
