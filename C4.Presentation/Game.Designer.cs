@@ -36,6 +36,7 @@
             this.lblRedToken = new System.Windows.Forms.Label();
             this._btnStartGame = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panelGrid.SuspendLayout();
             this.panelYellow.SuspendLayout();
             this.panelRed.SuspendLayout();
             this.SuspendLayout();
@@ -45,23 +46,23 @@
             this.panel1.Controls.Add(this.panelGrid);
             this.panel1.Controls.Add(this.panelYellow);
             this.panel1.Controls.Add(this.panelRed);
-            this.panel1.Controls.Add(this._btnStartGame);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(891, 317);
+            this.panel1.Size = new System.Drawing.Size(424, 373);
             this.panel1.TabIndex = 0;
             // 
             // panelGrid
             // 
+            this.panelGrid.Controls.Add(this._btnStartGame);
             this.panelGrid.Location = new System.Drawing.Point(10, 24);
             this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(481, 247);
+            this.panelGrid.Size = new System.Drawing.Size(405, 303);
             this.panelGrid.TabIndex = 2;
             // 
             // panelYellow
             // 
             this.panelYellow.Controls.Add(this._lblYellowToken);
-            this.panelYellow.Location = new System.Drawing.Point(263, 277);
+            this.panelYellow.Location = new System.Drawing.Point(215, 333);
             this.panelYellow.Name = "panelYellow";
             this.panelYellow.Size = new System.Drawing.Size(200, 37);
             this.panelYellow.TabIndex = 1;
@@ -78,7 +79,7 @@
             // panelRed
             // 
             this.panelRed.Controls.Add(this.lblRedToken);
-            this.panelRed.Location = new System.Drawing.Point(3, 277);
+            this.panelRed.Location = new System.Drawing.Point(10, 333);
             this.panelRed.Name = "panelRed";
             this.panelRed.Size = new System.Drawing.Size(200, 37);
             this.panelRed.TabIndex = 1;
@@ -94,7 +95,7 @@
             // 
             // _btnStartGame
             // 
-            this._btnStartGame.Location = new System.Drawing.Point(183, 3);
+            this._btnStartGame.Location = new System.Drawing.Point(160, 277);
             this._btnStartGame.Name = "_btnStartGame";
             this._btnStartGame.Size = new System.Drawing.Size(75, 23);
             this._btnStartGame.TabIndex = 0;
@@ -106,11 +107,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 342);
+            this.ClientSize = new System.Drawing.Size(443, 398);
             this.Controls.Add(this.panel1);
             this.Name = "Game";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
+            this.panelGrid.ResumeLayout(false);
             this.panelYellow.ResumeLayout(false);
             this.panelYellow.PerformLayout();
             this.panelRed.ResumeLayout(false);

@@ -28,16 +28,16 @@ namespace C4.Presentation
                 {
                     GameBoard.Grid[i, j].BackColor = Color.Red;
                     GameBoard.Grid[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    GameBoard.Grid[i, j].Width = 5;
-                    GameBoard.Grid[i, j].Height = 5;
+                    GameBoard.Grid[i, j].Width = 32;
+                    GameBoard.Grid[i, j].Height = 32;
                     GameBoard.Grid[i, j].Location = new Point(x, y);
                     panelGrid.Controls.Add(GameBoard.Grid[i, j]);
                     
-                    x += 16;
+                    x += 60;
                     
                     if (x > panelGrid.Width)
                     {
-                        y += 16;
+                        y += 45;
                         x = 0;
                     }
                 }
