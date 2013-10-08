@@ -1,4 +1,5 @@
 ﻿using C4.Logic;
+using C4.Logic.Interfaces;
 using C4.Model;
 using System.Windows.Forms;
 
@@ -7,6 +8,8 @@ namespace C4.Presentation
     public partial class Form1 : Form
     {
         private GameBoard GameBoard { get; set; }
+
+        private readonly IReferee _referee;
 
         public Form1(GameBoard gameBoard)
         {
@@ -30,7 +33,7 @@ namespace C4.Presentation
 
         private void _btnStartGame_Click(object sender, System.EventArgs e)
         {
-            var game = GameBoard.GetGameInstance(new GridGenerator<Tile>());
+            var game = GameBoard.GetGameInstance(new GridGenerator<Tile>(), _referee);
             game.TakeMove(3);
         }
     }

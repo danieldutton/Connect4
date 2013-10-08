@@ -18,27 +18,39 @@ namespace C4.Logic
 
         #endregion
 
+        #region Properties
+
         public static GameBoard GameBoardInstance { get; set; }
 
         private static IGridGenerator<Tile> _gridGenerator;
 
         public Tile[,] Grid { get; set; }
 
+        private IReferee _referee;
+
+        #endregion
+
+        #region Constructor(s)
 
         private GameBoard()
         {
             InitialiseGameBoard();
         }
 
+        #endregion
+
+        #region Method(s)
+
         public void InitialiseGameBoard()
         {
             Grid = _gridGenerator.GetGrid(7, 6);
         }
 
-        public static GameBoard GetGameInstance(IGridGenerator<Tile> gridGenerator)
+        public static GameBoard GetGameInstance(IGridGenerator<Tile> gridGenerator, IReferee gameReferee)
         {
             if (gridGenerator == null) throw new ArgumentNullException();
                 _gridGenerator = gridGenerator;
+            if (gameReferee == null) throw new ArgumentNullException();
 
             return GameBoardInstance ?? (GameBoardInstance = new GameBoard());
         }
@@ -81,6 +93,8 @@ namespace C4.Logic
 
             return flattenedGrid.All(x => x.GameToken != GameToken.Undefined);
         }
+
+        #endregion
 
         #region Event Invocators
 

@@ -1,18 +1,19 @@
 ﻿using C4.Logic.EventArg;
+using C4.Logic.Interfaces;
 using C4.Model;
 using System;
 
 namespace C4.Logic
 {
-    public class Referee
+    public class Referee : IReferee
     {
         public event EventHandler<WinnerDetailsEventArgs> DeclareWinner;
 
         public Tile[,] GameGrid { get; set; }
 
-        public Player PlayerRed;
+        public Player PlayerRed { get; set; }
 
-        public Player PlayerYellow;
+        public Player PlayerYellow{ get;set; }
 
 
         public void Foo(Tile[,] gameGrid)
@@ -40,17 +41,19 @@ namespace C4.Logic
                     }
                 }
                 //set winning player in here to property
-            }    
+            }
+
+            return true;
         }
 
-        public void CheckColumnsForWin()
+        public bool CheckColumnsForWin()
         {
-            
+            throw new NotImplementedException();
         }
 
-        public void CheckDiagonalRowsForWin()
+        public bool CheckDiagonalRowsForWin()
         {
-            
+            throw new NotImplementedException();
         }
 
         protected virtual void OnDeclareWinner(WinnerDetailsEventArgs e)
@@ -58,6 +61,5 @@ namespace C4.Logic
             EventHandler<WinnerDetailsEventArgs> handler = DeclareWinner;
             if (handler != null) handler(this, e);
         }
-
-    }
+  }
 }

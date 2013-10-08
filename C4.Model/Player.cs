@@ -4,11 +4,6 @@
     {
         public string Name { get; set; }
 
-        public int TotalMoves { get; set; }
-
-        public int MovesLeft { get; set; }
-
-        public bool IsTurn { get; set; }
-
+        public bool IsCurrentTurn { get; set; }
     }
 }

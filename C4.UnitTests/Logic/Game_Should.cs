@@ -1,5 +1,7 @@
 ﻿using C4.Logic;
+using C4.Logic.Interfaces;
 using C4.Model;
+using Moq;
 using NUnit.Framework;
 using System.Linq;
 
@@ -8,12 +10,16 @@ namespace C4.UnitTests.Logic
     [TestFixture]
     public class Game_Should
     {
+        private Mock<IReferee> _fakeReferee;
+
         private GameBoard _sut;
+
 
         [SetUp]
         public void Init()
         {
-            _sut = GameBoard.GetGameInstance(new GridGenerator<Tile>());
+            _fakeReferee = new Mock<IReferee>();
+            _sut = GameBoard.GetGameInstance(new GridGenerator<Tile>(), _fakeReferee.Object);
         }        
 
         #region Column 0

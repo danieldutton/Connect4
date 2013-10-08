@@ -11,9 +11,5 @@ namespace C4.Model
         
         public GameToken GameToken { get; set; }
 
-        public Tile()
-        {
-            
-        }
     }
 }
