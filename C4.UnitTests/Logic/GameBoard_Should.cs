@@ -25,24 +25,15 @@ namespace C4.UnitTests.Logic
      
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void GetGameInstance_ThrowAnArgumentNullExceptionIfGridParameterIsNull()
+        public void GetGameInstance_ThrowsAnArgumentNullExceptionIfGridParameterIsNull()
         {
             GameBoard.GetGameInstance(null);
         }
 
+        #region Column 0 Tests
+
         [Test]
         public void TakeMove_Column0_FireAGameTokenPlacedEventWhenATokenIsInserted()
-        {
-            bool wasCalled = false;
-            _sut.GameTokenPlaced += (o, e) => wasCalled = true;
-
-            _sut.TakeMove(0);
-
-            Assert.IsTrue(wasCalled);
-        }
-
-        [Test]
-        public void TakeMove_Column0_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -59,7 +50,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[0, 5].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -81,7 +72,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken =_sut.Grid[0, 4].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -105,7 +96,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken =_sut.Grid[0, 3].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -131,7 +122,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken =_sut.Grid[0, 2].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -159,7 +150,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken =_sut.Grid[0, 1].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -189,7 +180,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken =_sut.Grid[0, 0].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -216,23 +207,54 @@ namespace C4.UnitTests.Logic
             _sut.ColumnFull += (o, e) => wasCalled = true;
 
             _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
 
             Assert.IsTrue(wasCalled);
         }
+
+        [Test]
+        public void TakeMove_Column0_AlternateGameTokensByColour_Yellow()
+        {
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Yellow));
+        }
+
+        [Test]
+        public void TakeMove_Column0_AlternateGameTokensByColour_Red()
+        {
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Red));
+        }
+
+        #endregion
+
+        #region Column 1 Tests
 
         [Test]
         public void TakeMove_Column1_FireAGameTokenPlacedEventWhenATokenIsInserted()
-        {
-            bool wasCalled = false;
-            _sut.GameTokenPlaced += (o, e) => wasCalled = true;
-
-            _sut.TakeMove(1);
-
-            Assert.IsTrue(wasCalled);
-        }
-
-        [Test]
-        public void TakeMove_Column1_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -249,7 +271,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[1, 5].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -271,7 +293,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[1, 4].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -295,7 +317,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[0, 3].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -321,7 +343,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[1, 2].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -349,7 +371,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[1, 1].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -379,7 +401,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[1, 0].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -406,23 +428,54 @@ namespace C4.UnitTests.Logic
             _sut.ColumnFull += (o, e) => wasCalled = true;
 
             _sut.TakeMove(1);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
+            _sut.TakeMove(0);
 
             Assert.IsTrue(wasCalled);
         }
+
+        [Test]
+        public void TakeMove_Column1_AlternateGameTokensByColour_Yellow()
+        {
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(6).Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Yellow));
+        }
+
+        [Test]
+        public void TakeMove_Column1_AlternateGameTokensByColour_Red()
+        {
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+            _sut.TakeMove(1);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(6).Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Red));
+        }
+
+        #endregion
+
+        #region Column 2 Tests
 
         [Test]
         public void TakeMove_Column2_FireAGameTokenPlacedEventWhenATokenIsInserted()
-        {
-            bool wasCalled = false;
-            _sut.GameTokenPlaced += (o, e) => wasCalled = true;
-
-            _sut.TakeMove(2);
-
-            Assert.IsTrue(wasCalled);
-        }
-
-        [Test]
-        public void TakeMove_Column2_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -439,7 +492,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[2, 5].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -461,7 +514,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[2, 4].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -485,7 +538,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[2, 3].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -511,7 +564,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[2, 2].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -539,7 +592,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[2, 1].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -569,7 +622,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[2, 0].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -600,18 +653,43 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column3_FireAGameTokenPlacedEventWhenATokenIsInserted()
+        public void TakeMove_Column2_AlternateGameTokensByColour_Yellow()
         {
-            bool wasCalled = false;
-            _sut.GameTokenPlaced += (o, e) => wasCalled = true;
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
 
-            _sut.TakeMove(3);
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(12).Take(6).ToArray();
 
-            Assert.IsTrue(wasCalled);
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Yellow));
         }
 
         [Test]
-        public void TakeMove_Column3_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column2_AlternateGameTokensByColour_Red()
+        {
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(12).Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Red));
+        }
+
+        #endregion
+
+        #region Column 3 Tests
+
+        [Test]
+        public void TakeMove_Column3_FireAGameTokenPlacedEventWhenATokenIsInserted()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -628,7 +706,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[3, 5].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -650,7 +728,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[3, 4].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -674,7 +752,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[3, 3].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -700,7 +778,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[3, 2].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -728,7 +806,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[3, 1].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -758,7 +836,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[3, 0].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -790,18 +868,43 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column4_FireAGameTokenPlacedEventWhenATokenIsInserted()
+        public void TakeMove_Column3_AlternateGameTokensByColour_Yellow()
         {
-            bool wasCalled = false;
-            _sut.GameTokenPlaced += (o, e) => wasCalled = true;
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
 
-            _sut.TakeMove(4);
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(18).Take(6).ToArray();
 
-            Assert.IsTrue(wasCalled);
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Yellow));
         }
 
         [Test]
-        public void TakeMove_Column4_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column3_AlternateGameTokensByColour_Red()
+        {
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(18).Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Red));
+        }
+
+        #endregion
+
+        #region Column 4 Tests
+
+        [Test]
+        public void TakeMove_Column4_FireAGameTokenPlacedEventWhenATokenIsInserted()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -818,7 +921,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[4, 5].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -840,7 +943,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[4, 4].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -864,7 +967,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[4, 3].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -890,7 +993,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[4, 2].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -918,7 +1021,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[4, 1].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -948,7 +1051,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[4, 0].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -979,18 +1082,43 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column5_FireAGameTokenPlacedEventWhenATokenIsInserted()
+        public void TakeMove_Column4_AlternateGameTokensByColour_Yellow()
         {
-            bool wasCalled = false;
-            _sut.GameTokenPlaced += (o, e) => wasCalled = true;
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
 
-            _sut.TakeMove(5);
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(24).Take(6).ToArray();
 
-            Assert.IsTrue(wasCalled);
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Yellow));
         }
 
         [Test]
-        public void TakeMove_Column5_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column4_AlternateGameTokensByColour_Red()
+        {
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(24).Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Red));
+        }
+
+        #endregion
+
+        #region Column 5 Tests
+
+        [Test]
+        public void TakeMove_Column5_FireAGameTokenPlacedEventWhenATokenIsInserted()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -1007,7 +1135,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[5, 5].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1029,7 +1157,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[5, 4].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1053,7 +1181,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[5, 3].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1079,7 +1207,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[5, 2].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1107,7 +1235,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[5, 1].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1137,7 +1265,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[5, 0].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1158,29 +1286,56 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column5_FireAColumnFullEventIfTheColumnIsFull()
+        public void TakeMove_Column5_FireAColumnFullEventIfTheColumnIsFullAndAUserTriesToAddASeventhToken()
         {
             bool wasCalled = false;
             _sut.ColumnFull += (o, e) => wasCalled = true;
 
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
             _sut.TakeMove(5);
 
             Assert.IsTrue(wasCalled);
         }
 
         [Test]
-        public void TakeMove_Column6_FireAGameTokenPlacedEventWhenATokenIsInserted()
+        public void TakeMove_Column5_AlternateGameTokensByColour_Yellow()
         {
-            bool wasCalled = false;
-            _sut.GameTokenPlaced += (o, e) => wasCalled = true;
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
 
-            _sut.TakeMove(6);
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(30).Take(6).ToArray();
 
-            Assert.IsTrue(wasCalled);
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Yellow));
         }
 
         [Test]
-        public void TakeMove_Column6_FailToFireAGameTokenPlacedEventWhenATokenIsInsertedInAFullRow()
+        public void TakeMove_Column5_AlternateGameTokensByColour_Red()
+        {
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(30).Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Red));
+        }
+
+        #endregion
+
+        #region Column 6 Tests
+
+        [Test]
+        public void TakeMove_Column6_FireAGameTokenPlacedEventWhenATokenIsInserted()
         {
             bool wasCalled = false;
             _sut.GameTokenPlaced += (o, e) => wasCalled = true;
@@ -1197,7 +1352,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[6, 5].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1219,7 +1374,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[6, 4].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1243,7 +1398,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[6, 3].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1269,7 +1424,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[6, 2].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1297,7 +1452,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[6, 1].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1327,7 +1482,7 @@ namespace C4.UnitTests.Logic
 
             GameToken gameToken = _sut.Grid[6, 0].GameToken;
 
-            Assert.AreEqual(GameToken.Red, gameToken);
+            Assert.AreNotEqual(GameToken.Undefined, gameToken);
         }
 
         [Test]
@@ -1347,15 +1502,51 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column6_FireAColumnFullEventIfTheColumnIsFull()
+        public void TakeMove_Column6_FireAColumnFullEventIfTheColumnIsFullAndAUserTriesToAddASeventhToken()
         {
             bool wasCalled = false;
             _sut.ColumnFull += (o, e) => wasCalled = true;
 
+            _sut.TakeMove(6); _sut.TakeMove(6); _sut.TakeMove(6); 
+            _sut.TakeMove(6); _sut.TakeMove(6); _sut.TakeMove(6);
             _sut.TakeMove(6);
 
             Assert.IsTrue(wasCalled);
         }
+
+        [Test]
+        public void TakeMove_Column6_AlternateGameTokensByColour_Yellow()
+        {
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Yellow));
+        }
+
+        [Test]
+        public void TakeMove_Column6_AlternateGameTokensByColour_Red()
+        {
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+            _sut.TakeMove(6);
+
+            var grid = _sut.Grid;
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(36).Take(6).ToArray();
+
+            Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Red));
+        }
+
+        #endregion
 
         [TearDown]
         public void TearDown()

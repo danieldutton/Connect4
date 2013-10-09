@@ -9,7 +9,7 @@ namespace C4.Logic
     {
         public event EventHandler<ColumnFullEventArgs> ColumnFull;
 
-        public event EventHandler<TokenPlacedEventArgs> GameTokenPlaced;   //referee subscribe to - to check the winner
+        public event EventHandler<TokenPlacedEventArgs> GameTokenPlaced;
 
         public static GameBoard GameBoardInstance { get; set; }
 
@@ -28,6 +28,7 @@ namespace C4.Logic
             PlayerRed.IsCurrentTurn = true;
             PlayerYellow.IsCurrentTurn = false;
         }
+
 
         public static GameBoard GetGameInstance(Tile[,] grid)
         {
