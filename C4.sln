@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.Logic", "C4.Logic\C4.Log
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.Presentation", "C4.Presentation\C4.Presentation.csproj", "{7DE6BB4D-60A2-4CEC-9719-9FB9F69DD8A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.EventAggregator", "C4.EventAggregator\C4.EventAggregator.csproj", "{CCFDE04E-13BE-465D-B4E9-8DBA5072B5A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{7DE6BB4D-60A2-4CEC-9719-9FB9F69DD8A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DE6BB4D-60A2-4CEC-9719-9FB9F69DD8A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DE6BB4D-60A2-4CEC-9719-9FB9F69DD8A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCFDE04E-13BE-465D-B4E9-8DBA5072B5A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCFDE04E-13BE-465D-B4E9-8DBA5072B5A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCFDE04E-13BE-465D-B4E9-8DBA5072B5A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCFDE04E-13BE-465D-B4E9-8DBA5072B5A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

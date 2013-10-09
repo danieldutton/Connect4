@@ -21,8 +21,15 @@ namespace C4.Presentation
             Tile[,] grid = gridGenerator.GetGrid(7, 6);
             
             GameBoard gameBoard = GameBoard.GetGameInstance(grid);
+            var gameOptions = new GameOptions();
+            var referee = new Referee(gameBoard);
+            Game game = new Game(gameBoard);
+            game.RegisterForOptionsNotifiction(gameOptions);
 
-            Application.Run(new Game(gameBoard));
+            
+            gameOptions.ShowDialog();
+
+            Application.Run(game);
         }
     }
 }

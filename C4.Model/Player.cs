@@ -5,5 +5,10 @@
         public string Name { get; set; }
 
         public bool IsCurrentTurn { get; set; }
+
+        public Player()
+        {
+            
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using C4.Logic;
+using C4.Presentation.EventArg;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -20,18 +21,22 @@ namespace C4.Presentation
             var grid = GameBoard.Grid;
 
             int x = 0, y = 0;
-            
-            //now draw it
-            for (int i = 0; i < grid.GetLength(0); i++)
+
+            int xLength = grid.GetLength(0);  //this is seven
+            int Ylength = grid.GetLength(1);  //this is six  
+
+            //now draw it - currently drawing horizontal should be vertical
+            for (int i = 0; i < Ylength; i++)
             {
-                for (int j = 0; j < grid.GetLength(1); j++)
+                for (int j = 0; j < xLength; j++)
                 {
-                    GameBoard.Grid[i, j].BackColor = Color.Gray;
-                    GameBoard.Grid[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    GameBoard.Grid[i, j].Width = 32;
-                    GameBoard.Grid[i, j].Height = 32;
-                    GameBoard.Grid[i, j].Location = new Point(x, y);
-                    panelGrid.Controls.Add(GameBoard.Grid[i, j]);
+                    GameBoard.Grid[j,i].BackColor = Color.Gray;
+                    GameBoard.Grid[j, i].BorderStyle = BorderStyle.FixedSingle;
+                    GameBoard.Grid[j, i].Width = 32;
+                    GameBoard.Grid[j, i].Height = 32;
+                    GameBoard.Grid[j, i].Text = "shit";
+                    GameBoard.Grid[j, i].Location = new Point(x, y);
+                    panelGrid.Controls.Add(GameBoard.Grid[j, i]);
                     
                     x += 35;
                     
@@ -44,13 +49,9 @@ namespace C4.Presentation
             }
         }
 
-        private void _btnStartGame_Click(object sender, System.EventArgs e)
-        {
-            GameBoard.TakeMove(0);
-        }
-
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
+            if(GameBoard.PlayerRed.IsCurrentTurn)
             DoDragDrop(sender, DragDropEffects.Move);
         }
 
@@ -77,6 +78,37 @@ namespace C4.Presentation
             //get the tag to determine colum index.  then take the move
 
 
+        }
+
+        public void RegisterForOptionsNotifiction(GameOptions gameOptions)
+        {
+            gameOptions.PlayersConfirmed += GameBoard_GameTokenPlaced;
+        }
+
+        private void GameBoard_GameTokenPlaced(object sender, PlayersConfirmedEventArgs e)
+        {
+            if (e.RedPlayer.Name != string.Empty && e.YellowPlayer.Name != string.Empty)
+            {
+                _lblPlayerRed.Text = e.RedPlayer.Name;
+                _lblPlayerYellow.Text = e.YellowPlayer.Name;
+            }
+            else
+            {
+                _lblPlayerRed.Text = "Unknown";
+                _lblPlayerYellow.Text = "Unknown";
+            }
+            
+        }
+
+        private void _lblYellowToken_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (GameBoard.PlayerYellow.IsCurrentTurn)
+                DoDragDrop(sender, DragDropEffects.Move);
+        }
+
+        private void Game_Load(object sender, System.EventArgs e)
+        {
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
     }
 }

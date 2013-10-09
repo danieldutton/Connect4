@@ -1,4 +1,5 @@
-﻿using C4.Logic.EventArg;
+﻿using System.Windows.Forms;
+using C4.Logic.EventArg;
 using C4.Logic.Interfaces;
 using C4.Model;
 using System;
@@ -79,17 +80,17 @@ namespace C4.Logic
                 //set winning player in here to property
             }
 
-            throw new NotImplementedException();
+            return GameToken.Red;
         }
 
         public GameToken CheckColumnsForWin()
         {
-            throw new NotImplementedException();
+            return GameToken.Red;
         }
 
         public GameToken CheckDiagonalRowsForWin()
         {
-            throw new NotImplementedException();
+            return GameToken.Red;
         }
 
         protected virtual void OnGameWon(WinnerDetailsEventArgs e)
@@ -106,6 +107,7 @@ namespace C4.Logic
 
         protected virtual void OnGameDrawn()
         {
+            MessageBox.Show("Game is drawn");
             EventHandler<EventArgs> handler = GameDrawn;
             if (handler != null) handler(this, EventArgs.Empty);
         }

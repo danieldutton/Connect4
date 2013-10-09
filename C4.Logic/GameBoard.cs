@@ -1,6 +1,7 @@
 ﻿using C4.Logic.EventArg;
 using C4.Model;
 using System;
+using System.Drawing;
 
 namespace C4.Logic
 {
@@ -14,10 +15,18 @@ namespace C4.Logic
 
         public Tile[,] Grid { get; set; }
 
+        public Player PlayerRed { get; set; }
+
+        public Player PlayerYellow { get; set; }
+
 
         private GameBoard(Tile[,] grid)
         {
             Grid = grid;
+            PlayerRed = new Player();
+            PlayerYellow = new Player();
+            PlayerRed.IsCurrentTurn = true;
+            PlayerYellow.IsCurrentTurn = false;
         }
 
         public static GameBoard GetGameInstance(Tile[,] grid)
@@ -35,14 +44,31 @@ namespace C4.Logic
                 return;
             }
 
-            for (int i = 5; i < Grid.GetLength(1);i--)
+            for (int i = 5; i < Grid.GetLength(0);i--)
             {
-                if(true){}
-
                 if (Grid[xDim, i].GameToken == GameToken.Undefined)
                 {
-                    Grid[xDim, i].GameToken = GameToken.Red;
-                    OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
+                    if (PlayerRed.IsCurrentTurn)
+                    {
+                        Grid[xDim, i].GameToken = GameToken.Red;
+                        Grid[xDim, i].BackColor = Color.Red;
+
+                        OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
+
+                        PlayerRed.IsCurrentTurn = false;
+                        PlayerYellow.IsCurrentTurn = true;
+                    }
+                    else if (PlayerYellow.IsCurrentTurn)
+                    {
+                        Grid[xDim, i].GameToken = GameToken.Yellow;
+                        Grid[xDim, i].BackColor = Color.Yellow;
+
+                        OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
+                        
+                        PlayerYellow.IsCurrentTurn = false;
+                        PlayerRed.IsCurrentTurn = true;
+                    }
+                    
                     break;
                 }
                 OnColumnFull(new ColumnFullEventArgs(xDim));

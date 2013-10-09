@@ -12,3 +12,10 @@ C:\Users\Dan\Documents\GitHub\Connect_4\C4.Logic\bin\Debug\C4.Model.pdb
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.Logic\obj\Debug\C4.Logic.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.Logic\obj\Debug\C4.Logic.dll
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.Logic\obj\Debug\C4.Logic.pdb
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Logic\bin\Debug\C4.Logic.dll
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Logic\bin\Debug\C4.Logic.pdb
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Logic\bin\Debug\C4.Model.dll
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Logic\bin\Debug\C4.Model.pdb
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Logic\obj\Debug\C4.Logic.csprojResolveAssemblyReference.cache
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Logic\obj\Debug\C4.Logic.dll
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Logic\obj\Debug\C4.Logic.pdb
