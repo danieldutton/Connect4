@@ -23,7 +23,7 @@ namespace C4.Presentation
             GameBoard gameBoard = GameBoard.GetGameInstance(grid);
             var gameOptions = new GameOptions();
             var referee = new Referee(gameBoard);
-            Game game = new Game(gameBoard);
+            var game = new Game(gameBoard);
             game.RegisterForOptionsNotifiction(gameOptions);
 
             

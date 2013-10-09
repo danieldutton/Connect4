@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using C4.EventAggregator;
-using C4.EventAggregator.Interfaces;
-using C4.Model;
+﻿using C4.Model;
 using C4.Presentation.EventArg;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace C4.Presentation
 {
@@ -18,22 +10,58 @@ namespace C4.Presentation
     {
         public event EventHandler<PlayersConfirmedEventArgs> PlayersConfirmed;
 
-        private IEventAggregator _eventAggregator;
-
         public GameOptions()
         {
             InitializeComponent();
-            _eventAggregator = new SimpleEventAggregator();
         }
 
         private void GameOptions_Load(object sender, EventArgs e)
         {
-            _panelYellowSquare.BackColor = Color.Yellow;
-            _panelRedSquare.BackColor = Color.Red;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            StylePanels();
+            SetFormProperties();
+            StyleTextBoxes();
+            StyleLabels();
+            StyleStartButton();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void StylePanels()
+        {
+            _panelYellowSquare.BackColor = Color.Yellow;
+            _panelRedSquare.BackColor = Color.Red;    
+        }
+
+        private void SetFormProperties()
+        {
+            MaximumSize = new Size(300, 167);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            BackColor = Color.SteelBlue;
+        }
+
+        private void StyleTextBoxes()
+        {
+            _txtBoxPlayer1.ForeColor = Color.Blue;
+
+            _txtBoxPlayer1.Font = new Font("Courier", 8.0f);
+
+            _txtBoxPlayer1.BackColor = Color.White;
+            _txtBoxPlayer2.BackColor = Color.White;
+        }
+
+        private void StyleLabels()
+        {
+            _lblPlayer1.ForeColor = Color.PapayaWhip;
+            _lblPlayer2.ForeColor = Color.PapayaWhip;
+
+            _lblPlayer1.Font = new Font("Arial", 10.0f, FontStyle.Italic);
+            _lblPlayer2.Font = new Font("Arial", 10.0f, FontStyle.Italic);
+        }
+
+        private void StyleStartButton()
+        {
+            _btnConfirm.Text = "Start";
+        }
+
+        private void ConfirmPlayers_Click(object sender, EventArgs e)
         {
             var yellowPlayer = new Player {Name = _txtBoxPlayer1.Text};
             var redPlayer = new Player { Name = _txtBoxPlayer2.Text };

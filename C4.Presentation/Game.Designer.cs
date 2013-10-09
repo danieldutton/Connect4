@@ -40,13 +40,13 @@
             this.panelDrop0 = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
             this.panelYellow = new System.Windows.Forms.Panel();
+            this._lblPlayerYellow = new System.Windows.Forms.Label();
             this._lblYellowToken = new System.Windows.Forms.Label();
             this.panelRed = new System.Windows.Forms.Panel();
+            this._lblPlayerRed = new System.Windows.Forms.Label();
             this.lblRedToken = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this._lblPlayerRed = new System.Windows.Forms.Label();
-            this._lblPlayerYellow = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelDropPanels.SuspendLayout();
             this.panelYellow.SuspendLayout();
@@ -173,6 +173,14 @@
             this.panelYellow.Size = new System.Drawing.Size(94, 37);
             this.panelYellow.TabIndex = 1;
             // 
+            // _lblPlayerYellow
+            // 
+            this._lblPlayerYellow.AutoSize = true;
+            this._lblPlayerYellow.Location = new System.Drawing.Point(7, 4);
+            this._lblPlayerYellow.Name = "_lblPlayerYellow";
+            this._lblPlayerYellow.Size = new System.Drawing.Size(0, 13);
+            this._lblPlayerYellow.TabIndex = 1;
+            // 
             // _lblYellowToken
             // 
             this._lblYellowToken.AutoSize = true;
@@ -191,6 +199,14 @@
             this.panelRed.Name = "panelRed";
             this.panelRed.Size = new System.Drawing.Size(97, 37);
             this.panelRed.TabIndex = 1;
+            // 
+            // _lblPlayerRed
+            // 
+            this._lblPlayerRed.AutoSize = true;
+            this._lblPlayerRed.Location = new System.Drawing.Point(7, 5);
+            this._lblPlayerRed.Name = "_lblPlayerRed";
+            this._lblPlayerRed.Size = new System.Drawing.Size(0, 13);
+            this._lblPlayerRed.TabIndex = 1;
             // 
             // lblRedToken
             // 
@@ -218,24 +234,6 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(262, 43);
             this.panelHeader.TabIndex = 1;
-            // 
-            // _lblPlayerRed
-            // 
-            this._lblPlayerRed.AutoSize = true;
-            this._lblPlayerRed.Location = new System.Drawing.Point(7, 5);
-            this._lblPlayerRed.Name = "_lblPlayerRed";
-            this._lblPlayerRed.Size = new System.Drawing.Size(35, 13);
-            this._lblPlayerRed.TabIndex = 1;
-            this._lblPlayerRed.Text = "label1";
-            // 
-            // _lblPlayerYellow
-            // 
-            this._lblPlayerYellow.AutoSize = true;
-            this._lblPlayerYellow.Location = new System.Drawing.Point(7, 4);
-            this._lblPlayerYellow.Name = "_lblPlayerYellow";
-            this._lblPlayerYellow.Size = new System.Drawing.Size(35, 13);
-            this._lblPlayerYellow.TabIndex = 1;
-            this._lblPlayerYellow.Text = "label1";
             // 
             // Game
             // 
