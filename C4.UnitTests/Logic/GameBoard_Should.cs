@@ -422,12 +422,12 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column1_FireAColumnFullEventIfTheColumnIsFull()
+        public void TakeMove_Column1_FireAColumnFullEventIfTheColumnIsFullAndAUserTriesToAddASeventhToken()
         {
             bool wasCalled = false;
             _sut.ColumnFull += (o, e) => wasCalled = true;
 
-            _sut.TakeMove(1);
+            _sut.TakeMove(0);
             _sut.TakeMove(0);
             _sut.TakeMove(0);
             _sut.TakeMove(0);
@@ -642,11 +642,17 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column2_FireAColumnFullEventIfTheColumnIsFull()
+        public void TakeMove_Column2_FireAColumnFullEventIfTheColumnIsFullAndAUserTriesToAddASeventhToken()
         {
             bool wasCalled = false;
             _sut.ColumnFull += (o, e) => wasCalled = true;
 
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
+            _sut.TakeMove(2);
             _sut.TakeMove(2);
 
             Assert.IsTrue(wasCalled);
@@ -857,11 +863,17 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column3_FireAColumnFullEventIfTheColumnIsFull()
+        public void TakeMove_Column3_FireAColumnFullEventIfTheColumnIsFullAndAUserTriesToAddASeventhToken()
         {
             bool wasCalled = false;
             _sut.ColumnFull += (o, e) => wasCalled = true;
 
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
+            _sut.TakeMove(3);
             _sut.TakeMove(3);
 
             Assert.IsTrue(wasCalled);
@@ -1071,11 +1083,17 @@ namespace C4.UnitTests.Logic
         }
 
         [Test]
-        public void TakeMove_Column4_FireAColumnFullEventIfTheColumnIsFull()
+        public void TakeMove_Column4_FireAColumnFullEventIfTheColumnIsFullAndAUserTriesToAddASeventhToken()
         {
             bool wasCalled = false;
             _sut.ColumnFull += (o, e) => wasCalled = true;
 
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
+            _sut.TakeMove(4);
             _sut.TakeMove(4);
 
             Assert.IsTrue(wasCalled);
@@ -1294,6 +1312,10 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(5);
             _sut.TakeMove(5);
             _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
+            _sut.TakeMove(5);
 
             Assert.IsTrue(wasCalled);
         }
@@ -1507,8 +1529,12 @@ namespace C4.UnitTests.Logic
             bool wasCalled = false;
             _sut.ColumnFull += (o, e) => wasCalled = true;
 
-            _sut.TakeMove(6); _sut.TakeMove(6); _sut.TakeMove(6); 
-            _sut.TakeMove(6); _sut.TakeMove(6); _sut.TakeMove(6);
+            _sut.TakeMove(6); 
+            _sut.TakeMove(6); 
+            _sut.TakeMove(6); 
+            _sut.TakeMove(6); 
+            _sut.TakeMove(6); 
+            _sut.TakeMove(6);
             _sut.TakeMove(6);
 
             Assert.IsTrue(wasCalled);
@@ -1525,7 +1551,7 @@ namespace C4.UnitTests.Logic
             _sut.TakeMove(6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Take(6).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Skip(36).Take(6).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Yellow));
         }

@@ -26,7 +26,7 @@ namespace C4.Logic
             PlayerRed = new Player();
             PlayerYellow = new Player();
             PlayerRed.IsCurrentTurn = true;
-            PlayerYellow.IsCurrentTurn = false;
+            PlayerYellow.IsCurrentTurn = false;         
         }
 
 
