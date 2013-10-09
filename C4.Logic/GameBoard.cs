@@ -38,41 +38,38 @@ namespace C4.Logic
 
         public void TakeMove(int xDim)
         {
-            if(ColumnIsFull(xDim))
+            if (!ColumnIsFull(xDim))
             {
-                OnColumnFull(new ColumnFullEventArgs(xDim));
-                return;
-            }
-
-            for (int i = 5; i < Grid.GetLength(0);i--)
-            {
-                if (Grid[xDim, i].GameToken == GameToken.Undefined)
+                for (int i = 5; i < Grid.GetLength(0); i--)
                 {
-                    if (PlayerRed.IsCurrentTurn)
+                    if (Grid[xDim, i].GameToken == GameToken.Undefined)
                     {
-                        Grid[xDim, i].GameToken = GameToken.Red;
-                        Grid[xDim, i].BackColor = Color.Red;
+                        if (PlayerRed.IsCurrentTurn)
+                        {
+                            Grid[xDim, i].GameToken = GameToken.Red;
+                            Grid[xDim, i].BackColor = Color.Red;
 
-                        OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
+                            OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
 
-                        PlayerRed.IsCurrentTurn = false;
-                        PlayerYellow.IsCurrentTurn = true;
+                            PlayerRed.IsCurrentTurn = false;
+                            PlayerYellow.IsCurrentTurn = true;
+                        }
+                        else if (PlayerYellow.IsCurrentTurn)
+                        {
+                            Grid[xDim, i].GameToken = GameToken.Yellow;
+                            Grid[xDim, i].BackColor = Color.Yellow;
+
+                            OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
+
+                            PlayerYellow.IsCurrentTurn = false;
+                            PlayerRed.IsCurrentTurn = true;
+                        }
+
+                        break;
                     }
-                    else if (PlayerYellow.IsCurrentTurn)
-                    {
-                        Grid[xDim, i].GameToken = GameToken.Yellow;
-                        Grid[xDim, i].BackColor = Color.Yellow;
-
-                        OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
-                        
-                        PlayerYellow.IsCurrentTurn = false;
-                        PlayerRed.IsCurrentTurn = true;
-                    }
-                    
-                    break;
                 }
-                OnColumnFull(new ColumnFullEventArgs(xDim));
             }
+            else OnColumnFull(new ColumnFullEventArgs(xDim));
         }
 
         private bool ColumnIsFull(int xDim)
