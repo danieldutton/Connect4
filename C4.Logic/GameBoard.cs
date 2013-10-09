@@ -25,10 +25,9 @@ namespace C4.Logic
             Grid = grid;
             PlayerRed = new Player();
             PlayerYellow = new Player();
-            PlayerRed.IsCurrentTurn = true;
-            PlayerYellow.IsCurrentTurn = false;         
+            PlayerRed.HasCurrentTurn = true;
+            PlayerYellow.HasCurrentTurn = false;         
         }
-
 
         public static GameBoard GetGameInstance(Tile[,] grid)
         {
@@ -39,33 +38,24 @@ namespace C4.Logic
 
         public void TakeMove(int xDim)
         {
-            if (!ColumnIsFull(xDim))
+            if (ColumnHasSpareSlot(xDim))
             {
                 for (int i = 5; i < Grid.GetLength(0); i--)
                 {
-                    if (Grid[xDim, i].GameToken == GameToken.Undefined)
+                    if (ChosenSlotIsFree(xDim, i))
                     {
-                        if (PlayerRed.IsCurrentTurn)
+                        if (PlayerYellow.HasCurrentTurn)
                         {
-                            Grid[xDim, i].GameToken = GameToken.Red;
-                            Grid[xDim, i].BackColor = Color.Red;
-
-                            OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
-
-                            PlayerRed.IsCurrentTurn = false;
-                            PlayerYellow.IsCurrentTurn = true;
+                            PushTokenInChosenSlot(xDim, i, GameToken.Yellow, Color.Yellow);
+                            PlayerRed.HasCurrentTurn = true;
+                            PlayerYellow.HasCurrentTurn = false;    
                         }
-                        else if (PlayerYellow.IsCurrentTurn)
+                        else if (PlayerRed.HasCurrentTurn)
                         {
-                            Grid[xDim, i].GameToken = GameToken.Yellow;
-                            Grid[xDim, i].BackColor = Color.Yellow;
-
-                            OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
-
-                            PlayerYellow.IsCurrentTurn = false;
-                            PlayerRed.IsCurrentTurn = true;
+                            PushTokenInChosenSlot(xDim, i, GameToken.Red, Color.Red);
+                            PlayerRed.HasCurrentTurn = false;
+                            PlayerYellow.HasCurrentTurn = true; 
                         }
-
                         break;
                     }
                 }
@@ -73,9 +63,24 @@ namespace C4.Logic
             else OnColumnFull(new ColumnFullEventArgs(xDim));
         }
 
-        private bool ColumnIsFull(int xDim)
+        private bool ChosenSlotIsFree(int xDim, int yDim)
         {
-            return Grid[xDim, 0].GameToken != GameToken.Undefined;
+            return Grid[xDim, yDim].GameToken == GameToken.Undefined;
+        }
+
+        private bool ColumnHasSpareSlot(int xDim)
+        {
+            return Grid[xDim, 0].GameToken == GameToken.Undefined;
+        }
+
+        private void PushTokenInChosenSlot(int xDim, int yDim, GameToken gameToken, Color colour)
+        {
+            Grid[xDim, yDim].GameToken = gameToken;
+            Grid[xDim, yDim].BackColor = colour;
+
+            OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
+
+               
         }
 
         protected virtual void OnColumnFull(ColumnFullEventArgs e)

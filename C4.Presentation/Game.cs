@@ -90,13 +90,13 @@ namespace C4.Presentation
 
         private void DropRedToken_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GameBoard.PlayerRed.IsCurrentTurn)
+            if (GameBoard.PlayerRed.HasCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
 
         private void DropYellowToken_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GameBoard.PlayerYellow.IsCurrentTurn)
+            if (GameBoard.PlayerYellow.HasCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
     }
