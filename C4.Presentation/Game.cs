@@ -16,6 +16,11 @@ namespace C4.Presentation
             DrawGrid();
         }
 
+        private void Game_Load(object sender, System.EventArgs e)
+        {
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
+
         public void DrawGrid()
         {
             var grid = GameBoard.Grid;
@@ -49,22 +54,9 @@ namespace C4.Presentation
             }
         }
 
-        private void OnMouseDown(object sender, MouseEventArgs e)
-        {
-            if(GameBoard.PlayerRed.IsCurrentTurn)
-            DoDragDrop(sender, DragDropEffects.Move);
-        }
-
         private void panelDrop0_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(Label)))
-            {
-                e.Effect = DragDropEffects.Move;
-            }
-            else
-            {
-                e.Effect = DragDropEffects.None;
-            }
+            e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.None;
 
             var panel = sender as Panel;
 
@@ -73,20 +65,17 @@ namespace C4.Presentation
             int.TryParse(panel.Tag.ToString(), out column);
 
             GameBoard.TakeMove(column);
-
-            int i = 10;
-            //get the tag to determine colum index.  then take the move
-
-
         }
 
         public void RegisterForOptionsNotifiction(GameOptions gameOptions)
         {
-            gameOptions.PlayersConfirmed += GameBoard_GameTokenPlaced;
+            gameOptions.PlayersConfirmed += GameTokenPlaced;
         }
 
-        private void GameBoard_GameTokenPlaced(object sender, PlayersConfirmedEventArgs e)
+        private void GameTokenPlaced(object sender, PlayersConfirmedEventArgs e)
         {
+            const string defaultName = "Unknown";
+
             if (e.RedPlayer.Name != string.Empty && e.YellowPlayer.Name != string.Empty)
             {
                 _lblPlayerRed.Text = e.RedPlayer.Name;
@@ -94,21 +83,21 @@ namespace C4.Presentation
             }
             else
             {
-                _lblPlayerRed.Text = "Unknown";
-                _lblPlayerYellow.Text = "Unknown";
-            }
-            
+                _lblPlayerRed.Text = defaultName;
+                _lblPlayerYellow.Text = defaultName;
+            }    
         }
 
-        private void _lblYellowToken_MouseDown(object sender, MouseEventArgs e)
+        private void DropRedToken_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GameBoard.PlayerYellow.IsCurrentTurn)
+            if (GameBoard.PlayerRed.IsCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
 
-        private void Game_Load(object sender, System.EventArgs e)
+        private void DropYellowToken_MouseDown(object sender, MouseEventArgs e)
         {
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            if (GameBoard.PlayerYellow.IsCurrentTurn)
+                DoDragDrop(sender, DragDropEffects.Move);
         }
     }
 }

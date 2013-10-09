@@ -40,11 +40,11 @@
             this.panelDrop0 = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
             this.panelYellow = new System.Windows.Forms.Panel();
+            this._panelYellowToken = new System.Windows.Forms.Panel();
             this._lblPlayerYellow = new System.Windows.Forms.Label();
-            this._lblYellowToken = new System.Windows.Forms.Label();
             this.panelRed = new System.Windows.Forms.Panel();
+            this._panelRedToken = new System.Windows.Forms.Panel();
             this._lblPlayerRed = new System.Windows.Forms.Label();
-            this.lblRedToken = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -57,6 +57,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this._panelYellowToken);
             this.panel1.Controls.Add(this.panelDropPanels);
             this.panel1.Controls.Add(this.panelGrid);
             this.panel1.Controls.Add(this.panelYellow);
@@ -167,56 +168,53 @@
             // panelYellow
             // 
             this.panelYellow.Controls.Add(this._lblPlayerYellow);
-            this.panelYellow.Controls.Add(this._lblYellowToken);
-            this.panelYellow.Location = new System.Drawing.Point(160, 261);
+            this.panelYellow.Location = new System.Drawing.Point(160, 251);
             this.panelYellow.Name = "panelYellow";
-            this.panelYellow.Size = new System.Drawing.Size(94, 37);
+            this.panelYellow.Size = new System.Drawing.Size(94, 47);
             this.panelYellow.TabIndex = 1;
+            // 
+            // _panelYellowToken
+            // 
+            this._panelYellowToken.BackColor = System.Drawing.Color.Yellow;
+            this._panelYellowToken.Location = new System.Drawing.Point(160, 279);
+            this._panelYellowToken.Name = "_panelYellowToken";
+            this._panelYellowToken.Size = new System.Drawing.Size(91, 19);
+            this._panelYellowToken.TabIndex = 2;
+            this._panelYellowToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropYellowToken_MouseDown);
             // 
             // _lblPlayerYellow
             // 
             this._lblPlayerYellow.AutoSize = true;
-            this._lblPlayerYellow.Location = new System.Drawing.Point(7, 4);
+            this._lblPlayerYellow.Location = new System.Drawing.Point(4, 5);
             this._lblPlayerYellow.Name = "_lblPlayerYellow";
             this._lblPlayerYellow.Size = new System.Drawing.Size(0, 13);
             this._lblPlayerYellow.TabIndex = 1;
             // 
-            // _lblYellowToken
-            // 
-            this._lblYellowToken.AutoSize = true;
-            this._lblYellowToken.Location = new System.Drawing.Point(4, 20);
-            this._lblYellowToken.Name = "_lblYellowToken";
-            this._lblYellowToken.Size = new System.Drawing.Size(38, 13);
-            this._lblYellowToken.TabIndex = 0;
-            this._lblYellowToken.Text = "Yellow";
-            this._lblYellowToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this._lblYellowToken_MouseDown);
-            // 
             // panelRed
             // 
+            this.panelRed.Controls.Add(this._panelRedToken);
             this.panelRed.Controls.Add(this._lblPlayerRed);
-            this.panelRed.Controls.Add(this.lblRedToken);
-            this.panelRed.Location = new System.Drawing.Point(10, 261);
+            this.panelRed.Location = new System.Drawing.Point(10, 251);
             this.panelRed.Name = "panelRed";
-            this.panelRed.Size = new System.Drawing.Size(97, 37);
+            this.panelRed.Size = new System.Drawing.Size(97, 47);
             this.panelRed.TabIndex = 1;
+            // 
+            // _panelRedToken
+            // 
+            this._panelRedToken.BackColor = System.Drawing.Color.Red;
+            this._panelRedToken.Location = new System.Drawing.Point(2, 28);
+            this._panelRedToken.Name = "_panelRedToken";
+            this._panelRedToken.Size = new System.Drawing.Size(92, 18);
+            this._panelRedToken.TabIndex = 2;
+            this._panelRedToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropRedToken_MouseDown);
             // 
             // _lblPlayerRed
             // 
             this._lblPlayerRed.AutoSize = true;
-            this._lblPlayerRed.Location = new System.Drawing.Point(7, 5);
+            this._lblPlayerRed.Location = new System.Drawing.Point(3, 5);
             this._lblPlayerRed.Name = "_lblPlayerRed";
             this._lblPlayerRed.Size = new System.Drawing.Size(0, 13);
             this._lblPlayerRed.TabIndex = 1;
-            // 
-            // lblRedToken
-            // 
-            this.lblRedToken.AutoSize = true;
-            this.lblRedToken.Location = new System.Drawing.Point(4, 21);
-            this.lblRedToken.Name = "lblRedToken";
-            this.lblRedToken.Size = new System.Drawing.Size(27, 13);
-            this.lblRedToken.TabIndex = 0;
-            this.lblRedToken.Text = "Red";
-            this.lblRedToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnMouseDown);
             // 
             // pictureBox1
             // 
@@ -263,8 +261,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelYellow;
         private System.Windows.Forms.Panel panelRed;
-        private System.Windows.Forms.Label _lblYellowToken;
-        private System.Windows.Forms.Label lblRedToken;
         private System.Windows.Forms.Panel panelGrid;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelHeader;
@@ -278,6 +274,8 @@
         private System.Windows.Forms.Panel panelDrop1;
         private System.Windows.Forms.Label _lblPlayerYellow;
         private System.Windows.Forms.Label _lblPlayerRed;
+        private System.Windows.Forms.Panel _panelRedToken;
+        private System.Windows.Forms.Panel _panelYellowToken;
     }
 }
 
