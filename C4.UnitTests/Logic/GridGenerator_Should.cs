@@ -1,9 +1,9 @@
-﻿using C4.Logic;
+﻿using C4.GridBuilder;
 using C4.Model;
 using NUnit.Framework;
 using System.Linq;
 
-namespace C4.UnitTests.Logic
+namespace C4.Tests_Unit.Logic
 {
     [TestFixture]
     public class GridGenerator_Should
@@ -21,8 +21,9 @@ namespace C4.UnitTests.Logic
             _sut = new GridGenerator<Tile>();
         }
 
+
         [Test]
-        public void GetGrid_GenerateAGridOfIndexLengthSevenOnTheXAxis()
+        public void GetGameInstance_GenerateAGridOfIndexLengthSevenOnTheXAxis()
         {
             const int expected = 7;
             int actual = _sut.GetGrid(XDimensionLength, YDimensionLength).GetLength(0);

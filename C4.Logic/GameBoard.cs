@@ -1,11 +1,12 @@
 ﻿using C4.Logic.EventArg;
+using C4.Logic.Interfaces;
 using C4.Model;
 using System;
 using System.Drawing;
 
 namespace C4.Logic
 {
-    public class GameBoard
+    public class GameBoard : IGameBoard
     {
         public event EventHandler<ColumnFullEventArgs> ColumnFull;
 
@@ -73,14 +74,13 @@ namespace C4.Logic
             return Grid[xDim, 0].GameToken == GameToken.Undefined;
         }
 
+        //high number of params - refactor to two or three max
         private void PushTokenInChosenSlot(int xDim, int yDim, GameToken gameToken, Color colour)
         {
             Grid[xDim, yDim].GameToken = gameToken;
             Grid[xDim, yDim].BackColor = colour;
 
-            OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
-
-               
+            OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));    
         }
 
         protected virtual void OnColumnFull(ColumnFullEventArgs e)

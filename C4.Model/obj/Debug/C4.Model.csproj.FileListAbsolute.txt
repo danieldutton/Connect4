@@ -13,3 +13,10 @@ C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Model\bin\Debug\C4.Model.pdb
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Model\obj\Debug\C4.Model.csprojResolveAssemblyReference.cache
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Model\obj\Debug\C4.Model.dll
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Model\obj\Debug\C4.Model.pdb
+E:\Connect_4\C4.Model\obj\Debug\C4.Model.csprojResolveAssemblyReference.cache
+E:\Connect_4\C4.Model\obj\Debug\C4.Model.dll
+E:\Connect_4\C4.Model\obj\Debug\C4.Model.pdb
+E:\Connect_4\C4.Model\bin\Debug\C4.Model.dll
+E:\Connect_4\C4.Model\bin\Debug\C4.Model.pdb
+E:\Connect_4\C4.Model\bin\Debug\C4.GridBuilder.dll
+E:\Connect_4\C4.Model\bin\Debug\C4.GridBuilder.pdb

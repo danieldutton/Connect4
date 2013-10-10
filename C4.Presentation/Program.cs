@@ -1,4 +1,6 @@
-﻿using C4.Logic;
+﻿using C4.GridBuilder;
+using C4.GridBuilder.Interfaces;
+using C4.Logic;
 using C4.Logic.Interfaces;
 using C4.Model;
 using System;
@@ -22,6 +24,7 @@ namespace C4.Presentation
             
             GameBoard gameBoard = GameBoard.GetGameInstance(grid);
             var gameOptions = new GameOptions();
+            //referee should really be injected here
             var referee = new Referee(gameBoard);
             var game = new Game(gameBoard);
             game.RegisterForOptionsNotifiction(gameOptions);

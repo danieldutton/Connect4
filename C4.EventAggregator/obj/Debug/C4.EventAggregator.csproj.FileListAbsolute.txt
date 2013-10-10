@@ -1,5 +1,0 @@
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.EventAggregator\bin\Debug\C4.EventAggregator.dll
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.EventAggregator\bin\Debug\C4.EventAggregator.pdb
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.EventAggregator\obj\Debug\C4.EventAggregator.csprojResolveAssemblyReference.cache
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.EventAggregator\obj\Debug\C4.EventAggregator.dll
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.EventAggregator\obj\Debug\C4.EventAggregator.pdb

@@ -94,9 +94,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\C4.EventAggregator\C4.EventAggregator.csproj">
-      <Project>{ccfde04e-13be-465d-b4e9-8dba5072b5a2}</Project>
-      <Name>C4.EventAggregator</Name>
+    <ProjectReference Include="..\C4.GridBuilder\C4.GridBuilder.csproj">
+      <Project>{14e52dbb-fee3-4cbb-aa1d-57e8aaaf5403}</Project>
+      <Name>C4.GridBuilder</Name>
     </ProjectReference>
     <ProjectReference Include="..\C4.Logic\C4.Logic.csproj">
       <Project>{c6b2543d-7dda-4dd7-a48b-b5e0fd72934f}</Project>

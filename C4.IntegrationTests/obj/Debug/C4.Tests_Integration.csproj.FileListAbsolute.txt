@@ -1,0 +1,13 @@
+E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.Tests_Integration.dll
+E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.Tests_Integration.pdb
+E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.Logic.dll
+E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.Model.dll
+E:\Connect_4\C4.IntegrationTests\bin\Debug\nunit.framework.dll
+E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.Logic.pdb
+E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.Model.pdb
+E:\Connect_4\C4.IntegrationTests\bin\Debug\nunit.framework.xml
+E:\Connect_4\C4.IntegrationTests\obj\Debug\C4.Tests_Integration.csprojResolveAssemblyReference.cache
+E:\Connect_4\C4.IntegrationTests\obj\Debug\C4.Tests_Integration.dll
+E:\Connect_4\C4.IntegrationTests\obj\Debug\C4.Tests_Integration.pdb
+E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.GridBuilder.dll
+E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.GridBuilder.pdb

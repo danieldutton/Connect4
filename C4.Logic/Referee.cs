@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace C4.Logic
 {
-    public class Referee : IReferee
+    public class Referee 
     {
         public event EventHandler<WinnerDetailsEventArgs> GameWon;
 
@@ -15,12 +15,15 @@ namespace C4.Logic
 
         public event EventHandler<EventArgs> GameDrawn;
 
+        private readonly IRuleBook _ruleBook;
+
         public GameBoard GameBoard { get; set; }
 
 
         public Referee(GameBoard gameBoard)
         {
             GameBoard = gameBoard;
+            _ruleBook = new RuleBook(gameBoard);
             SubScribeToGameBoardEvents();
         }
 
@@ -37,28 +40,21 @@ namespace C4.Logic
 
         public void CheckForWinner()
         {
-            if (CheckForDraw()) { OnGameDrawn(); return; }
+            if (_ruleBook.HasDrawn()) { OnGameDrawn(); return; }
 
-            GameToken gameTokenRow = CheckRowsForWin();
+            GameToken gameTokenRow = _ruleBook.Has4InARowVertical(GameToken.Red);
             if (gameTokenRow != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenRow)); return; }
 
-            GameToken gameTokenColumn = CheckColumnsForWin();
-            if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenColumn)); return; }
+            //GameToken gameTokenColumn = CheckColumnsForWin();
+            //if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenColumn)); return; }
 
-            GameToken gameTokenDiagonal = CheckDiagonalRowsForWin();
-            if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenDiagonal)); return; }
+            //GameToken gameTokenDiagonal = CheckDiagonalRowsForWin();
+            //if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenDiagonal)); return; }
             
             OnGameNotWon();
         }
 
-        public bool CheckForDraw()
-        {
-            Tile[] flattenedGrid = GameBoard.Grid.Cast<Tile>().ToArray();
-
-            return flattenedGrid.All(x => x.GameToken != GameToken.Undefined);
-        }
-
-        public GameToken CheckRowsForWin()
+        public GameToken CheckForRedWinHorizontal()
         {
             int counter = 0;
 
@@ -69,18 +65,43 @@ namespace C4.Logic
                     if (GameBoard.Grid[i, j].GameToken == GameToken.Red)
                     {
                         counter++;
-                        if (counter == 4) return GameToken.Red;
                     }
-                    else if (GameBoard.Grid[i, j].GameToken == GameToken.Yellow && counter <= 0)
+                    if (GameBoard.Grid[i, j].GameToken == GameToken.Yellow)
                     {
-                        counter--;
-                        if (counter == -4) return GameToken.Yellow;
+                        counter = 0;
+                    }
+                    if (GameBoard.Grid[i, j].GameToken == GameToken.Undefined)
+                    {
+                        counter = 0;
+                    }
+
+                    if (counter == 4)
+                    {
+                        
+                        return GameToken.Red;
                     }
                 }
-                //set winning player in here to property
             }
+            return GameToken.Undefined;
+        }
 
-            return GameToken.Red;
+        public GameToken CheckRowsForyellowWin()
+        {
+            int i, j, counter = 0;
+
+            for (i = 0; i < GameBoard.Grid.GetLength(0); i++)
+            {
+                for (j = 0; j < GameBoard.Grid.GetLength(1); j++)
+                {
+                    if (GameBoard.Grid[i, j].GameToken == GameBoard.Grid[i, j + 1].GameToken)
+                        counter++;
+
+                    if (counter == 4)
+                        return GameToken.Red;
+
+                }
+            }
+            return GameToken.Undefined;
         }
 
         public GameToken CheckColumnsForWin()

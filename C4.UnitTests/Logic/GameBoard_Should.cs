@@ -1,11 +1,12 @@
-﻿using C4.Logic;
-using C4.Logic.Interfaces;
+﻿using C4.GridBuilder;
+using C4.GridBuilder.Interfaces;
+using C4.Logic;
 using C4.Model;
 using NUnit.Framework;
 using System;
 using System.Linq;
 
-namespace C4.UnitTests.Logic
+namespace C4.Tests_Unit.Logic
 {
     [TestFixture]
     public class GameBoard_Should
@@ -28,6 +29,15 @@ namespace C4.UnitTests.Logic
         public void GetGameInstance_ThrowsAnArgumentNullExceptionIfGridParameterIsNull()
         {
             GameBoard.GetGameInstance(null);
+        }
+
+        [Test]
+        public void getGameInstance_OnlyEverReturnTheOneSingletonInstanceOfGameBoard()
+        {
+            GameBoard gameBoard1 = GameBoard.GetGameInstance(new Tile[7,6]);
+            GameBoard gameBoard2 = GameBoard.GetGameInstance(new Tile[7,6]);
+
+            Assert.AreSame(gameBoard1, gameBoard2);
         }
 
         #region Column 0 Tests

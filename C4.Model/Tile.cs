@@ -1,4 +1,4 @@
-﻿using C4.Model.Interfaces;
+﻿using C4.GridBuilder.Interfaces;
 using System.Windows.Forms;
 
 namespace C4.Model
@@ -10,6 +10,16 @@ namespace C4.Model
         public int YPosition { get; set; }
         
         public GameToken GameToken { get; set; }
+
+        public Tile()
+        {
+            GameToken = GameToken.Undefined; ;
+        }
+
+        public override string ToString()
+        {
+            return "[" + GetType().Name + "]" + " XPosition:[" + XPosition + "]" + " YPositon:[" + YPosition + "]";
+        }
 
     }
 }
