@@ -10,6 +10,6 @@ namespace C4.Logic.Interfaces
 
         GameToken Has4InARowDiagonal(GameToken gameToken);
 
-        bool HasDrawn();
+        bool HasDrawnGame();
     }
 }

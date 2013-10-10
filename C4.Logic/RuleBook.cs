@@ -16,29 +16,40 @@ namespace C4.Logic
 
         public GameToken Has4InARowVertical(GameToken gameToken)
         {
-            int counter = 0;
+            int redCounter = 0;
+            int yellowCounter = 0;
 
-            for (int i = 0; i < _gameBoard.Grid.GetLength(0); i++)
+            for (int rowIndex = 0; rowIndex < _gameBoard.Grid.GetLength(0); rowIndex++)
             {
-                for (int j = 0; j < _gameBoard.Grid.GetLength(1); j++)
+                for (int columnIndex = 0; columnIndex < _gameBoard.Grid.GetLength(1); columnIndex++)
                 {
-                    if (_gameBoard.Grid[i, j].GameToken == GameToken.Red)
+                    if (_gameBoard.Grid[rowIndex, columnIndex].GameToken == GameToken.Red)
                     {
-                        counter++;
-                    }
-                    if (_gameBoard.Grid[i, j].GameToken == GameToken.Yellow)
+                        redCounter++;
+                        yellowCounter = 0;
+                    }                       
+
+                    if (_gameBoard.Grid[rowIndex, columnIndex].GameToken == GameToken.Yellow)
                     {
-                        counter = 0;
-                    }
-                    if (_gameBoard.Grid[i, j].GameToken == GameToken.Undefined)
+                        yellowCounter++;
+                        redCounter = 0;   
+                    }                        
+
+                    if (_gameBoard.Grid[rowIndex, columnIndex].GameToken == GameToken.Undefined)
                     {
-                        counter = 0;
+                        redCounter = 0;
+                        yellowCounter = 0;
                     }
 
-                    if (counter == 4)
+                    if (redCounter == 4)
                     {
                         MessageBox.Show("Red Win");
                         return GameToken.Red;
+                    }
+                    if (yellowCounter == 4)
+                    {
+                        MessageBox.Show("Yello Wins");
+                        return GameToken.Yellow;
                     }
                 }
             }
@@ -55,7 +66,7 @@ namespace C4.Logic
             throw new System.NotImplementedException();
         }
 
-        public bool HasDrawn()
+        public bool HasDrawnGame()
         {
             Tile[] flattenedGrid = _gameBoard.Grid.Cast<Tile>().ToArray();
 

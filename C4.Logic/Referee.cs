@@ -1,9 +1,8 @@
-﻿using System.Windows.Forms;
-using C4.Logic.EventArg;
+﻿using C4.Logic.EventArg;
 using C4.Logic.Interfaces;
 using C4.Model;
 using System;
-using System.Linq;
+using System.Windows.Forms;
 
 namespace C4.Logic
 {
@@ -40,7 +39,7 @@ namespace C4.Logic
 
         public void CheckForWinner()
         {
-            if (_ruleBook.HasDrawn()) { OnGameDrawn(); return; }
+            if (_ruleBook.HasDrawnGame()) { OnGameDrawn(); return; }
 
             GameToken gameTokenRow = _ruleBook.Has4InARowVertical(GameToken.Red);
             if (gameTokenRow != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenRow)); return; }
@@ -85,34 +84,6 @@ namespace C4.Logic
             return GameToken.Undefined;
         }
 
-        public GameToken CheckRowsForyellowWin()
-        {
-            int i, j, counter = 0;
-
-            for (i = 0; i < GameBoard.Grid.GetLength(0); i++)
-            {
-                for (j = 0; j < GameBoard.Grid.GetLength(1); j++)
-                {
-                    if (GameBoard.Grid[i, j].GameToken == GameBoard.Grid[i, j + 1].GameToken)
-                        counter++;
-
-                    if (counter == 4)
-                        return GameToken.Red;
-
-                }
-            }
-            return GameToken.Undefined;
-        }
-
-        public GameToken CheckColumnsForWin()
-        {
-            return GameToken.Red;
-        }
-
-        public GameToken CheckDiagonalRowsForWin()
-        {
-            return GameToken.Red;
-        }
 
         protected virtual void OnGameWon(WinnerDetailsEventArgs e)
         {

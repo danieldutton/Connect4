@@ -25,8 +25,6 @@ C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presen
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.Properties.Resources.resources
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.csproj.GenerateResource.Cache
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOptions.resources
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.EventAggregator.dll
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.EventAggregator.pdb
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOptions.resources
 E:\Connect_4\C4.Presentation\bin\Debug\C4.Presentation.exe.config
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.exe
@@ -44,3 +42,5 @@ E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.Properties.Resources.reso
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.csproj.GenerateResource.Cache
 E:\Connect_4\C4.Presentation\bin\Debug\C4.GridBuilder.dll
 E:\Connect_4\C4.Presentation\bin\Debug\C4.GridBuilder.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.GridBuilder.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.GridBuilder.pdb

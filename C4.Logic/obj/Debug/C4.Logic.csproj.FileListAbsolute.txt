@@ -28,3 +28,5 @@ E:\Connect_4\C4.Logic\obj\Debug\C4.Logic.dll
 E:\Connect_4\C4.Logic\obj\Debug\C4.Logic.pdb
 E:\Connect_4\C4.Logic\bin\Debug\C4.GridBuilder.dll
 E:\Connect_4\C4.Logic\bin\Debug\C4.GridBuilder.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Logic\bin\Debug\C4.GridBuilder.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Logic\bin\Debug\C4.GridBuilder.pdb

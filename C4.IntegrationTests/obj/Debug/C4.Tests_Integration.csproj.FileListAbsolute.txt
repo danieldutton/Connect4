@@ -11,3 +11,16 @@ E:\Connect_4\C4.IntegrationTests\obj\Debug\C4.Tests_Integration.dll
 E:\Connect_4\C4.IntegrationTests\obj\Debug\C4.Tests_Integration.pdb
 E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.GridBuilder.dll
 E:\Connect_4\C4.IntegrationTests\bin\Debug\C4.GridBuilder.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\C4.Tests_Integration.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\C4.Tests_Integration.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\C4.GridBuilder.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\C4.Logic.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\C4.Model.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\nunit.framework.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\C4.GridBuilder.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\C4.Logic.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\C4.Model.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\bin\Debug\nunit.framework.xml
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\obj\Debug\C4.Tests_Integration.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\obj\Debug\C4.Tests_Integration.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.IntegrationTests\obj\Debug\C4.Tests_Integration.pdb
