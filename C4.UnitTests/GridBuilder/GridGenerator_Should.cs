@@ -1,14 +1,15 @@
 ﻿using C4.GridBuilder;
+using C4.GridBuilder.Interfaces;
 using C4.Model;
 using NUnit.Framework;
 using System.Linq;
 
-namespace C4.Tests_Unit.Logic
+namespace C4.Tests_Unit.GridBuilder
 {
     [TestFixture]
     public class GridGenerator_Should
     {
-        private GridGenerator<Tile> _sut;
+        private IGridGenerator<Tile> _sut;
 
         private const int XDimensionLength = 7;
 
@@ -21,9 +22,8 @@ namespace C4.Tests_Unit.Logic
             _sut = new GridGenerator<Tile>();
         }
 
-
         [Test]
-        public void GetGameInstance_GenerateAGridOfIndexLengthSevenOnTheXAxis()
+        public void GetGrid_GenerateAGridWithAnXAxisIndexLengthOfSeven()
         {
             const int expected = 7;
             int actual = _sut.GetGrid(XDimensionLength, YDimensionLength).GetLength(0);
@@ -32,7 +32,7 @@ namespace C4.Tests_Unit.Logic
         }
 
         [Test]
-        public void GetGrid_GenerateAGridOfIndexLengthSixOnTheYAxis()
+        public void GetGrid_GenerateAGridWithAYAxisIndexLengthOfSix()
         {
             const int expected = 6;
             int actual = _sut.GetGrid(XDimensionLength, YDimensionLength).GetLength(1);
@@ -41,7 +41,7 @@ namespace C4.Tests_Unit.Logic
         }
 
         [Test]
-        public void GetGrid_GenerateAGridWithATotalOfFortyTwoIndexes()
+        public void GetGrid_GenerateAGridWithATotalOfFortyTwoSlots()
         {
             const int expected = 42;
             int actual = _sut.GetGrid(XDimensionLength, YDimensionLength).Length;
@@ -50,7 +50,7 @@ namespace C4.Tests_Unit.Logic
         }
 
         [Test]
-        public void GetGrid_GenerateAGridWithNoNullElements()
+        public void GetGrid_GenerateAGridWithThatContainsNoNullElements()
         {
             Tile[] grid = _sut.GetGrid(XDimensionLength, YDimensionLength).Cast<Tile>().ToArray();
             
@@ -66,7 +66,7 @@ namespace C4.Tests_Unit.Logic
         }
 
         [Test]
-        public void GetGrid_GenerateAGridWhereEachTileElementsGameTokenPropertyIsUndefined()
+        public void GetGrid_GenerateAGridWithGameTokenPropertyUndefined()
         {
             Tile[] grid = _sut.GetGrid(XDimensionLength, YDimensionLength).Cast<Tile>().ToArray();
 

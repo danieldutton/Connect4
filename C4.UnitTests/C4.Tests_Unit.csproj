@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logic\GameBoard_Should.cs" />
-    <Compile Include="Logic\GridGenerator_Should.cs" />
+    <Compile Include="GridBuilder\GridGenerator_Should.cs" />
     <Compile Include="Logic\Referee_Should.cs" />
     <Compile Include="Mother.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
