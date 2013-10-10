@@ -23,19 +23,19 @@ namespace C4.Logic
             {
                 for (int columnIndex = 0; columnIndex < _gameBoard.Grid.GetLength(1); columnIndex++)
                 {
-                    if (_gameBoard.Grid[rowIndex, columnIndex].GameToken == GameToken.Red)
+                    if (_gameBoard.GameTokenIsRed(rowIndex, columnIndex))
                     {
                         redCounter++;
                         yellowCounter = 0;
                     }                       
 
-                    if (_gameBoard.Grid[rowIndex, columnIndex].GameToken == GameToken.Yellow)
+                    if (_gameBoard.GameTokenIsYellow(rowIndex, columnIndex))
                     {
                         yellowCounter++;
                         redCounter = 0;   
                     }                        
 
-                    if (_gameBoard.Grid[rowIndex, columnIndex].GameToken == GameToken.Undefined)
+                    if (_gameBoard.GameTokenIsUndefined(rowIndex, columnIndex))
                     {
                         redCounter = 0;
                         yellowCounter = 0;
@@ -58,12 +58,86 @@ namespace C4.Logic
 
         public GameToken Has4InARowHorizontal(GameToken gameToken)
         {
-            throw new System.NotImplementedException();
+            int redCounter = 0;
+            int yellowCounter = 0;
+
+            for (int rowIndex = 0; rowIndex < _gameBoard.Grid.GetLength(0); rowIndex++)
+            {
+                for (int columnIndex = 0; columnIndex < _gameBoard.Grid.GetLength(1); columnIndex++)
+                {
+                    if (_gameBoard.GameTokenIsRed(rowIndex, columnIndex))
+                    {
+                        redCounter++;
+                        yellowCounter = 0;
+                    }
+
+                    if (_gameBoard.GameTokenIsYellow(rowIndex, columnIndex))
+                    {
+                        yellowCounter++;
+                        redCounter = 0;
+                    }
+
+                    if (_gameBoard.GameTokenIsUndefined(rowIndex, columnIndex))
+                    {
+                        redCounter = 0;
+                        yellowCounter = 0;
+                    }
+
+                    if (redCounter == 4)
+                    {
+                        MessageBox.Show("Red Win");
+                        return GameToken.Red;
+                    }
+                    if (yellowCounter == 4)
+                    {
+                        MessageBox.Show("Yello Wins");
+                        return GameToken.Yellow;
+                    }
+                }
+            }
+            return GameToken.Undefined;
         }
 
         public GameToken Has4InARowDiagonal(GameToken gameToken)
         {
-            throw new System.NotImplementedException();
+            int redCounter = 0;
+            int yellowCounter = 0;
+
+            for (int rowIndex = 0; rowIndex < _gameBoard.Grid.GetLength(0); rowIndex++)
+            {
+                for (int columnIndex = 0; columnIndex < _gameBoard.Grid.GetLength(1); columnIndex++)
+                {
+                    if (_gameBoard.GameTokenIsRed(rowIndex, columnIndex))
+                    {
+                        redCounter++;
+                        yellowCounter = 0;
+                    }
+
+                    if (_gameBoard.GameTokenIsYellow(rowIndex, columnIndex))
+                    {
+                        yellowCounter++;
+                        redCounter = 0;
+                    }
+
+                    if (_gameBoard.GameTokenIsUndefined(rowIndex, columnIndex))
+                    {
+                        redCounter = 0;
+                        yellowCounter = 0;
+                    }
+
+                    if (redCounter == 4)
+                    {
+                        MessageBox.Show("Red Win");
+                        return GameToken.Red;
+                    }
+                    if (yellowCounter == 4)
+                    {
+                        MessageBox.Show("Yello Wins");
+                        return GameToken.Yellow;
+                    }
+                }
+            }
+            return GameToken.Undefined;
         }
 
         public bool HasDrawnGame()

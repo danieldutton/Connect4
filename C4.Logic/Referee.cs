@@ -61,24 +61,14 @@ namespace C4.Logic
             {
                 for (int j = 0; j < GameBoard.Grid.GetLength(1); j++)
                 {
-                    if (GameBoard.Grid[i, j].GameToken == GameToken.Red)
-                    {
+                    if (GameBoard.GameTokenIsRed(i, j))
                         counter++;
-                    }
-                    if (GameBoard.Grid[i, j].GameToken == GameToken.Yellow)
-                    {
+
+                    if (GameBoard.GameTokenIsYellow(i, j) || GameBoard.GameTokenIsUndefined(i, j))
                         counter = 0;
-                    }
-                    if (GameBoard.Grid[i, j].GameToken == GameToken.Undefined)
-                    {
-                        counter = 0;
-                    }
 
                     if (counter == 4)
-                    {
-                        
                         return GameToken.Red;
-                    }
                 }
             }
             return GameToken.Undefined;

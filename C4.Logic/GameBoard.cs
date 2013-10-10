@@ -47,15 +47,13 @@ namespace C4.Logic
                     {
                         if (PlayerYellow.HasCurrentTurn)
                         {
-                            PushTokenInChosenSlot(xDim, i, GameToken.Yellow, Color.Yellow);
-                            PlayerRed.HasCurrentTurn = true;
-                            PlayerYellow.HasCurrentTurn = false;    
+                            PushTokenInSlot(xDim, i, GameToken.Yellow, Color.Yellow);
+                            AllowTurnRedPlayer();
                         }
                         else if (PlayerRed.HasCurrentTurn)
                         {
-                            PushTokenInChosenSlot(xDim, i, GameToken.Red, Color.Red);
-                            PlayerRed.HasCurrentTurn = false;
-                            PlayerYellow.HasCurrentTurn = true; 
+                            PushTokenInSlot(xDim, i, GameToken.Red, Color.Red);
+                            AllowTurnYellowPlayer();
                         }
                         break;
                     }
@@ -64,23 +62,49 @@ namespace C4.Logic
             else OnColumnFull(new ColumnFullEventArgs(xDim));
         }
 
-        private bool ChosenSlotIsFree(int xDim, int yDim)
-        {
-            return Grid[xDim, yDim].GameToken == GameToken.Undefined;
-        }
-
-        private bool ColumnHasSpareSlot(int xDim)
+        public bool ColumnHasSpareSlot(int xDim)
         {
             return Grid[xDim, 0].GameToken == GameToken.Undefined;
         }
 
-        //high number of params - refactor to two or three max
-        private void PushTokenInChosenSlot(int xDim, int yDim, GameToken gameToken, Color colour)
+        public bool ChosenSlotIsFree(int xDim, int yDim)
+        {
+            return Grid[xDim, yDim].GameToken == GameToken.Undefined;
+        }
+
+        public void PushTokenInSlot(int xDim, int yDim, GameToken gameToken, Color colour)
         {
             Grid[xDim, yDim].GameToken = gameToken;
             Grid[xDim, yDim].BackColor = colour;
 
-            OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));    
+            OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
+        }
+
+        private void AllowTurnRedPlayer()
+        {
+            PlayerRed.HasCurrentTurn = true;
+            PlayerYellow.HasCurrentTurn = false;
+        }
+
+        private void AllowTurnYellowPlayer()
+        {
+            PlayerRed.HasCurrentTurn = false;
+            PlayerYellow.HasCurrentTurn = true;
+        }
+
+        public bool GameTokenIsRed(int xDim, int yDim)
+        {
+            return Grid[xDim, yDim].GameToken == GameToken.Red;
+        }
+
+        public bool GameTokenIsYellow(int xDim, int yDim)
+        {
+            return Grid[xDim, yDim].GameToken == GameToken.Yellow;
+        }
+
+        public bool GameTokenIsUndefined(int xDim, int yDim)
+        {
+            return Grid[xDim, yDim].GameToken == GameToken.Undefined;
         }
 
         protected virtual void OnColumnFull(ColumnFullEventArgs e)
