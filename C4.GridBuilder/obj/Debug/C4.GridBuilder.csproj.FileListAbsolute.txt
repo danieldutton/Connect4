@@ -3,3 +3,8 @@ E:\Connect_4\C4.GridBuilder\bin\Debug\C4.GridBuilder.pdb
 E:\Connect_4\C4.GridBuilder\obj\Debug\C4.GridBuilder.csprojResolveAssemblyReference.cache
 E:\Connect_4\C4.GridBuilder\obj\Debug\C4.GridBuilder.dll
 E:\Connect_4\C4.GridBuilder\obj\Debug\C4.GridBuilder.pdb
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.GridBuilder\bin\Debug\C4.GridBuilder.dll
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.GridBuilder\bin\Debug\C4.GridBuilder.pdb
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.GridBuilder\obj\Debug\C4.GridBuilder.csprojResolveAssemblyReference.cache
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.GridBuilder\obj\Debug\C4.GridBuilder.dll
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.GridBuilder\obj\Debug\C4.GridBuilder.pdb

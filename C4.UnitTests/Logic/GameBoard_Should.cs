@@ -2,8 +2,8 @@
 using C4.GridBuilder.Interfaces;
 using C4.Logic;
 using C4.Model;
+using C4.Model.Interfaces;
 using NUnit.Framework;
-using System;
 using System.Linq;
 
 namespace C4.Tests_Unit.Logic
@@ -21,21 +21,20 @@ namespace C4.Tests_Unit.Logic
             _gridGenerator = new GridGenerator<Tile>();
             var grid = _gridGenerator.GetGrid(7, 6);
             
-            _sut = GameBoard.GetGameInstance(grid);
+            _sut = GameBoard.GetGameInstance();
+            _sut.Grid = grid;
+            IPlayer player1 = new Player {HasCurrentTurn = true};
+            IPlayer player2 = new Player();
+            _sut.YellowPlayer = player1;
+            _sut.RedPlayer = player2;
         }   
-     
-        [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void GetGameInstance_ThrowsAnArgumentNullExceptionIfGridParameterIsNull()
-        {
-            GameBoard.GetGameInstance(null);
-        }
+
 
         [Test]
         public void getGameInstance_OnlyEverReturnTheOneSingletonInstanceOfGameBoard()
         {
-            GameBoard gameBoard1 = GameBoard.GetGameInstance(new Tile[7,6]);
-            GameBoard gameBoard2 = GameBoard.GetGameInstance(new Tile[7,6]);
+            GameBoard gameBoard1 = GameBoard.GetGameInstance();
+            GameBoard gameBoard2 = GameBoard.GetGameInstance();
 
             Assert.AreSame(gameBoard1, gameBoard2);
         }

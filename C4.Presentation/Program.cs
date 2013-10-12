@@ -22,12 +22,13 @@ namespace C4.Presentation
             IGridGenerator<Tile> gridGenerator = new GridGenerator<Tile>();
             Tile[,] grid = gridGenerator.GetGrid(7, 6);
             
-            GameBoard gameBoard = GameBoard.GetGameInstance(grid);
+            GameBoard gameBoard = GameBoard.GetGameInstance();
+            gameBoard.Grid = grid;
             var gameOptions = new GameOptions();
             //referee should really be injected here
             var referee = new Referee(gameBoard);
             var game = new Game(gameBoard);
-            game.RegisterForOptionsNotifiction(gameOptions);
+            game.RegisterForPlayersConfirmedEvent(gameOptions);
 
             
             gameOptions.ShowDialog();

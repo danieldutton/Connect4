@@ -11,9 +11,9 @@ namespace C4.Presentation
 
         public Game(GameBoard gameBoard)
         {
-            GameBoard = gameBoard;
+            GameBoard = gameBoard; //inject possibly
             InitializeComponent();
-            DrawGrid();
+            DrawGameBoard();
         }
 
         private void Game_Load(object sender, System.EventArgs e)
@@ -21,25 +21,20 @@ namespace C4.Presentation
             FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
-        public void DrawGrid()
+        public void DrawGameBoard()
         {
             var grid = GameBoard.Grid;
 
             int x = 0, y = 0;
 
-            int xLength = grid.GetLength(0);  //this is seven
-            int Ylength = grid.GetLength(1);  //this is six  
-
-            //now draw it - currently drawing horizontal should be vertical
-            for (int i = 0; i < Ylength; i++)
+            for (int i = 0; i < grid.GetLength(1); i++)
             {
-                for (int j = 0; j < xLength; j++)
+                for (int j = 0; j < grid.GetLength(0); j++)
                 {
                     GameBoard.Grid[j,i].BackColor = Color.Gray;
                     GameBoard.Grid[j, i].BorderStyle = BorderStyle.FixedSingle;
                     GameBoard.Grid[j, i].Width = 32;
                     GameBoard.Grid[j, i].Height = 32;
-                    GameBoard.Grid[j, i].Text = "shit";
                     GameBoard.Grid[j, i].Location = new Point(x, y);
                     panelGrid.Controls.Add(GameBoard.Grid[j, i]);
                     
@@ -54,25 +49,12 @@ namespace C4.Presentation
             }
         }
 
-        private void panelDrop0_DragEnter(object sender, DragEventArgs e)
+        public void RegisterForPlayersConfirmedEvent(GameOptions gameOptions)
         {
-            e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.None;
-
-            var panel = sender as Panel;
-
-            int column;
-            
-            int.TryParse(panel.Tag.ToString(), out column);
-
-            GameBoard.TakeMove(column);
+            gameOptions.PlayersConfirmed += RegisterPlayersToGameboard;
         }
 
-        public void RegisterForOptionsNotifiction(GameOptions gameOptions)
-        {
-            gameOptions.PlayersConfirmed += GameTokenPlaced;
-        }
-
-        private void GameTokenPlaced(object sender, PlayersConfirmedEventArgs e)
+        private void RegisterPlayersToGameboard(object sender, PlayersConfirmedEventArgs e)
         {
             const string defaultName = "Unknown";
 
@@ -85,18 +67,34 @@ namespace C4.Presentation
             {
                 _lblPlayerRed.Text = defaultName;
                 _lblPlayerYellow.Text = defaultName;
-            }    
+            }
+
+            GameBoard.YellowPlayer = e.YellowPlayer;
+            GameBoard.RedPlayer = e.RedPlayer;
         }
 
-        private void DropRedToken_MouseDown(object sender, MouseEventArgs e)
+        private void GameTokenToSlot_DragEnter(object sender, DragEventArgs e)
         {
-            if (GameBoard.PlayerRed.HasCurrentTurn)
+            e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.None;
+
+            var panel = sender as Panel;
+
+            int column;
+
+            int.TryParse(panel.Tag.ToString(), out column);
+
+            GameBoard.TakeMove(column);
+        }
+
+        private void DropRedGameToken_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (GameBoard.RedPlayer.HasCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
 
-        private void DropYellowToken_MouseDown(object sender, MouseEventArgs e)
+        private void DropYellowGameToken_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GameBoard.PlayerYellow.HasCurrentTurn)
+            if (GameBoard.YellowPlayer.HasCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
     }

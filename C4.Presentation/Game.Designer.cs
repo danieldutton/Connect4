@@ -90,7 +90,7 @@
             this.panelDrop6.Size = new System.Drawing.Size(30, 10);
             this.panelDrop6.TabIndex = 6;
             this.panelDrop6.Tag = "6";
-            this.panelDrop6.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop6.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
             // 
             // panelDrop5
             // 
@@ -101,7 +101,7 @@
             this.panelDrop5.Size = new System.Drawing.Size(30, 10);
             this.panelDrop5.TabIndex = 5;
             this.panelDrop5.Tag = "5";
-            this.panelDrop5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop5.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
             // 
             // panelDrop4
             // 
@@ -112,7 +112,7 @@
             this.panelDrop4.Size = new System.Drawing.Size(30, 10);
             this.panelDrop4.TabIndex = 4;
             this.panelDrop4.Tag = "4";
-            this.panelDrop4.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop4.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
             // 
             // panelDrop3
             // 
@@ -123,7 +123,7 @@
             this.panelDrop3.Size = new System.Drawing.Size(30, 10);
             this.panelDrop3.TabIndex = 0;
             this.panelDrop3.Tag = "3";
-            this.panelDrop3.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop3.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
             // 
             // panelDrop2
             // 
@@ -134,7 +134,7 @@
             this.panelDrop2.Size = new System.Drawing.Size(30, 10);
             this.panelDrop2.TabIndex = 2;
             this.panelDrop2.Tag = "2";
-            this.panelDrop2.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop2.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
             // 
             // panelDrop1
             // 
@@ -145,7 +145,7 @@
             this.panelDrop1.Size = new System.Drawing.Size(30, 10);
             this.panelDrop1.TabIndex = 1;
             this.panelDrop1.Tag = "1";
-            this.panelDrop1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop1.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
             // 
             // panelDrop0
             // 
@@ -156,7 +156,7 @@
             this.panelDrop0.Size = new System.Drawing.Size(30, 10);
             this.panelDrop0.TabIndex = 0;
             this.panelDrop0.Tag = "0";
-            this.panelDrop0.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragEnter);
+            this.panelDrop0.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
             // 
             // panelGrid
             // 
@@ -180,7 +180,7 @@
             this._panelYellowToken.Name = "_panelYellowToken";
             this._panelYellowToken.Size = new System.Drawing.Size(91, 19);
             this._panelYellowToken.TabIndex = 2;
-            this._panelYellowToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropYellowToken_MouseDown);
+            this._panelYellowToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropYellowGameToken_MouseDown);
             // 
             // _lblPlayerYellow
             // 
@@ -206,7 +206,7 @@
             this._panelRedToken.Name = "_panelRedToken";
             this._panelRedToken.Size = new System.Drawing.Size(92, 18);
             this._panelRedToken.TabIndex = 2;
-            this._panelRedToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropRedToken_MouseDown);
+            this._panelRedToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropRedGameToken_MouseDown);
             // 
             // _lblPlayerRed
             // 

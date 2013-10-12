@@ -1,4 +1,5 @@
-﻿using C4.GridBuilder;
+﻿using System;
+using C4.GridBuilder;
 using C4.GridBuilder.Interfaces;
 using C4.Model;
 using NUnit.Framework;
@@ -20,6 +21,19 @@ namespace C4.Tests_Unit.GridBuilder
         public void Init()
         {
             _sut = new GridGenerator<Tile>();
+        }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ThrowAnArgumentOutOfRangeExceptionIfANegativeXDimParamIsGiven()
+        {
+            _sut.GetGrid(-1, 2);
+        }
+        [Test]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ThrowAnArgumentOutOfRangeExceptionIfANegativeYDimParamIsGiven()
+        {
+            _sut.GetGrid(2, -1);
         }
 
         [Test]

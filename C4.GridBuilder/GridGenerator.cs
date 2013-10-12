@@ -1,4 +1,5 @@
-﻿using C4.GridBuilder.Interfaces;
+﻿using System;
+using C4.GridBuilder.Interfaces;
 
 namespace C4.GridBuilder
 {
@@ -7,6 +8,8 @@ namespace C4.GridBuilder
     {
         public T[,] GetGrid(int xDim, int yDim)
         {
+            if(xDim < 0 || yDim < 0) throw new ArgumentOutOfRangeException();
+
             var grid = new T[xDim, yDim];
 
             for (int i = 0; i < xDim; i++)

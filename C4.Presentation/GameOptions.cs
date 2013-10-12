@@ -63,8 +63,17 @@ namespace C4.Presentation
 
         private void ConfirmPlayers_Click(object sender, EventArgs e)
         {
-            var yellowPlayer = new Player {Name = _txtBoxPlayer1.Text};
-            var redPlayer = new Player { Name = _txtBoxPlayer2.Text };
+            var yellowPlayer = new Player
+                {
+                    Name = _txtBoxPlayer1.Text, 
+                    HasCurrentTurn = _rdoButtonYellowStart.Checked
+                };
+            
+            var redPlayer = new Player
+                {
+                    Name = _txtBoxPlayer2.Text, 
+                    HasCurrentTurn = _rdoButtonRedStart.Checked
+                };
 
             OnPlayersConfirmed(new PlayersConfirmedEventArgs(yellowPlayer, redPlayer));
 

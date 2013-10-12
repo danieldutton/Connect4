@@ -3,6 +3,7 @@ using C4.Logic.Interfaces;
 using C4.Model;
 using System;
 using System.Drawing;
+using C4.Model.Interfaces;
 
 namespace C4.Logic
 {
@@ -16,25 +17,18 @@ namespace C4.Logic
 
         public Tile[,] Grid { get; set; }
 
-        public Player PlayerRed { get; set; }
+        public IPlayer YellowPlayer { get; set; }
 
-        public Player PlayerYellow { get; set; }
+        public IPlayer RedPlayer { get; set; }
 
 
-        private GameBoard(Tile[,] grid)
-        {
-            Grid = grid;
-            PlayerRed = new Player();
-            PlayerYellow = new Player();
-            PlayerRed.HasCurrentTurn = true;
-            PlayerYellow.HasCurrentTurn = false;         
+        private GameBoard()
+        {        
         }
 
-        public static GameBoard GetGameInstance(Tile[,] grid)
+        public static GameBoard GetGameInstance()
         {
-            if (grid == null) throw new ArgumentNullException("grid");
-
-            return GameBoardInstance ?? (GameBoardInstance = new GameBoard(grid));
+            return GameBoardInstance ?? (GameBoardInstance = new GameBoard());
         }
 
         public void TakeMove(int xDim)
@@ -45,12 +39,12 @@ namespace C4.Logic
                 {
                     if (ChosenSlotIsFree(xDim, i))
                     {
-                        if (PlayerYellow.HasCurrentTurn)
+                        if (RedPlayer.HasCurrentTurn)
                         {
                             PushTokenInSlot(xDim, i, GameToken.Yellow, Color.Yellow);
                             AllowTurnRedPlayer();
                         }
-                        else if (PlayerRed.HasCurrentTurn)
+                        else if (YellowPlayer.HasCurrentTurn)
                         {
                             PushTokenInSlot(xDim, i, GameToken.Red, Color.Red);
                             AllowTurnYellowPlayer();
@@ -82,14 +76,14 @@ namespace C4.Logic
 
         private void AllowTurnRedPlayer()
         {
-            PlayerRed.HasCurrentTurn = true;
-            PlayerYellow.HasCurrentTurn = false;
+            YellowPlayer.HasCurrentTurn = true;
+            RedPlayer.HasCurrentTurn = false;
         }
 
         private void AllowTurnYellowPlayer()
         {
-            PlayerRed.HasCurrentTurn = false;
-            PlayerYellow.HasCurrentTurn = true;
+            YellowPlayer.HasCurrentTurn = false;
+            RedPlayer.HasCurrentTurn = true;
         }
 
         public bool GameTokenIsRed(int xDim, int yDim)
