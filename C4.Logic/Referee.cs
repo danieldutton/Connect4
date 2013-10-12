@@ -1,4 +1,5 @@
 ﻿using C4.Logic.EventArg;
+using C4.Logic.Interfaces;
 using C4.Model;
 using System;
 using System.Linq;
@@ -14,10 +15,10 @@ namespace C4.Logic
 
         public event EventHandler<EventArgs> GameDrawn;
 
-        public GameBoard GameBoard { get; set; }
+        public IGameBoard GameBoard { get; set; }
 
 
-        public Referee(GameBoard gameBoard)
+        public Referee(IGameBoard gameBoard)
         {
             GameBoard = gameBoard;
             SubScribeToGameBoardEvents();
@@ -54,8 +55,6 @@ namespace C4.Logic
         {
             int redCounter = 0;
             int yellowCounter = 0;
-            int x = GameBoard.Grid.GetLength(0);
-            int y = GameBoard.Grid.GetLength(1);
 
             for (int i = 0; i < GameBoard.Grid.GetLength(0); i++)
             {
@@ -186,7 +185,6 @@ namespace C4.Logic
             return flattenedGrid.All(x => x.GameToken != GameToken.Undefined);
         }
 
-
         protected virtual void OnGameWon(WinnerDetailsEventArgs e)
         {
             EventHandler<WinnerDetailsEventArgs> handler = GameWon;
@@ -201,7 +199,6 @@ namespace C4.Logic
 
         protected virtual void OnGameDrawn()
         {
-            MessageBox.Show("Game is drawn");
             EventHandler<EventArgs> handler = GameDrawn;
             if (handler != null) handler(this, EventArgs.Empty);
         }

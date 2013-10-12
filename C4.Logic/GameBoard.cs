@@ -1,9 +1,9 @@
 ﻿using C4.Logic.EventArg;
 using C4.Logic.Interfaces;
 using C4.Model;
+using C4.Model.Interfaces;
 using System;
 using System.Drawing;
-using C4.Model.Interfaces;
 
 namespace C4.Logic
 {
@@ -41,12 +41,12 @@ namespace C4.Logic
                     {
                         if (RedPlayer.HasCurrentTurn)
                         {
-                            PushTokenInSlot(xDim, i, GameToken.Yellow, Color.Yellow);
+                            PushTokenInSlot(xDim, i, GameToken.Red, Color.Red);
                             AllowTurnRedPlayer();
                         }
                         else if (YellowPlayer.HasCurrentTurn)
                         {
-                            PushTokenInSlot(xDim, i, GameToken.Red, Color.Red);
+                            PushTokenInSlot(xDim, i, GameToken.Yellow, Color.Yellow);
                             AllowTurnYellowPlayer();
                         }
                         break;
