@@ -34,7 +34,51 @@ namespace C4.Tests_Unit.Logic
             _sut = new Referee(_gameBoardStub);
         }
 
-        #region Vertical
+        #region CheckForWinner
+
+        [Test]
+        public void CheckForWinner_CallEventInvocatorOnGameDrawnIfTheGameGridIsFull()
+        {
+            Tile[,] fullGrid = Mother.GetFullGridRedToken();
+            var fakeGameBoard = GameBoard.GetGameInstance();
+            fakeGameBoard.Grid = fullGrid;
+            
+            _sut.CheckForWinner();
+        }
+
+        [Test]
+        public void CheckForWinner_CallEventInvocatorOnGameWonIfRedGetsFourInARowHorizontal()
+        {
+
+        }
+
+        [Test]
+        public void CheckForWinner_CallEventInvocatorOnGameWonIfYellowGetsFourInARowHorizontal()
+        {
+
+        }
+
+        [Test]
+        public void CheckForWinner_CallEventInvocatorOnGameWonIfRedGetsFourInARowVertical()
+        {
+
+        }
+
+        [Test]
+        public void CheckForWinner_CallEventInvocatorOnGameWonIfYellowGetsFourInARowVertical()
+        {
+
+        }
+
+        [Test]
+        public void CheckForWinner_CallEventInvocatorOnGameNotWonIfAMoveResultsInNoWinner()
+        {
+            
+        }
+
+        #endregion
+
+        #region Has4InARowVertical
 
         //col 0
 
@@ -333,10 +377,10 @@ namespace C4.Tests_Unit.Logic
         [Test]
         public void Has4InARowVertical_IdentifyFourRedTokensSpanningIndex_3_3_To_3_0()
         {
-            PushTokenInSlot(3, 4, GameToken.Red);
             PushTokenInSlot(3, 3, GameToken.Red);
             PushTokenInSlot(3, 2, GameToken.Red);
             PushTokenInSlot(3, 1, GameToken.Red);
+            PushTokenInSlot(3, 0, GameToken.Red);
 
             GameToken gameToken = _sut.Has4InARowVertical();
 
@@ -346,10 +390,10 @@ namespace C4.Tests_Unit.Logic
         [Test]
         public void Has4InARowVertical_IdentifyFourYellowTokensSpanningIndex_3_3_To_3_0()
         {
-            PushTokenInSlot(3, 4, GameToken.Yellow);
             PushTokenInSlot(3, 3, GameToken.Yellow);
             PushTokenInSlot(3, 2, GameToken.Yellow);
             PushTokenInSlot(3, 1, GameToken.Yellow);
+            PushTokenInSlot(3, 0, GameToken.Yellow);
 
             GameToken gameToken = _sut.Has4InARowVertical();
 
@@ -597,6 +641,8 @@ namespace C4.Tests_Unit.Logic
         }
 
         #endregion
+
+        #region Has4InARowHorizontal
 
         [Test]
         public void HasFourInARowHorizontal_IdentifyFourRedTokensSpanningIndex_0_5_To_3_5()
@@ -1221,6 +1267,34 @@ namespace C4.Tests_Unit.Logic
 
             Assert.AreEqual(GameToken.Yellow, gameToken);
         }
+
+        #endregion
+
+        #region HasDrawnGame
+
+        [Test]
+        public void HasDrawnGame_ReturnTrueIfGridIsFull()
+        {
+            Tile[,] fullGrid = Mother.GetFullGridRedToken();
+            _gameBoardStub.Grid = fullGrid;
+
+            bool actual = _sut.HasDrawnGame();
+
+            Assert.IsTrue(actual);
+        }
+
+        [Test]
+        public void HasDrawnGame_ReturnFalseIfGridIsPartiallyFull()
+        {
+            Tile[,] fullGrid = Mother.GetGridOneTokenOffBeingFull();
+            _gameBoardStub.Grid = fullGrid;
+
+            bool actual = _sut.HasDrawnGame();
+
+            Assert.IsFalse(actual);    
+        }
+
+        #endregion
 
         public void PushTokenInSlot(int xDim, int yDim, GameToken gameToken)
         {

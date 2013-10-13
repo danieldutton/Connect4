@@ -79,13 +79,10 @@ namespace C4.Logic
                     }
 
                     if (redCounter == 4)
-                    {
                         return GameToken.Red;
-                    }
+
                     if (yellowCounter == 4)
-                    {
                         return GameToken.Yellow;
-                    }
                 }
             }
             return GameToken.Undefined;

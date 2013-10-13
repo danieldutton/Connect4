@@ -4,33 +4,13 @@ namespace C4.Tests_Unit
 {
     public static class Mother
     {
-        public static Tile[,] GetEmptyGrid()
-        {
-            return new Tile[7,6];
-        }
-
-        public static Tile[,] GetGridHalfFull()
+        public static Tile[,] GetGridOneTokenOffBeingFull()
         {
             var grid = new Tile[7, 6];
 
             for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 6; j++)
-                {
-                    grid[i, j].GameToken = GameToken.Red;
-                }
-            }
-
-            return grid;
-        }
-
-        public static Tile[,] GetGridOneTokenOffBeingFull(int xDim, int yDim)
-        {
-            var grid = new Tile[xDim, yDim];
-
-            for (int i = 0; i < xDim; i++)
-            {
-                for (int j = 0; j < yDim; j++)
                 {
                     grid[i, j] = new Tile {GameToken = GameToken.Red};
                 } 
@@ -41,7 +21,7 @@ namespace C4.Tests_Unit
             return grid;
         }
 
-        public static Tile[,] GetFullGrid()
+        public static Tile[,] GetFullGridRedToken()
         {
             var grid = new Tile[7, 6];
 
@@ -49,7 +29,7 @@ namespace C4.Tests_Unit
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    grid[i, j].GameToken = GameToken.Red;
+                    grid[i, j] = new Tile {GameToken = GameToken.Red};
                 }
             }
             return grid;
