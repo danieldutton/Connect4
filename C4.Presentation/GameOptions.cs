@@ -1,6 +1,7 @@
 ﻿using C4.Model;
 using C4.Presentation.EventArg;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace C4.Presentation
@@ -18,19 +19,28 @@ namespace C4.Presentation
         {
             var yellowPlayer = new Player
                 {
-                    Name = _txtBoxYellowPlayer.Text, 
+                    Name = FormatPlayerName(_txtBoxYellowPlayer.Text), 
                     HasCurrentTurn = _rdoButtonYellowStart.Checked
                 };
             
             var redPlayer = new Player
                 {
-                    Name = _txtBoxRedPlayer.Text, 
+                    Name = FormatPlayerName(_txtBoxRedPlayer.Text), 
                     HasCurrentTurn = _rdoButtonRedStart.Checked
                 };
 
             OnPlayersConfirmed(new PlayersConfirmedEventArgs(yellowPlayer, redPlayer));
 
             Dispose();
+        }
+
+        private string FormatPlayerName(string name)
+        {
+            if (name == string.Empty) return "Unknown";
+            
+            if (name.Length > 10)
+                name = name.Substring(0, 10);
+            return name;
         }
 
         protected virtual void OnPlayersConfirmed(PlayersConfirmedEventArgs e)

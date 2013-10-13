@@ -37,13 +37,18 @@ namespace C4.Tests_Unit.Logic
         #region CheckForWinner
 
         [Test]
-        public void CheckForWinner_CallEventInvocatorOnGameDrawnIfTheGameGridIsFull()
+        public void CheckForWinner_CallEventInvocatorOnGameDrawnIfTheGameGridIsFullAndGameIsDrawn()
         {
-            Tile[,] fullGrid = Mother.GetFullGridRedToken();
+            bool wasCalled = false;
+            _sut.GameDrawn += (o, e) => wasCalled = true;
+
+            Tile[,] fullGrid = Mother.GetFullGridGameDrawn();
             var fakeGameBoard = GameBoard.GetGameInstance();
             fakeGameBoard.Grid = fullGrid;
             
             _sut.CheckForWinner();
+
+            Assert.IsTrue(wasCalled);
         }
 
         [Test]
