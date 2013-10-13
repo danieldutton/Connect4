@@ -39,7 +39,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this._rdoButtonRedStart = new System.Windows.Forms.RadioButton();
             this._rdoButtonYellowStart = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -114,15 +113,15 @@
             // 
             this.panel1.Controls.Add(this._rdoButtonRedStart);
             this.panel1.Controls.Add(this._rdoButtonYellowStart);
-            this.panel1.Location = new System.Drawing.Point(244, 23);
+            this.panel1.Location = new System.Drawing.Point(235, 23);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(31, 75);
+            this.panel1.Size = new System.Drawing.Size(31, 69);
             this.panel1.TabIndex = 7;
             // 
             // _rdoButtonRedStart
             // 
             this._rdoButtonRedStart.AutoSize = true;
-            this._rdoButtonRedStart.Location = new System.Drawing.Point(3, 50);
+            this._rdoButtonRedStart.Location = new System.Drawing.Point(9, 45);
             this._rdoButtonRedStart.Name = "_rdoButtonRedStart";
             this._rdoButtonRedStart.Size = new System.Drawing.Size(14, 13);
             this._rdoButtonRedStart.TabIndex = 1;
@@ -132,22 +131,12 @@
             // 
             this._rdoButtonYellowStart.AutoSize = true;
             this._rdoButtonYellowStart.Checked = true;
-            this._rdoButtonYellowStart.Location = new System.Drawing.Point(3, 10);
+            this._rdoButtonYellowStart.Location = new System.Drawing.Point(9, 10);
             this._rdoButtonYellowStart.Name = "_rdoButtonYellowStart";
             this._rdoButtonYellowStart.Size = new System.Drawing.Size(14, 13);
             this._rdoButtonYellowStart.TabIndex = 0;
             this._rdoButtonYellowStart.TabStop = true;
             this._rdoButtonYellowStart.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(235, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "First Turn";
             // 
             // panel2
             // 
@@ -156,7 +145,7 @@
             this.panel2.Controls.Add(this._txtBoxYellowPlayer);
             this.panel2.Location = new System.Drawing.Point(12, 23);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(231, 34);
+            this.panel2.Size = new System.Drawing.Size(226, 34);
             this.panel2.TabIndex = 9;
             // 
             // panel3
@@ -166,7 +155,7 @@
             this.panel3.Controls.Add(this._txtBoxRedPlayer);
             this.panel3.Location = new System.Drawing.Point(12, 58);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(231, 34);
+            this.panel3.Size = new System.Drawing.Size(226, 34);
             this.panel3.TabIndex = 10;
             // 
             // GameOptions
@@ -174,10 +163,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(292, 129);
+            this.ClientSize = new System.Drawing.Size(281, 129);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this._btnConfirm);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -190,7 +178,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -206,7 +193,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton _rdoButtonRedStart;
         private System.Windows.Forms.RadioButton _rdoButtonYellowStart;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
     }
