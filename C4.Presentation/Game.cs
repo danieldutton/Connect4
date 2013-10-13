@@ -56,18 +56,8 @@ namespace C4.Presentation
 
         private void RegisterPlayersToGameboard(object sender, PlayersConfirmedEventArgs e)
         {
-            const string defaultName = "Unknown";
-
-            if (e.RedPlayer.Name != string.Empty && e.YellowPlayer.Name != string.Empty)
-            {
-                _lblPlayerRed.Text = e.RedPlayer.Name;
-                _lblPlayerYellow.Text = e.YellowPlayer.Name;
-            }
-            else
-            {
-                _lblPlayerRed.Text = defaultName;
-                _lblPlayerYellow.Text = defaultName;
-            }
+            _lblPlayerRed.Text = e.RedPlayer.Name;
+            _lblPlayerYellow.Text = e.YellowPlayer.Name;
 
             GameBoard.YellowPlayer = e.YellowPlayer;
             GameBoard.RedPlayer = e.RedPlayer;

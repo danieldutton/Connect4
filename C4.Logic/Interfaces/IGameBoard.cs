@@ -1,7 +1,7 @@
-﻿using System;
-using System.Drawing;
-using C4.Logic.EventArg;
+﻿using C4.Logic.EventArg;
 using C4.Model;
+using System;
+using System.Drawing;
 
 namespace C4.Logic.Interfaces
 {

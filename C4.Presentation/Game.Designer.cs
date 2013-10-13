@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.panel1 = new System.Windows.Forms.Panel();
+            this._panelYellowToken = new System.Windows.Forms.Panel();
             this.panelDropPanels = new System.Windows.Forms.Panel();
             this.panelDrop6 = new System.Windows.Forms.Panel();
             this.panelDrop5 = new System.Windows.Forms.Panel();
@@ -40,7 +41,6 @@
             this.panelDrop0 = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
             this.panelYellow = new System.Windows.Forms.Panel();
-            this._panelYellowToken = new System.Windows.Forms.Panel();
             this._lblPlayerYellow = new System.Windows.Forms.Label();
             this.panelRed = new System.Windows.Forms.Panel();
             this._panelRedToken = new System.Windows.Forms.Panel();
@@ -66,6 +66,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(264, 302);
             this.panel1.TabIndex = 0;
+            // 
+            // _panelYellowToken
+            // 
+            this._panelYellowToken.BackColor = System.Drawing.Color.Yellow;
+            this._panelYellowToken.Location = new System.Drawing.Point(160, 279);
+            this._panelYellowToken.Name = "_panelYellowToken";
+            this._panelYellowToken.Size = new System.Drawing.Size(91, 19);
+            this._panelYellowToken.TabIndex = 2;
+            this._panelYellowToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropYellowGameToken_MouseDown);
             // 
             // panelDropPanels
             // 
@@ -173,15 +182,6 @@
             this.panelYellow.Size = new System.Drawing.Size(94, 47);
             this.panelYellow.TabIndex = 1;
             // 
-            // _panelYellowToken
-            // 
-            this._panelYellowToken.BackColor = System.Drawing.Color.Yellow;
-            this._panelYellowToken.Location = new System.Drawing.Point(160, 279);
-            this._panelYellowToken.Name = "_panelYellowToken";
-            this._panelYellowToken.Size = new System.Drawing.Size(91, 19);
-            this._panelYellowToken.TabIndex = 2;
-            this._panelYellowToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropYellowGameToken_MouseDown);
-            // 
             // _lblPlayerYellow
             // 
             this._lblPlayerYellow.AutoSize = true;
@@ -219,7 +219,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(262, 40);
             this.pictureBox1.TabIndex = 0;
@@ -228,9 +228,9 @@
             // panelHeader
             // 
             this.panelHeader.Controls.Add(this.pictureBox1);
-            this.panelHeader.Location = new System.Drawing.Point(13, 13);
+            this.panelHeader.Location = new System.Drawing.Point(-4, -1);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(262, 43);
+            this.panelHeader.Size = new System.Drawing.Size(279, 57);
             this.panelHeader.TabIndex = 1;
             // 
             // Game

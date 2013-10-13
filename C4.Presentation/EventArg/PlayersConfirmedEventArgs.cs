@@ -9,6 +9,7 @@ namespace C4.Presentation.EventArg
 
         public Player RedPlayer { get; set; }
 
+
         public PlayersConfirmedEventArgs(Player yellowPlayer, Player redPlayer)
         {
             YellowPlayer = yellowPlayer;

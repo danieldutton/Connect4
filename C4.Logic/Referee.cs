@@ -95,8 +95,8 @@ namespace C4.Logic
 
         public GameToken Has4InARowHorizontal(GameToken gameToken)
         {
-            int redCounter = 0;
             int yellowCounter = 0;
+            int redCounter = 0;
 
             for (int i = 0; i < GameBoard.Grid.GetLength(1); ++i)
             {
@@ -104,28 +104,28 @@ namespace C4.Logic
                 {
                     if (GameBoard.GameTokenIsRed(j, i))
                     {
-                        redCounter++;
-                        yellowCounter = 0;
-                    }
-
-                    if (GameBoard.GameTokenIsYellow(j, i))
-                    {
                         yellowCounter++;
                         redCounter = 0;
                     }
 
-                    if (GameBoard.GameTokenIsUndefined(j, i))
+                    if (GameBoard.GameTokenIsYellow(j, i))
                     {
-                        redCounter = 0;
+                        redCounter++;
                         yellowCounter = 0;
                     }
 
-                    if (redCounter == 4)
+                    if (GameBoard.GameTokenIsUndefined(j, i))
+                    {
+                        yellowCounter = 0;
+                        redCounter = 0;
+                    }
+
+                    if (yellowCounter == 4)
                     {
                         MessageBox.Show("Red Win horizontal");
                         return GameToken.Red;
                     }
-                    if (yellowCounter == 4)
+                    if (redCounter == 4)
                     {
                         MessageBox.Show("Yello Wins horizontal");
                         return GameToken.Yellow;
