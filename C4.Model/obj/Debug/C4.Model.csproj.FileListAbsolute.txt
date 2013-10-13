@@ -22,3 +22,5 @@ E:\Connect_4\C4.Model\bin\Debug\C4.GridBuilder.dll
 E:\Connect_4\C4.Model\bin\Debug\C4.GridBuilder.pdb
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Model\bin\Debug\C4.GridBuilder.dll
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Model\bin\Debug\C4.GridBuilder.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Model\bin\Debug\C4.GridBuilder.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Model\bin\Debug\C4.GridBuilder.pdb

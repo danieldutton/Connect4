@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace C4.Model
 {
-    public class Tile : PictureBox, IPlottable
+    public class Tile : Panel, IPlottable
     {
         public int XPosition { get; set; }
         

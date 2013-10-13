@@ -39,10 +39,10 @@ namespace C4.Logic
         {
             if (HasDrawnGame()) { OnGameDrawn(); return; }
 
-            GameToken gameTokenRow = Has4InARowVertical(GameToken.Red);
+            GameToken gameTokenRow = Has4InARowVertical();
             if (gameTokenRow != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenRow)); return; }
 
-            GameToken gameTokenColumn = Has4InARowHorizontal(GameToken.Red);
+            GameToken gameTokenColumn = Has4InARowHorizontal();
             if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenColumn)); return; }
 
             //GameToken gameTokenDiagonal = CheckDiagonalRowsForWin();
@@ -51,7 +51,7 @@ namespace C4.Logic
             OnGameNotWon();
         }
 
-        public GameToken Has4InARowVertical(GameToken gameToken)
+        public GameToken Has4InARowVertical()
         {
             int redCounter = 0;
             int yellowCounter = 0;
@@ -80,12 +80,10 @@ namespace C4.Logic
 
                     if (redCounter == 4)
                     {
-                        MessageBox.Show("Red Win vertical");
                         return GameToken.Red;
                     }
                     if (yellowCounter == 4)
                     {
-                        MessageBox.Show("Yello Wins vertical");
                         return GameToken.Yellow;
                     }
                 }
@@ -93,7 +91,7 @@ namespace C4.Logic
             return GameToken.Undefined;
         }
 
-        public GameToken Has4InARowHorizontal(GameToken gameToken)
+        public GameToken Has4InARowHorizontal()
         {
             int yellowCounter = 0;
             int redCounter = 0;
@@ -122,12 +120,10 @@ namespace C4.Logic
 
                     if (yellowCounter == 4)
                     {
-                        MessageBox.Show("Red Win horizontal");
                         return GameToken.Red;
                     }
                     if (redCounter == 4)
                     {
-                        MessageBox.Show("Yello Wins horizontal");
                         return GameToken.Yellow;
                     }
                 }

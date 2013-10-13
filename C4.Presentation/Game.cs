@@ -31,11 +31,13 @@ namespace C4.Presentation
             {
                 for (int j = 0; j < grid.GetLength(0); j++)
                 {
-                    GameBoard.Grid[j,i].BackColor = Color.Gray;
+                    GameBoard.Grid[j, i].BackColor = Color.Gray;
                     GameBoard.Grid[j, i].BorderStyle = BorderStyle.FixedSingle;
                     GameBoard.Grid[j, i].Width = 32;
                     GameBoard.Grid[j, i].Height = 32;
                     GameBoard.Grid[j, i].Location = new Point(x, y);
+                    var label = new Label {Text = "[" + j.ToString() + "," + i.ToString() + "]"};
+                    GameBoard.Grid[j, i].Controls.Add(label);
                     panelGrid.Controls.Add(GameBoard.Grid[j, i]);
                     
                     x += 35;
