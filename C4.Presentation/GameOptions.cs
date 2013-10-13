@@ -1,7 +1,6 @@
 ﻿using C4.Model;
 using C4.Presentation.EventArg;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace C4.Presentation
@@ -37,9 +36,11 @@ namespace C4.Presentation
         private string FormatPlayerName(string name)
         {
             if (name == string.Empty) return "Unknown";
-            
+
+            const int MaxNamelenth = 10;
+
             if (name.Length > 10)
-                name = name.Substring(0, 10);
+                name = name.Substring(0, MaxNamelenth);
             return name;
         }
 
