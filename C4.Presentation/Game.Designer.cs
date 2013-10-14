@@ -241,9 +241,9 @@
             this.ClientSize = new System.Drawing.Size(271, 369);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Game";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Game_Load);
             this.panel1.ResumeLayout(false);
             this.panelDropPanels.ResumeLayout(false);
             this.panelYellow.ResumeLayout(false);

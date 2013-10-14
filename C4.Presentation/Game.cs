@@ -16,11 +16,6 @@ namespace C4.Presentation
             DrawGameBoard();
         }
 
-        private void Game_Load(object sender, System.EventArgs e)
-        {
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-        }
-
         public void DrawGameBoard()
         {
             var grid = GameBoard.Grid;
