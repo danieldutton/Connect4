@@ -2,15 +2,13 @@
 
 namespace C4.Logic.EventArg
 {
-    public class GameStatusEventArgs
+    public class WinnerDetailsEventArgs
     {
         public GameToken WinningGameToken { get; private set; }
 
-        public Player WinningPlayer { get; private set; }
-
         //ToDo add location of winning row to highlight on grid
 
-        public GameStatusEventArgs(GameToken winningGameToken)
+        public WinnerDetailsEventArgs(GameToken winningGameToken)
         {
             WinningGameToken = winningGameToken;
         }

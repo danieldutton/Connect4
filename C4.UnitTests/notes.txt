@@ -1,4 +1,3 @@
 ﻿In total there are 69 possible winning combinations. On each row you have 4 possibilities of connecting four 
 and there are 6 rows (24 combinations). On each column you have 3 possibilities and there are 7 columns (21 combinations). 
-There are 12 ascending and 12 descending diagonals, resulting in a total number of 69 possibilites.  All such possibilities have been 
-tested for.  
+There are 12 ascending and 12 descending diagonals, resulting in a total number of 69 possibilites.

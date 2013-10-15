@@ -18,8 +18,8 @@ namespace C4.Model
 
         public override string ToString()
         {
-            return string.Format("[{0}] XPosition:{1} YPosition:{2} GameToken:{3}",
-                GetType().Name, XPosition, YPosition, GameToken);
+            return "[" + GetType().Name + "]" + " XPosition:[" + XPosition + "]" + " YPositon:[" + YPosition + "]";
         }
+
     }
 }

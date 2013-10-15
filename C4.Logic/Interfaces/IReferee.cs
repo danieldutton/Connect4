@@ -5,7 +5,7 @@ namespace C4.Logic.Interfaces
 {
     public interface IReferee
     {
-        event EventHandler<GameStatusEventArgs> GameWon;
+        event EventHandler<WinnerDetailsEventArgs> GameWon;
 
         event EventHandler<EventArgs> GameNotWon;
 

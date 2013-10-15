@@ -22,6 +22,10 @@ namespace C4.Logic
         public IPlayer RedPlayer { get; set; }
 
 
+        private GameBoard()
+        {        
+        }
+
         public static GameBoard GetGameInstance()
         {
             return GameBoardInstance ?? (GameBoardInstance = new GameBoard());
@@ -33,16 +37,16 @@ namespace C4.Logic
             {
                 for (int i = 5; i < Grid.GetLength(0); i--)
                 {
-                    if (ChosenSlotIsFree(i, xDim))
+                    if (ChosenSlotIsFree(xDim, i))
                     {
                         if (RedPlayer.HasCurrentTurn)
                         {
-                            PushTokenInSlot(i, xDim, GameToken.Red, Color.Red);
+                            PushTokenInSlot(xDim, i, GameToken.Red, Color.Red);
                             AllowTurnRedPlayer();
                         }
                         else if (YellowPlayer.HasCurrentTurn)
                         {
-                            PushTokenInSlot(i, xDim, GameToken.Yellow, Color.Yellow);
+                            PushTokenInSlot(xDim, i, GameToken.Yellow, Color.Yellow);
                             AllowTurnYellowPlayer();
                         }
                         break;
@@ -54,7 +58,7 @@ namespace C4.Logic
 
         public bool ColumnHasSpareSlot(int xDim)
         {
-            return Grid[0, xDim].GameToken == GameToken.Undefined;
+            return Grid[xDim, 0].GameToken == GameToken.Undefined;
         }
 
         public bool ChosenSlotIsFree(int xDim, int yDim)

@@ -1,8 +1,8 @@
-﻿using C4.GridBuilder;
+﻿using System;
+using C4.GridBuilder;
 using C4.GridBuilder.Interfaces;
 using C4.Model;
 using NUnit.Framework;
-using System;
 using System.Linq;
 
 namespace C4.Tests_Unit.GridBuilder
@@ -55,7 +55,7 @@ namespace C4.Tests_Unit.GridBuilder
         }
 
         [Test]
-        public void GetGrid_GenerateAGridWithATotalOfFortyTwoElements()
+        public void GetGrid_GenerateAGridWithATotalOfFortyTwoSlots()
         {
             const int expected = 42;
             int actual = _sut.GetGrid(XDimensionLength, YDimensionLength).Length;

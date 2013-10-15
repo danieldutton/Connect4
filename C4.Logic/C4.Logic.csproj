@@ -38,7 +38,7 @@
   <ItemGroup>
     <Compile Include="EventArg\ColumnFullEventArgs.cs" />
     <Compile Include="EventArg\TokenPlacedEventArgs.cs" />
-    <Compile Include="EventArg\GameStatusEventArgs.cs" />
+    <Compile Include="EventArg\WinnerDetailsEventArgs.cs" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="Interfaces\IGameBoard.cs" />
     <Compile Include="Interfaces\IReferee.cs" />

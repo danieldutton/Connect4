@@ -9,11 +9,11 @@ namespace C4.Logic
 {
     public class Referee 
     {
-        public event EventHandler<GameStatusEventArgs> GameWon;
+        public event EventHandler<WinnerDetailsEventArgs> GameWon;
 
         public event EventHandler<EventArgs> GameNotWon;
 
-        public event EventHandler<GameStatusEventArgs> GameDrawn;
+        public event EventHandler<EventArgs> GameDrawn;
 
         public IGameBoard GameBoard { get; set; }
 
@@ -37,21 +37,21 @@ namespace C4.Logic
 
         public void CheckForWinner()
         {
-            if (HasDrawnGame()) { OnGameDrawn(new GameStatusEventArgs(GameToken.Undefined)); return; }
+            if (HasDrawnGame()) { OnGameDrawn(); return; }
 
             GameToken gameTokenRow = Has4InARowVertical();
-            if (gameTokenRow != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenRow)); return; }
+            if (gameTokenRow != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenRow)); return; }
 
-            GameToken gameTokenColumn = Has4InARowVertical();
-            if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenColumn)); return; }
+            GameToken gameTokenColumn = Has4InARowHorizontal();
+            if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenColumn)); return; }
 
             //GameToken gameTokenDiagonal = CheckDiagonalRowsForWin();
-            //if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenDiagonal)); return; }
+            //if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new WinnerDetailsEventArgs(gameTokenDiagonal)); return; }
             
             OnGameNotWon();
         }
 
-        public GameToken Has4InARowHorizintal()
+        public GameToken Has4InARowVertical()
         {
             int redCounter = 0;
             int yellowCounter = 0;
@@ -79,22 +79,16 @@ namespace C4.Logic
                     }
 
                     if (redCounter == 4)
-                    {
-                        return GameToken.Red;    
-                    }
-                        
+                        return GameToken.Red;
 
                     if (yellowCounter == 4)
-                    {
-                        return GameToken.Yellow;    
-                    }
-                        
+                        return GameToken.Yellow;
                 }
             }
             return GameToken.Undefined;
         }
 
-        public GameToken Has4InARowVertical()
+        public GameToken Has4InARowHorizontal()
         {
             int yellowCounter = 0;
             int redCounter = 0;
@@ -128,7 +122,6 @@ namespace C4.Logic
                     if (redCounter == 4)
                     {
                         return GameToken.Yellow;
-                        
                     }
                 }
             }
@@ -185,9 +178,9 @@ namespace C4.Logic
             return flattenedGrid.All(x => x.GameToken != GameToken.Undefined);
         }
 
-        protected virtual void OnGameWon(GameStatusEventArgs e)
+        protected virtual void OnGameWon(WinnerDetailsEventArgs e)
         {
-            EventHandler<GameStatusEventArgs> handler = GameWon;
+            EventHandler<WinnerDetailsEventArgs> handler = GameWon;
             if (handler != null) handler(this, e);
         }
 
@@ -197,10 +190,11 @@ namespace C4.Logic
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
-        protected virtual void OnGameDrawn(GameStatusEventArgs e)
+        protected virtual void OnGameDrawn()
         {
-            EventHandler<GameStatusEventArgs> handler = GameDrawn;
-            if (handler != null) handler(this, e);
+            EventHandler<EventArgs> handler = GameDrawn;
+            if (handler != null) handler(this, EventArgs.Empty);
         }
+
     }
 }
