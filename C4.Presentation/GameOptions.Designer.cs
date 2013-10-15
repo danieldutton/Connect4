@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameOptions));
             this._lblPlayer1 = new System.Windows.Forms.Label();
             this._lblPlayer2 = new System.Windows.Forms.Label();
             this._txtBoxYellowPlayer = new System.Windows.Forms.TextBox();
@@ -49,59 +48,61 @@
             // _lblPlayer1
             // 
             this._lblPlayer1.AutoSize = true;
-            this._lblPlayer1.Font = new System.Drawing.Font("Lucida Sans Unicode", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lblPlayer1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._lblPlayer1.ForeColor = System.Drawing.Color.White;
-            this._lblPlayer1.Location = new System.Drawing.Point(31, 7);
+            this._lblPlayer1.Location = new System.Drawing.Point(27, 9);
             this._lblPlayer1.Name = "_lblPlayer1";
-            this._lblPlayer1.Size = new System.Drawing.Size(55, 16);
+            this._lblPlayer1.Size = new System.Drawing.Size(56, 14);
             this._lblPlayer1.TabIndex = 0;
             this._lblPlayer1.Text = "Player 1";
             // 
             // _lblPlayer2
             // 
             this._lblPlayer2.AutoSize = true;
-            this._lblPlayer2.Font = new System.Drawing.Font("Lucida Sans Unicode", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lblPlayer2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._lblPlayer2.ForeColor = System.Drawing.Color.White;
-            this._lblPlayer2.Location = new System.Drawing.Point(31, 7);
+            this._lblPlayer2.Location = new System.Drawing.Point(27, 8);
             this._lblPlayer2.Name = "_lblPlayer2";
-            this._lblPlayer2.Size = new System.Drawing.Size(55, 16);
+            this._lblPlayer2.Size = new System.Drawing.Size(56, 14);
             this._lblPlayer2.TabIndex = 1;
             this._lblPlayer2.Text = "Player 2";
             // 
             // _txtBoxYellowPlayer
             // 
-            this._txtBoxYellowPlayer.Location = new System.Drawing.Point(92, 7);
+            this._txtBoxYellowPlayer.BackColor = System.Drawing.Color.Gainsboro;
+            this._txtBoxYellowPlayer.Location = new System.Drawing.Point(89, 7);
             this._txtBoxYellowPlayer.Name = "_txtBoxYellowPlayer";
-            this._txtBoxYellowPlayer.Size = new System.Drawing.Size(125, 20);
+            this._txtBoxYellowPlayer.Size = new System.Drawing.Size(133, 20);
             this._txtBoxYellowPlayer.TabIndex = 2;
             // 
             // _txtBoxRedPlayer
             // 
-            this._txtBoxRedPlayer.Location = new System.Drawing.Point(92, 6);
+            this._txtBoxRedPlayer.BackColor = System.Drawing.Color.Gainsboro;
+            this._txtBoxRedPlayer.Location = new System.Drawing.Point(89, 6);
             this._txtBoxRedPlayer.Name = "_txtBoxRedPlayer";
-            this._txtBoxRedPlayer.Size = new System.Drawing.Size(125, 20);
+            this._txtBoxRedPlayer.Size = new System.Drawing.Size(133, 20);
             this._txtBoxRedPlayer.TabIndex = 3;
             // 
             // _panelYellowSquare
             // 
             this._panelYellowSquare.BackColor = System.Drawing.Color.Yellow;
             this._panelYellowSquare.ForeColor = System.Drawing.Color.Yellow;
-            this._panelYellowSquare.Location = new System.Drawing.Point(3, 7);
+            this._panelYellowSquare.Location = new System.Drawing.Point(6, 8);
             this._panelYellowSquare.Name = "_panelYellowSquare";
-            this._panelYellowSquare.Size = new System.Drawing.Size(22, 20);
+            this._panelYellowSquare.Size = new System.Drawing.Size(16, 16);
             this._panelYellowSquare.TabIndex = 4;
             // 
             // _panelRedSquare
             // 
             this._panelRedSquare.BackColor = System.Drawing.Color.Red;
-            this._panelRedSquare.Location = new System.Drawing.Point(3, 6);
+            this._panelRedSquare.Location = new System.Drawing.Point(6, 8);
             this._panelRedSquare.Name = "_panelRedSquare";
-            this._panelRedSquare.Size = new System.Drawing.Size(22, 20);
+            this._panelRedSquare.Size = new System.Drawing.Size(16, 16);
             this._panelRedSquare.TabIndex = 5;
             // 
             // _btnConfirm
             // 
-            this._btnConfirm.Location = new System.Drawing.Point(104, 99);
+            this._btnConfirm.Location = new System.Drawing.Point(95, 80);
             this._btnConfirm.Name = "_btnConfirm";
             this._btnConfirm.Size = new System.Drawing.Size(75, 23);
             this._btnConfirm.TabIndex = 6;
@@ -113,15 +114,15 @@
             // 
             this.panel1.Controls.Add(this._rdoButtonRedStart);
             this.panel1.Controls.Add(this._rdoButtonYellowStart);
-            this.panel1.Location = new System.Drawing.Point(235, 23);
+            this.panel1.Location = new System.Drawing.Point(230, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(31, 69);
+            this.panel1.Size = new System.Drawing.Size(22, 69);
             this.panel1.TabIndex = 7;
             // 
             // _rdoButtonRedStart
             // 
             this._rdoButtonRedStart.AutoSize = true;
-            this._rdoButtonRedStart.Location = new System.Drawing.Point(9, 45);
+            this._rdoButtonRedStart.Location = new System.Drawing.Point(5, 45);
             this._rdoButtonRedStart.Name = "_rdoButtonRedStart";
             this._rdoButtonRedStart.Size = new System.Drawing.Size(14, 13);
             this._rdoButtonRedStart.TabIndex = 1;
@@ -131,7 +132,7 @@
             // 
             this._rdoButtonYellowStart.AutoSize = true;
             this._rdoButtonYellowStart.Checked = true;
-            this._rdoButtonYellowStart.Location = new System.Drawing.Point(9, 10);
+            this._rdoButtonYellowStart.Location = new System.Drawing.Point(5, 10);
             this._rdoButtonYellowStart.Name = "_rdoButtonYellowStart";
             this._rdoButtonYellowStart.Size = new System.Drawing.Size(14, 13);
             this._rdoButtonYellowStart.TabIndex = 0;
@@ -143,9 +144,9 @@
             this.panel2.Controls.Add(this._panelYellowSquare);
             this.panel2.Controls.Add(this._lblPlayer1);
             this.panel2.Controls.Add(this._txtBoxYellowPlayer);
-            this.panel2.Location = new System.Drawing.Point(12, 23);
+            this.panel2.Location = new System.Drawing.Point(2, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(226, 34);
+            this.panel2.Size = new System.Drawing.Size(227, 34);
             this.panel2.TabIndex = 9;
             // 
             // panel3
@@ -153,9 +154,9 @@
             this.panel3.Controls.Add(this._panelRedSquare);
             this.panel3.Controls.Add(this._lblPlayer2);
             this.panel3.Controls.Add(this._txtBoxRedPlayer);
-            this.panel3.Location = new System.Drawing.Point(12, 58);
+            this.panel3.Location = new System.Drawing.Point(2, 47);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(226, 34);
+            this.panel3.Size = new System.Drawing.Size(227, 34);
             this.panel3.TabIndex = 10;
             // 
             // GameOptions
@@ -163,15 +164,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(281, 129);
+            this.ClientSize = new System.Drawing.Size(261, 115);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this._btnConfirm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(277, 149);
             this.Name = "GameOptions";
-            this.Text = "GameOptions";
+            this.Text = "Confirm Players";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

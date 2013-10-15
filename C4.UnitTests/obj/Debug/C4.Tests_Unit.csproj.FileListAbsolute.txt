@@ -3,11 +3,9 @@ E:\Connect_4\C4.UnitTests\bin\Debug\C4.Tests_Unit.dll
 E:\Connect_4\C4.UnitTests\bin\Debug\C4.Tests_Unit.pdb
 E:\Connect_4\C4.UnitTests\bin\Debug\C4.Logic.dll
 E:\Connect_4\C4.UnitTests\bin\Debug\C4.Model.dll
-E:\Connect_4\C4.UnitTests\bin\Debug\Moq.dll
 E:\Connect_4\C4.UnitTests\bin\Debug\nunit.framework.dll
 E:\Connect_4\C4.UnitTests\bin\Debug\C4.Logic.pdb
 E:\Connect_4\C4.UnitTests\bin\Debug\C4.Model.pdb
-E:\Connect_4\C4.UnitTests\bin\Debug\Moq.xml
 E:\Connect_4\C4.UnitTests\bin\Debug\nunit.framework.xml
 E:\Connect_4\C4.UnitTests\obj\Debug\C4.Tests_Unit.dll
 E:\Connect_4\C4.UnitTests\obj\Debug\C4.Tests_Unit.pdb

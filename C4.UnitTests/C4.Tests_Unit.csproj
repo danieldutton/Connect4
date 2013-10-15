@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Moq">
-      <HintPath>..\packages\Moq.4.1.1309.1617\lib\net40\Moq.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -44,6 +41,8 @@
     <Compile Include="Logic\GameBoard_Should.cs" />
     <Compile Include="GridBuilder\GridGenerator_Should.cs" />
     <Compile Include="Logic\Referee_Should.cs" />
+    <Compile Include="Model\Player_Should.cs" />
+    <Compile Include="Model\Tile_Should.cs" />
     <Compile Include="Mother.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
