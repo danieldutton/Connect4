@@ -5,7 +5,5 @@
         string Name { get; set; }
 
         bool HasCurrentTurn { get; set; }
-
-        //consider setting game token here
     }
 }

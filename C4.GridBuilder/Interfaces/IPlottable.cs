@@ -2,8 +2,8 @@
 {
     public interface IPlottable
     {
-        int XPosition { get; set; }
-        
         int YPosition { get; set; }
+        
+        int XPosition { get; set; }
     }
 }

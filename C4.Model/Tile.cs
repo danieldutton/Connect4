@@ -5,9 +5,9 @@ namespace C4.Model
 {
     public class Tile : Panel, IPlottable
     {
-        public int XPosition { get; set; }
-        
         public int YPosition { get; set; }
+        
+        public int XPosition { get; set; }
         
         public GameToken GameToken { get; set; }
 
@@ -18,8 +18,8 @@ namespace C4.Model
 
         public override string ToString()
         {
-            return "[" + GetType().Name + "]" + " XPosition:[" + XPosition + "]" + " YPositon:[" + YPosition + "]";
+            return string.Format("[{0}] YPosition:{1} XPosition:{2} GameToken:{3}",
+                GetType().Name, YPosition, XPosition, GameToken);
         }
-
     }
 }

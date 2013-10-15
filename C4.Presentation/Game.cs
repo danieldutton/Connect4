@@ -22,18 +22,24 @@ namespace C4.Presentation
 
             int x = 0, y = 0;
 
-            for (int i = 0; i < grid.GetLength(1); i++)
+            int yDim = grid.GetLength(1); //6
+            int xDim = grid.GetLength(0); //7
+
+            for (int i = 0; i < xDim; i++)
             {
-                for (int j = 0; j < grid.GetLength(0); j++)
+                for (int j = 0; j < yDim; j++)
                 {
-                    GameBoard.Grid[j, i].BackColor = Color.Gray;
-                    GameBoard.Grid[j, i].BorderStyle = BorderStyle.FixedSingle;
-                    GameBoard.Grid[j, i].Width = 32;
-                    GameBoard.Grid[j, i].Height = 32;
-                    GameBoard.Grid[j, i].Location = new Point(x, y);
-                    var label = new Label {Text = "[" + j.ToString() + "," + i.ToString() + "]"};
-                    GameBoard.Grid[j, i].Controls.Add(label);
-                    panelGrid.Controls.Add(GameBoard.Grid[j, i]);
+                    if(i %2 == 0)
+                    GameBoard.Grid[i, j].BackColor = Color.Gray;
+                    if (i % 2 != 0)
+                        GameBoard.Grid[i, j].BackColor = Color.Green;
+                    GameBoard.Grid[i, j].BorderStyle = BorderStyle.FixedSingle;
+                    GameBoard.Grid[i, j].Width = 32;
+                    GameBoard.Grid[i, j].Height = 32;
+                    GameBoard.Grid[i, j].Location = new Point(x, y);
+                    var label = new Label {Text = "[" + i.ToString() + "," + j.ToString() + "]"};
+                    GameBoard.Grid[i, j].Controls.Add(label);
+                    panelGrid.Controls.Add(GameBoard.Grid[i, j]);
                     
                     x += 35;
                     
@@ -66,8 +72,7 @@ namespace C4.Presentation
 
             var panel = sender as Panel;
 
-            int column;
-
+            int column;            
             int.TryParse(panel.Tag.ToString(), out column);
 
             GameBoard.TakeMove(column);
