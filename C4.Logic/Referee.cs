@@ -39,7 +39,7 @@ namespace C4.Logic
         {
             if (HasDrawnGame()) { OnGameDrawn(new GameStatusEventArgs(GameToken.Undefined)); return; }
 
-            GameToken gameTokenRow = Has4InARowVertical();
+            GameToken gameTokenRow = Has4InARowHorizintal();
             if (gameTokenRow != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenRow)); return; }
 
             GameToken gameTokenColumn = Has4InARowVertical();

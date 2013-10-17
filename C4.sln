@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.Presentation", "C4.Prese
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.GridBuilder", "C4.GridBuilder\C4.GridBuilder.csproj", "{14E52DBB-FEE3-4CBB-AA1D-57E8AAAF5403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.TestConsole", "C4.TestConsole\C4.TestConsole.csproj", "{819B5DEC-4D88-429F-92F2-9ED1A0F18378}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,10 +37,6 @@ Global
 		{14E52DBB-FEE3-4CBB-AA1D-57E8AAAF5403}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14E52DBB-FEE3-4CBB-AA1D-57E8AAAF5403}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14E52DBB-FEE3-4CBB-AA1D-57E8AAAF5403}.Release|Any CPU.Build.0 = Release|Any CPU
-		{819B5DEC-4D88-429F-92F2-9ED1A0F18378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{819B5DEC-4D88-429F-92F2-9ED1A0F18378}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{819B5DEC-4D88-429F-92F2-9ED1A0F18378}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{819B5DEC-4D88-429F-92F2-9ED1A0F18378}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

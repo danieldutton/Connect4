@@ -6,7 +6,6 @@ namespace C4.Logic.EventArg
     {
         public int ColumIndex { get; private set; }
 
-
         public ColumnFullEventArgs(int columnIndex)
         {
             ColumIndex = columnIndex;

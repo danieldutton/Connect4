@@ -52,20 +52,20 @@ namespace C4.Logic
             else OnColumnFull(new ColumnFullEventArgs(xDim));
         }
 
-        public bool ColumnHasSpareSlot(int xDim)
+        public bool ColumnHasSpareSlot(int columnNo)
         {
-            return Grid[0, xDim].GameToken == GameToken.Undefined;
+            return Grid[0, columnNo].GameToken == GameToken.Undefined;
         }
 
-        public bool ChosenSlotIsFree(int xDim, int yDim)
+        public bool ChosenSlotIsFree(int rowNo, int columnNo)
         {
-            return Grid[xDim, yDim].GameToken == GameToken.Undefined;
+            return Grid[rowNo, columnNo].GameToken == GameToken.Undefined;
         }
 
-        public void PushTokenInSlot(int xDim, int yDim, GameToken gameToken, Color colour)
+        public void PushTokenInSlot(int rowNo, int columnNo, GameToken gameToken, Color colour)
         {
-            Grid[xDim, yDim].GameToken = gameToken;
-            Grid[xDim, yDim].BackColor = colour;
+            Grid[rowNo, columnNo].GameToken = gameToken;
+            Grid[rowNo, columnNo].BackColor = colour;
 
             OnGameTokenPlaced(new TokenPlacedEventArgs(Grid));
         }
@@ -82,19 +82,19 @@ namespace C4.Logic
             RedPlayer.HasCurrentTurn = true;
         }
 
-        public bool GameTokenIsRed(int xDim, int yDim)
+        public bool GameTokenIsRed(int rowNo, int columnNo)
         {
-            return Grid[xDim, yDim].GameToken == GameToken.Red;
+            return Grid[rowNo, columnNo].GameToken == GameToken.Red;
         }
 
-        public bool GameTokenIsYellow(int xDim, int yDim)
+        public bool GameTokenIsYellow(int rowNo, int columnNo)
         {
-            return Grid[xDim, yDim].GameToken == GameToken.Yellow;
+            return Grid[rowNo, columnNo].GameToken == GameToken.Yellow;
         }
 
-        public bool GameTokenIsUndefined(int xDim, int yDim)
+        public bool GameTokenIsUndefined(int rowNo, int columnNo)
         {
-            return Grid[xDim, yDim].GameToken == GameToken.Undefined;
+            return Grid[rowNo, columnNo].GameToken == GameToken.Undefined;
         }
 
         protected virtual void OnColumnFull(ColumnFullEventArgs e)

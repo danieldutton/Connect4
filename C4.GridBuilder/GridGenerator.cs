@@ -1,22 +1,22 @@
-﻿using System;
-using C4.GridBuilder.Interfaces;
+﻿using C4.GridBuilder.Interfaces;
+using System;
 
 namespace C4.GridBuilder
 {
     public class GridGenerator<T> : IGridGenerator<T> 
         where T: IPlottable, new()
     {
-        public T[,] GetGrid(int yDim, int xDim)
+        public T[,] GetGrid(int rows, int columns)
         {
-            if(yDim < 0 || xDim < 0) throw new ArgumentOutOfRangeException();
+            if(rows < 0 || columns < 0) throw new ArgumentOutOfRangeException();
 
-            var grid = new T[yDim, xDim];
+            var grid = new T[rows, columns];
 
-            for (int i = 0; i < yDim; i++)
+            for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < xDim; j++)
+                for (int j = 0; j < columns; j++)
                 {
-                    grid[i, j] = new T{YPosition = i, XPosition = j};
+                    grid[i, j] = new T{RowNumber = i, ColumnNumber = j};
                 }
             }
             return grid;

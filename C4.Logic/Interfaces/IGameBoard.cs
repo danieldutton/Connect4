@@ -11,16 +11,16 @@ namespace C4.Logic.Interfaces
 
         Tile[,] Grid { get; set; }
 
-        bool ChosenSlotIsFree(int xDim, int yDim);
+        bool ChosenSlotIsFree(int rowNo, int columnNo);
 
-        bool ColumnHasSpareSlot(int xDim);
+        bool ColumnHasSpareSlot(int columnNo);
 
-        bool GameTokenIsRed(int xDim, int yDim);
+        bool GameTokenIsRed(int rowNo, int columnNo);
 
-        bool GameTokenIsYellow(int xDim, int yDim);
+        bool GameTokenIsYellow(int rowNo, int columnNo);
 
-        bool GameTokenIsUndefined(int xDim, int yDim);
+        bool GameTokenIsUndefined(int rowNo, int columnNo);
 
-        void PushTokenInSlot(int xDim, int yDim, GameToken gameToken, Color colour);
+        void PushTokenInSlot(int rowNo, int columnNo, GameToken gameToken, Color colour);
     }
 }

@@ -43,10 +43,10 @@ namespace C4.Tests_Unit.Logic
             bool wasCalled = false;
             _sut.GameDrawn += (o, e) => wasCalled = true;
 
-            Tile[,] fullGrid = Mother.GetFullGridWhereTheGameHasDrawn();
+            Tile[,] fullGrid = Mother.GetGridOneTokenOffBeingFull();
             var fakeGameBoard = GameBoard.GetGameInstance();
             fakeGameBoard.Grid = fullGrid;
-            
+
             _sut.CheckForWinner();
 
             Assert.IsTrue(wasCalled);

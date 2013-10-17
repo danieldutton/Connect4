@@ -2,6 +2,6 @@
 {
     public interface IGridGenerator<out T>
     {
-        T[,] GetGrid(int yDim, int xDim);
+        T[,] GetGrid(int rows, int columns);
     }
 }

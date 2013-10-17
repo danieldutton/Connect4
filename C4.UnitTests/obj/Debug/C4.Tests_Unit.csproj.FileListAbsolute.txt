@@ -16,12 +16,10 @@ C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.Tests_Unit.pdb
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.GridBuilder.dll
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.Logic.dll
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.Model.dll
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\Moq.dll
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\nunit.framework.dll
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.GridBuilder.pdb
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.Logic.pdb
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.Model.pdb
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\Moq.xml
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\nunit.framework.xml
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\obj\Debug\C4.Tests_Unit.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\obj\Debug\C4.Tests_Unit.dll

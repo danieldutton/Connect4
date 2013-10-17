@@ -29,16 +29,13 @@ namespace C4.Presentation
             {
                 for (int j = 0; j < yDim; j++)
                 {
-                    if(i %2 == 0)
                     GameBoard.Grid[i, j].BackColor = Color.Gray;
-                    if (i % 2 != 0)
-                        GameBoard.Grid[i, j].BackColor = Color.Green;
                     GameBoard.Grid[i, j].BorderStyle = BorderStyle.FixedSingle;
                     GameBoard.Grid[i, j].Width = 32;
                     GameBoard.Grid[i, j].Height = 32;
                     GameBoard.Grid[i, j].Location = new Point(x, y);
-                    var label = new Label {Text = "[" + i.ToString() + "," + j.ToString() + "]"};
-                    GameBoard.Grid[i, j].Controls.Add(label);
+                    //var label = new Label {Text = "[" + i.ToString() + "," + j.ToString() + "]"};
+                    //GameBoard.Grid[i, j].Controls.Add(label);
                     panelGrid.Controls.Add(GameBoard.Grid[i, j]);
                     
                     x += 35;
