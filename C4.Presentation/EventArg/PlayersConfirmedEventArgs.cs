@@ -7,7 +7,7 @@ namespace C4.Presentation.EventArg
     {
         public Player YellowPlayer { get; private set; }
 
-        public Player RedPlayer { get; set; }
+        public Player RedPlayer { get; private set; }
 
 
         public PlayersConfirmedEventArgs(Player yellowPlayer, Player redPlayer)
