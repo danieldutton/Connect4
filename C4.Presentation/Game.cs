@@ -34,8 +34,8 @@ namespace C4.Presentation
                     GameBoard.Grid[i, j].Width = 32;
                     GameBoard.Grid[i, j].Height = 32;
                     GameBoard.Grid[i, j].Location = new Point(x, y);
-                    //var label = new Label {Text = "[" + i.ToString() + "," + j.ToString() + "]"};
-                    //GameBoard.Grid[i, j].Controls.Add(label);
+                    var label = new Label { Text = "[" + i.ToString() + "," + j.ToString() + "]" };
+                    GameBoard.Grid[i, j].Controls.Add(label);
                     panelGrid.Controls.Add(GameBoard.Grid[i, j]);
                     
                     x += 35;

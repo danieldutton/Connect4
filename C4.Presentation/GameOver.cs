@@ -41,7 +41,7 @@ namespace C4.Presentation
 
         private void _btnPlayAgain_Click(object sender, EventArgs e)
         {
-            Dispose();
+            Application.Restart();
         }        
     }
 }

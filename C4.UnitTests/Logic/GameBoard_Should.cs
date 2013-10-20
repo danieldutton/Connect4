@@ -1,4 +1,6 @@
-﻿using C4.GridBuilder;
+﻿using System;
+using System.Collections.Generic;
+using C4.GridBuilder;
 using C4.GridBuilder.Interfaces;
 using C4.Logic;
 using C4.Model;
@@ -192,10 +194,10 @@ namespace C4.Tests_Unit.Logic
         [Test]
         public void TakeMove_Column0_AlternateGameTokensByColour_Yellow()
         {
-            TakeMoves(columnNo: 0, numOfMoves: 5);
+            TakeMoves(columnNo: 0, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Take(6).ToArray();
+            List<Tile> definedTiles = grid.Cast<Tile>().Take(6).Where(t => t.RowNumber == 0).ToList();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Yellow));
         }
@@ -206,7 +208,7 @@ namespace C4.Tests_Unit.Logic
             TakeMoves(columnNo: 0, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Take(6).Where(x => x.RowNumber %2 == 0).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Take(6).Where(t => t.ColumnNumber %2 == 0).ToArray();
 
             Assert.IsTrue(definedTiles.All(x => x.GameToken == GameToken.Red));
         }
