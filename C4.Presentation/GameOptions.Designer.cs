@@ -173,6 +173,7 @@
             this.MaximumSize = new System.Drawing.Size(277, 149);
             this.Name = "GameOptions";
             this.Text = "Confirm Players";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameOptions_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

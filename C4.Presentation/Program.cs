@@ -4,6 +4,8 @@ using C4.Logic;
 using C4.Model;
 using System;
 using System.Windows.Forms;
+using C4.Utilities;
+using C4.Utilities.Interfaces;
 
 namespace C4.Presentation
 {
@@ -23,7 +25,8 @@ namespace C4.Presentation
             
             GameBoard gameBoard = GameBoard.GetGameInstance();
             gameBoard.Grid = grid;
-            var gameOptions = new GameOptions();
+            INameFormatter nameFormatter = new NameFormatter();
+            var gameOptions = new GameOptions(nameFormatter);
             //referee should really be injected here
             var referee = new Referee(gameBoard);
             var gameOver = new GameOver();

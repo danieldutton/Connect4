@@ -14,10 +14,10 @@ namespace C4.Presentation
 
         public void RegisterForRefereesGameWonEvent(Referee referee)
         {
-            referee.GameWon += GameWon;
+            referee.GameWon += DisplayGameWonNotification;
         }
 
-        private void GameWon(object sender, GameStatusEventArgs e)
+        private void DisplayGameWonNotification(object sender, GameStatusEventArgs e)
         {
             _lblWinner.Text = e.WinningGameToken.ToString();
             ShowDialog();
@@ -25,10 +25,10 @@ namespace C4.Presentation
 
         public void RegisterForRefereesGameDrawnEvent(Referee referee)
         {
-            referee.GameWon += GameDrawn;
+            referee.GameWon += DisplayGameDrawnNotification;
         }
 
-        private void GameDrawn(object sender, GameStatusEventArgs e)
+        private void DisplayGameDrawnNotification(object sender, GameStatusEventArgs e)
         {
             _lblWinner.Text = e.WinningGameToken.ToString();
             ShowDialog();
@@ -39,9 +39,15 @@ namespace C4.Presentation
             Application.Exit();
         }
 
-        private void _btnPlayAgain_Click(object sender, EventArgs e)
+        private void RestartApplication_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void GameOver_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+                Application.Exit();
         }        
     }
 }

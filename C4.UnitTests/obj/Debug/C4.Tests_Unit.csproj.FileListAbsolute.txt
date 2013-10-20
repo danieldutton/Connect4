@@ -39,3 +39,9 @@ C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\nunit.framew
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.UnitTests\obj\Debug\C4.Tests_Unit.csprojResolveAssemblyReference.cache
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.UnitTests\obj\Debug\C4.Tests_Unit.dll
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.UnitTests\obj\Debug\C4.Tests_Unit.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.Utilities.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.Utilities.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.Presentation.exe
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\Moq.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\C4.Presentation.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.UnitTests\bin\Debug\Moq.xml

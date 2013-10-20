@@ -48,3 +48,5 @@ C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.GridBu
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.GridBuilder.pdb
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOver.resources
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOver.resources
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.Utilities.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.Utilities.pdb

@@ -109,6 +109,10 @@
       <Project>{ae61cb1e-073a-473c-a486-576585c361d9}</Project>
       <Name>C4.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\C4.Utilities\C4.Utilities.csproj">
+      <Project>{B8133BD9-47D7-40A9-84E8-90C61ABB8648}</Project>
+      <Name>C4.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

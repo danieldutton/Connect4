@@ -1,0 +1,4 @@
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Utilities\bin\Debug\C4.Utilities.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Utilities\bin\Debug\C4.Utilities.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Utilities\obj\Debug\C4.Utilities.dll
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Utilities\obj\Debug\C4.Utilities.pdb

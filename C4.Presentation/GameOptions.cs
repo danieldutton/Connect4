@@ -1,5 +1,6 @@
 ﻿using C4.Model;
 using C4.Presentation.EventArg;
+using C4.Utilities.Interfaces;
 using System;
 using System.Windows.Forms;
 
@@ -9,22 +10,26 @@ namespace C4.Presentation
     {
         public event EventHandler<PlayersConfirmedEventArgs> PlayersConfirmed;
 
-        public GameOptions()
+        private readonly INameFormatter _nameFormatter;
+        
+
+        public GameOptions(INameFormatter nameFormatter)
         {
+            _nameFormatter = nameFormatter;
             InitializeComponent();
         }
 
-        private void ConfirmPlayers_Click(object sender, EventArgs e)
+        public void ConfirmPlayers_Click(object sender, EventArgs e)
         {
             var yellowPlayer = new Player
                 {
-                    Name = FormatPlayerName(_txtBoxYellowPlayer.Text), 
+                    Name = _nameFormatter.FormatName(_txtBoxYellowPlayer.Text), 
                     HasCurrentTurn = _rdoButtonYellowStart.Checked
                 };
             
             var redPlayer = new Player
                 {
-                    Name = FormatPlayerName(_txtBoxRedPlayer.Text), 
+                    Name = _nameFormatter.FormatName(_txtBoxRedPlayer.Text), 
                     HasCurrentTurn = _rdoButtonRedStart.Checked
                 };
 
@@ -33,21 +38,16 @@ namespace C4.Presentation
             Dispose();
         }
 
-        private string FormatPlayerName(string name)
-        {
-            if (name == string.Empty) return "Unknown";
-
-            const int MaxNamelenth = 10;
-
-            if (name.Length > 10)
-                name = name.Substring(0, MaxNamelenth);
-            return name;
-        }
-
         protected virtual void OnPlayersConfirmed(PlayersConfirmedEventArgs e)
         {
             EventHandler<PlayersConfirmedEventArgs> handler = PlayersConfirmed;
             if (handler != null) handler(this, e);
+        }
+
+        private void GameOptions_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+                Application.Exit();
         }
     }
 }

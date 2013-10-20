@@ -36,9 +36,11 @@
             // _lblWinner
             // 
             this._lblWinner.AutoSize = true;
+            this._lblWinner.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lblWinner.ForeColor = System.Drawing.Color.White;
             this._lblWinner.Location = new System.Drawing.Point(12, 21);
             this._lblWinner.Name = "_lblWinner";
-            this._lblWinner.Size = new System.Drawing.Size(35, 13);
+            this._lblWinner.Size = new System.Drawing.Size(43, 14);
             this._lblWinner.TabIndex = 0;
             this._lblWinner.Text = "label1";
             // 
@@ -60,19 +62,22 @@
             this._btnPlayAgain.TabIndex = 2;
             this._btnPlayAgain.Text = "Play Again";
             this._btnPlayAgain.UseVisualStyleBackColor = true;
-            this._btnPlayAgain.Click += new System.EventHandler(this._btnPlayAgain_Click);
+            this._btnPlayAgain.Click += new System.EventHandler(this.RestartApplication_Click);
             // 
             // GameOver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(188, 81);
             this.Controls.Add(this._btnPlayAgain);
             this.Controls.Add(this._btnExit);
             this.Controls.Add(this._lblWinner);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(204, 155);
             this.Name = "GameOver";
-            this.Text = "GameOver";
+            this.Text = "Game Over";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameOver_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
