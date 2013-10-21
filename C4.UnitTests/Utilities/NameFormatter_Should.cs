@@ -16,7 +16,7 @@ namespace C4.Tests_Unit.Utilities
         }
 
         [Test]
-        public void FormatName_SetTheStringValueReturnedToValueOfUnknownIfNameToFormatIsEmpty()
+        public void FormatName_ReturnAStringValueOfUnknownIfNameToFormatIsEmpty()
         {
             const string expected = "Unknown";
             string actual = _sut.FormatName(string.Empty);
@@ -41,7 +41,7 @@ namespace C4.Tests_Unit.Utilities
         }
 
         [Test]
-        public void FormatName_ReturnTheCorrectStringValueIfLengthOfTheNameTo10IfGreaterThan()
+        public void FormatName_ReturnTheCorrectStringValueIfNameToFormatLengthIsGreaterThanTenChars()
         {
             const string expected = "A name wit";
             string actual = _sut.FormatName("A name with more than ten chars");
@@ -53,16 +53,16 @@ namespace C4.Tests_Unit.Utilities
         public void FormatName_KeepTheLengthOfTheNameToFormatToTenCharsIfItIsAlreadyTenChars()
         {
             const int expected = 10;
-            string result = _sut.FormatName("A name with more than ten chars");
+            string result = _sut.FormatName("test chars");
 
             Assert.AreEqual(expected, result.Length);
         }
 
         [Test]
-        public void FormatName_LeaveTheTheNameToFormatLengthUntouchedIfItsLengthIsLessThan10()
+        public void FormatName_LeaveTheTheNameToFormatLengthUntouchedIfItsLengthIsLessThanTenChars()
         {
-            const int expected = 10;
-            string result = _sut.FormatName("A name with more than ten chars");
+            const int expected = 4;
+            string result = _sut.FormatName("test");
 
             Assert.AreEqual(expected, result.Length);
         }
