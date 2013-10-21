@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace C4.Presentation
 {
-    public partial class GameOptions : Form
+    public partial class ConfirmPlayers : Form
     {
         public event EventHandler<PlayersConfirmedEventArgs> PlayersConfirmed;
 
         private readonly INameFormatter _nameFormatter;
         
 
-        public GameOptions(INameFormatter nameFormatter)
+        public ConfirmPlayers(INameFormatter nameFormatter)
         {
             _nameFormatter = nameFormatter;
             InitializeComponent();
@@ -44,7 +44,7 @@ namespace C4.Presentation
             if (handler != null) handler(this, e);
         }
 
-        private void GameOptions_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormCrossClicked_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
                 Application.Exit();

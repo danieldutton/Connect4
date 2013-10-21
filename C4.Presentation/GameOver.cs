@@ -44,7 +44,7 @@ namespace C4.Presentation
             Application.Restart();
         }
 
-        private void GameOver_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormCrossClicked(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
                 Application.Exit();

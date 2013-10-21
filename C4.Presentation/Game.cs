@@ -49,9 +49,9 @@ namespace C4.Presentation
             }
         }
 
-        public void RegisterForPlayersConfirmedEvent(GameOptions gameOptions)
+        public void RegisterForPlayersConfirmedEvent(ConfirmPlayers confirmPlayers)
         {
-            gameOptions.PlayersConfirmed += RegisterPlayersToGameboard;
+            confirmPlayers.PlayersConfirmed += RegisterPlayersToGameboard;
         }
 
         private void RegisterPlayersToGameboard(object sender, PlayersConfirmedEventArgs e)
@@ -59,8 +59,8 @@ namespace C4.Presentation
             _lblPlayerRed.Text = e.RedPlayer.Name;
             _lblPlayerYellow.Text = e.YellowPlayer.Name;
 
-            GameBoard.YellowPlayer = e.YellowPlayer;
             GameBoard.RedPlayer = e.RedPlayer;
+            GameBoard.YellowPlayer = e.YellowPlayer;
         }
 
         private void GameTokenToSlot_DragEnter(object sender, DragEventArgs e)

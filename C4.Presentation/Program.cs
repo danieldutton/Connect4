@@ -26,7 +26,7 @@ namespace C4.Presentation
             GameBoard gameBoard = GameBoard.GetGameInstance();
             gameBoard.Grid = grid;
             INameFormatter nameFormatter = new NameFormatter();
-            var gameOptions = new GameOptions(nameFormatter);
+            var gameOptions = new ConfirmPlayers(nameFormatter);
             //referee should really be injected here
             var referee = new Referee(gameBoard);
             var gameOver = new GameOver();

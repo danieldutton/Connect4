@@ -13,7 +13,7 @@ namespace C4.Tests_Unit.Presentation
         public void FormatNameCalledTwice()
         {
             var fakeNameFormatter = new Mock<INameFormatter>();
-            var sut = new GameOptions(fakeNameFormatter.Object);
+            var sut = new ConfirmPlayers(fakeNameFormatter.Object);
 
             sut.ConfirmPlayers_Click(this, new EventArgs());
         }
@@ -22,7 +22,7 @@ namespace C4.Tests_Unit.Presentation
         public void PLayersConfirmedEventFired()
         {
             var fakeNameFormatter = new Mock<INameFormatter>();
-            var sut = new GameOptions(fakeNameFormatter.Object);
+            var sut = new ConfirmPlayers(fakeNameFormatter.Object);
 
             sut.ConfirmPlayers_Click(this, new EventArgs());
         }

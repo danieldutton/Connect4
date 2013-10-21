@@ -1,6 +1,6 @@
 ﻿namespace C4.Presentation
 {
-    partial class GameOptions
+    partial class ConfirmPlayers
     {
         /// <summary>
         /// Required designer variable.
@@ -159,7 +159,7 @@
             this.panel3.Size = new System.Drawing.Size(227, 34);
             this.panel3.TabIndex = 10;
             // 
-            // GameOptions
+            // ConfirmPlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,9 +171,9 @@
             this.Controls.Add(this._btnConfirm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximumSize = new System.Drawing.Size(277, 149);
-            this.Name = "GameOptions";
+            this.Name = "ConfirmPlayers";
             this.Text = "Confirm Players";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameOptions_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCrossClicked_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -25,7 +25,6 @@ C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presen
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.Properties.Resources.resources
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.csproj.GenerateResource.Cache
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOptions.resources
-C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOptions.resources
 E:\Connect_4\C4.Presentation\bin\Debug\C4.Presentation.exe.config
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.exe
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.pdb
@@ -37,7 +36,6 @@ E:\Connect_4\C4.Presentation\bin\Debug\C4.Logic.pdb
 E:\Connect_4\C4.Presentation\bin\Debug\C4.Model.pdb
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.csprojResolveAssemblyReference.cache
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.Game.resources
-E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOptions.resources
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.Properties.Resources.resources
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.csproj.GenerateResource.Cache
 E:\Connect_4\C4.Presentation\bin\Debug\C4.GridBuilder.dll
@@ -50,3 +48,7 @@ E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOver.resources
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOver.resources
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.Utilities.dll
 C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.Utilities.pdb
+C:\Users\Dan\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.ConfirmPlayers.resources
+E:\Connect_4\C4.Presentation\bin\Debug\C4.Utilities.dll
+E:\Connect_4\C4.Presentation\bin\Debug\C4.Utilities.pdb
+E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.ConfirmPlayers.resources

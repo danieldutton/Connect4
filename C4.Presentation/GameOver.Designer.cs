@@ -77,7 +77,7 @@
             this.MaximumSize = new System.Drawing.Size(204, 155);
             this.Name = "GameOver";
             this.Text = "Game Over";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameOver_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCrossClicked);
             this.ResumeLayout(false);
             this.PerformLayout();
 

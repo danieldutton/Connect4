@@ -10,10 +10,10 @@ namespace C4.Utilities
             if (nameToFormat == string.Empty) return "Unknown";
             if (nameToFormat == null) throw new ArgumentNullException("nameToFormat");
             
-            const int Maxlength = 10;
+            const int maxlength = 10;
 
-            if (nameToFormat.Length > Maxlength)
-                nameToFormat = nameToFormat.Substring(0, Maxlength);
+            if (nameToFormat.Length > maxlength)
+                nameToFormat = nameToFormat.Substring(0, maxlength);
             
             return nameToFormat;
         }
