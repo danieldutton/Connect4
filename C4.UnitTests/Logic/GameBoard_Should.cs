@@ -2,7 +2,6 @@
 using C4.GridBuilder.Interfaces;
 using C4.Logic;
 using C4.Model;
-using C4.Model.Interfaces;
 using NUnit.Framework;
 using System.Linq;
 
@@ -23,8 +22,8 @@ namespace C4.Tests_Unit.Logic
             
             _sut = GameBoard.GetGameInstance();
             _sut.Grid = grid;
-            IPlayer yellowPlayer = new Player {HasCurrentTurn = true};
-            IPlayer redPlayer = new Player();
+            Player yellowPlayer = new Player {HasCurrentTurn = true};
+            Player redPlayer = new Player();
             _sut.YellowPlayer = yellowPlayer;
             _sut.RedPlayer = redPlayer;
         }   

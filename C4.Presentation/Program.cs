@@ -35,7 +35,7 @@ namespace C4.Presentation
             gameOver.RegisterForRefereeGameDrawnEvent(referee);
             
             var game = new Game(gameBoard);
-            game.RegisterForPlayersConfirmedEvent(gameOptions);
+            game.RegisterForConfirmPlayers_PlayersConfirmedEvent(gameOptions);
             
             gameOptions.ShowDialog();
 

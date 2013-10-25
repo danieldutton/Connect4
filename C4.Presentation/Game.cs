@@ -1,5 +1,4 @@
-﻿using C4.Logic;
-using C4.Logic.Interfaces;
+﻿using C4.Logic.Interfaces;
 using C4.Model;
 using C4.Presentation.EventArg;
 using System.Drawing;
@@ -23,24 +22,18 @@ namespace C4.Presentation
             Tile[,] grid = GameBoard.Grid;
 
             int x = 0, y = 0;
+           
+            const int tileOffSet = 35;
 
-            int yDim = grid.GetLength(1); //6
-            int xDim = grid.GetLength(0); //7
-
-            for (int i = 0; i < xDim; i++)
+            for (int i = 0; i < grid.GetLength(0); i++)
             {
-                for (int j = 0; j < yDim; j++)
+                for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    GameBoard.Grid[i, j].BackColor = Color.Gray;
-                    GameBoard.Grid[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    GameBoard.Grid[i, j].Width = 32;
-                    GameBoard.Grid[i, j].Height = 32;
+                    StyleGameTile(i, j);
                     GameBoard.Grid[i, j].Location = new Point(x, y);
-                    var label = new Label { Text = "[" + i.ToString() + "," + j.ToString() + "]" };
-                    GameBoard.Grid[i, j].Controls.Add(label);
                     panelGrid.Controls.Add(GameBoard.Grid[i, j]);
                     
-                    x += 35;
+                    x += tileOffSet;
                     
                     if (x > panelGrid.Width)
                     {
@@ -51,7 +44,18 @@ namespace C4.Presentation
             }
         }
 
-        public void RegisterForPlayersConfirmedEvent(ConfirmPlayers confirmPlayers)
+        private void StyleGameTile(int columnNo, int rowNo)
+        {
+            const int tileWidth = 32;
+            const int tileHeight = 32;
+
+            GameBoard.Grid[columnNo, rowNo].BackColor = Color.Gray;
+            GameBoard.Grid[columnNo, rowNo].BorderStyle = BorderStyle.FixedSingle;
+            GameBoard.Grid[columnNo, rowNo].Width = tileWidth;
+            GameBoard.Grid[columnNo, rowNo].Height =tileHeight;   
+        }
+
+        public void RegisterForConfirmPlayers_PlayersConfirmedEvent(ConfirmPlayers confirmPlayers)
         {
             confirmPlayers.PlayersConfirmed += RegisterPlayersToGameboard;
         }
@@ -69,10 +73,9 @@ namespace C4.Presentation
         {
             e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.None;
 
-            var panel = sender as Panel;
+            var columnSlot = sender as Panel;
 
-            int column;            
-            int.TryParse(panel.Tag.ToString(), out column);
+            int column = int.Parse(columnSlot.Tag.ToString());
 
             GameBoard.TakeMove(column);
         }

@@ -1,7 +1,6 @@
 ﻿using C4.Logic.EventArg;
 using C4.Logic.Interfaces;
 using C4.Model;
-using C4.Model.Interfaces;
 using System;
 using System.Drawing;
 
@@ -17,9 +16,9 @@ namespace C4.Logic
 
         public Tile[,] Grid { get; set; }
 
-        public IPlayer YellowPlayer { get; set; }
+        public Player YellowPlayer { get; set; }
 
-        public IPlayer RedPlayer { get; set; }
+        public Player RedPlayer { get; set; }
 
 
         public static GameBoard GetGameInstance()
@@ -27,29 +26,29 @@ namespace C4.Logic
             return GameBoardInstance ?? (GameBoardInstance = new GameBoard());
         }
 
-        public void TakeMove(int xDim)
+        public void TakeMove(int columnNo)
         {
-            if (ColumnHasSpareSlot(xDim))
+            if (ColumnHasSpareSlot(columnNo))
             {
                 for (int i = 5; i < Grid.GetLength(0); i--)
                 {
-                    if (ChosenSlotIsFree(i, xDim))
+                    if (ChosenSlotIsFree(i, columnNo))
                     {
                         if (RedPlayer.HasCurrentTurn)
                         {
-                            PushTokenInSlot(i, xDim, GameToken.Red, Color.Red);
+                            PushTokenInSlot(i, columnNo, GameToken.Red, Color.Red);
                             AllowTurnRedPlayer();
                         }
                         else if (YellowPlayer.HasCurrentTurn)
                         {
-                            PushTokenInSlot(i, xDim, GameToken.Yellow, Color.Yellow);
+                            PushTokenInSlot(i, columnNo, GameToken.Yellow, Color.Yellow);
                             AllowTurnYellowPlayer();
                         }
                         break;
                     }
                 }
             }
-            else OnColumnFull(new ColumnFullEventArgs(xDim));
+            else OnColumnFull(new ColumnFullEventArgs(columnNo));
         }
 
         public bool ColumnHasSpareSlot(int columnNo)

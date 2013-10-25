@@ -10,10 +10,16 @@ namespace C4.Logic.Interfaces
         event EventHandler<TokenPlacedEventArgs> GameTokenPlaced;
 
         Tile[,] Grid { get; set; }
+        
+        Player RedPlayer { get; set; }
+
+        Player YellowPlayer { get; set; }
 
         bool ChosenSlotIsFree(int rowNo, int columnNo);
 
         bool ColumnHasSpareSlot(int columnNo);
+
+        void TakeMove(int columnNo);
 
         bool GameTokenIsRed(int rowNo, int columnNo);
 
