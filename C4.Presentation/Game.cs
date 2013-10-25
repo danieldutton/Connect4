@@ -1,4 +1,6 @@
 ﻿using C4.Logic;
+using C4.Logic.Interfaces;
+using C4.Model;
 using C4.Presentation.EventArg;
 using System.Drawing;
 using System.Windows.Forms;
@@ -7,18 +9,18 @@ namespace C4.Presentation
 {
     public partial class Game : Form
     {
-        public GameBoard GameBoard { get; private set; }
+        public IGameBoard GameBoard { get; private set; }
 
-        public Game(GameBoard gameBoard)
+        public Game(IGameBoard gameBoard)
         {
-            GameBoard = gameBoard; //inject possibly
+            GameBoard = gameBoard;
             InitializeComponent();
             DrawGameBoard();
         }
 
         public void DrawGameBoard()
         {
-            var grid = GameBoard.Grid;
+            Tile[,] grid = GameBoard.Grid;
 
             int x = 0, y = 0;
 

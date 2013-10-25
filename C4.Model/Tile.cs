@@ -13,7 +13,7 @@ namespace C4.Model
 
         public Tile()
         {
-            GameToken = GameToken.Undefined; ;
+            GameToken = GameToken.Undefined;
         }
 
         public override string ToString()

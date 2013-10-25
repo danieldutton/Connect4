@@ -12,7 +12,7 @@ namespace C4.Presentation
             InitializeComponent();
         }
 
-        public void RegisterForRefereesGameWonEvent(Referee referee)
+        public void RegisterForRefereeGameWonEvent(Referee referee)
         {
             referee.GameWon += DisplayGameWonNotification;
         }
@@ -23,7 +23,7 @@ namespace C4.Presentation
             ShowDialog();
         }
 
-        public void RegisterForRefereesGameDrawnEvent(Referee referee)
+        public void RegisterForRefereeGameDrawnEvent(Referee referee)
         {
             referee.GameWon += DisplayGameDrawnNotification;
         }

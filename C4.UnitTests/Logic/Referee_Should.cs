@@ -43,7 +43,7 @@ namespace C4.Tests_Unit.Logic
             bool wasCalled = false;
             _sut.GameDrawn += (o, e) => wasCalled = true;
 
-            Tile[,] fullGrid = Mother.GetGridOneTokenOffBeingFull();
+            Tile[,] fullGrid = Mother.GetGridOneTokenFromFull();
             var fakeGameBoard = GameBoard.GetGameInstance();
             fakeGameBoard.Grid = fullGrid;
 
@@ -1263,7 +1263,7 @@ namespace C4.Tests_Unit.Logic
         [Test]
         public void HasDrawnGame_ReturnTrueIfGridIsFull()
         {
-            Tile[,] fullGrid = Mother.GetAGridFullOfRedTokens();
+            Tile[,] fullGrid = Mother.GetGridAllRedTokens();
             _gameBoardStub.Grid = fullGrid;
 
             bool actual = _sut.HasDrawnGame();
@@ -1274,7 +1274,7 @@ namespace C4.Tests_Unit.Logic
         [Test]
         public void HasDrawnGame_ReturnFalseIfGridIsPartiallyFull()
         {
-            Tile[,] fullGrid = Mother.GetGridOneTokenOffBeingFull();
+            Tile[,] fullGrid = Mother.GetGridOneTokenFromFull();
             _gameBoardStub.Grid = fullGrid;
 
             bool actual = _sut.HasDrawnGame();

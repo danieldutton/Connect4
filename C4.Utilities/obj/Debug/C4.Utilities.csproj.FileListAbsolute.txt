@@ -7,3 +7,8 @@ E:\Connect_4\C4.Utilities\bin\Debug\C4.Utilities.pdb
 E:\Connect_4\C4.Utilities\obj\Debug\C4.Utilities.csprojResolveAssemblyReference.cache
 E:\Connect_4\C4.Utilities\obj\Debug\C4.Utilities.dll
 E:\Connect_4\C4.Utilities\obj\Debug\C4.Utilities.pdb
+C:\Users\Danny\Documents\GitHub\Connect_4\C4.Utilities\bin\Debug\C4.Utilities.dll
+C:\Users\Danny\Documents\GitHub\Connect_4\C4.Utilities\bin\Debug\C4.Utilities.pdb
+C:\Users\Danny\Documents\GitHub\Connect_4\C4.Utilities\obj\Debug\C4.Utilities.csprojResolveAssemblyReference.cache
+C:\Users\Danny\Documents\GitHub\Connect_4\C4.Utilities\obj\Debug\C4.Utilities.dll
+C:\Users\Danny\Documents\GitHub\Connect_4\C4.Utilities\obj\Debug\C4.Utilities.pdb

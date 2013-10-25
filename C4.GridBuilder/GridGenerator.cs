@@ -16,7 +16,7 @@ namespace C4.GridBuilder
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    grid[i, j] = new T{RowNumber = i, ColumnNumber = j};
+                    grid[i, j] = new T {RowNumber = i, ColumnNumber = j};
                 }
             }
             return grid;

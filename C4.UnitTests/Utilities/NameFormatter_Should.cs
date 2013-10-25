@@ -16,7 +16,7 @@ namespace C4.Tests_Unit.Utilities
         }
 
         [Test]
-        public void FormatName_ReturnAStringValueOfUnknownIfNameToFormatIsEmpty()
+        public void FormatName_ReturnAStringValueOfUnknown_IfNameToFormatIsEmpty()
         {
             const string expected = "Unknown";
             string actual = _sut.FormatName(string.Empty);
@@ -26,13 +26,13 @@ namespace C4.Tests_Unit.Utilities
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void FormatName_ThrowAnArgumentNullExceptionIfTheNameToFormatIsNull()
+        public void FormatName_ThrowAnArgumentNullException_IfNameToFormatIsNull()
         {
             _sut.FormatName(null);
         }
 
         [Test]
-        public void FormatName_SetTheLengthOfTheNameToFormatToTenCharsIfGreaterThanTenChars()
+        public void FormatName_ReturnAStringOfLengthTen_IfNameToFormatIsGreaterThanTen()
         {
             const int expected = 10;
             string result = _sut.FormatName("A name with more than ten chars");
@@ -41,7 +41,7 @@ namespace C4.Tests_Unit.Utilities
         }
 
         [Test]
-        public void FormatName_ReturnTheCorrectStringValueIfNameToFormatLengthIsGreaterThanTenChars()
+        public void FormatName_ReturnTheCorrectStringValue_IfNameToFormatLengthIsGreaterThanTen()
         {
             const string expected = "A name wit";
             string actual = _sut.FormatName("A name with more than ten chars");
@@ -50,7 +50,7 @@ namespace C4.Tests_Unit.Utilities
         }
 
         [Test]
-        public void FormatName_KeepTheLengthOfTheNameToFormatToTenCharsIfItIsAlreadyTenChars()
+        public void FormatName_ReturnAStringOfLengthTen_IfNameToFormatIsOfLengthTen()
         {
             const int expected = 10;
             string result = _sut.FormatName("test chars");
@@ -59,7 +59,7 @@ namespace C4.Tests_Unit.Utilities
         }
 
         [Test]
-        public void FormatName_LeaveTheTheNameToFormatLengthUntouchedIfItsLengthIsLessThanTenChars()
+        public void FormatName_LeaveTheNameToFormatUntouched_IfNameToFormatLengthIsLessThanTen()
         {
             const int expected = 4;
             string result = _sut.FormatName("test");

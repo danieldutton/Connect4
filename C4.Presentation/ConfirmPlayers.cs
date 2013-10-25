@@ -23,14 +23,14 @@ namespace C4.Presentation
         {
             var yellowPlayer = new Player
                 {
-                    Name = _nameFormatter.FormatName(_txtBoxYellowPlayer.Text), 
-                    HasCurrentTurn = _rdoButtonYellowStart.Checked
+                    Name = _nameFormatter.FormatName(_txtBoxYellowPlayerName.Text), 
+                    HasCurrentTurn = _rdoBtnYellowPlayerStart.Checked
                 };
             
             var redPlayer = new Player
                 {
-                    Name = _nameFormatter.FormatName(_txtBoxRedPlayer.Text), 
-                    HasCurrentTurn = _rdoButtonRedStart.Checked
+                    Name = _nameFormatter.FormatName(_txtBoxRedPlayerName.Text), 
+                    HasCurrentTurn = _rdoBtnRedPlayerStart.Checked
                 };
 
             OnPlayersConfirmed(new PlayersConfirmedEventArgs(yellowPlayer, redPlayer));

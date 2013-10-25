@@ -31,8 +31,8 @@ namespace C4.Presentation
             var referee = new Referee(gameBoard);
             var gameOver = new GameOver();
             
-            gameOver.RegisterForRefereesGameWonEvent(referee);
-            gameOver.RegisterForRefereesGameDrawnEvent(referee);
+            gameOver.RegisterForRefereeGameWonEvent(referee);
+            gameOver.RegisterForRefereeGameDrawnEvent(referee);
             
             var game = new Game(gameBoard);
             game.RegisterForPlayersConfirmedEvent(gameOptions);

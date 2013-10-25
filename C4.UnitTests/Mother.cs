@@ -9,7 +9,7 @@ namespace C4.Tests_Unit
         private const int YDimension = 6;
 
 
-        public static Tile[,] GetGridOneTokenOffBeingFull()
+        public static Tile[,] GetGridOneTokenFromFull()
         {
             var grid = new Tile[XDimension, YDimension];
 
@@ -25,7 +25,7 @@ namespace C4.Tests_Unit
             return grid;
         }
 
-        public static Tile[,] GetFullGridWhereTheGameHasDrawn()
+        public static Tile[,] GetGridGameDrawn()
         {
             var grid = new Tile[XDimension, YDimension];
 
@@ -45,7 +45,7 @@ namespace C4.Tests_Unit
             return grid;
         }
 
-        public static Tile[,] GetAGridFullOfRedTokens()
+        public static Tile[,] GetGridAllRedTokens()
         {
             var grid = new Tile[XDimension, YDimension];
 
@@ -59,7 +59,7 @@ namespace C4.Tests_Unit
             return grid;
         }
 
-        public static Tile[,] GetAGridFullOfYellowTokens()
+        public static Tile[,] GetGridAllYellowTokens()
         {
             var grid = new Tile[XDimension, YDimension];
 
