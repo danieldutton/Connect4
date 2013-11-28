@@ -25,12 +25,12 @@ namespace C4.Presentation
 
         public void RegisterForRefereeGameDrawnEvent(Referee referee)
         {
-            referee.GameWon += DisplayGameDrawnNotification;
+            referee.GameDrawn += DisplayGameDrawnNotification;
         }
 
         private void DisplayGameDrawnNotification(object sender, GameStatusEventArgs e)
         {
-            MessageBox.Show("Game is Drawn");
+            _lblWinner.Text = "Game is Drawn";
             ShowDialog();
         }
 
