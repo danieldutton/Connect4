@@ -41,10 +41,13 @@ namespace C4.Logic
             }
 
             GameToken gameTokenRow = Has4InARowHorizintal();
-            if (gameTokenRow != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenRow)); }
+            if (gameTokenRow != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenRow));
+                return;
+            }
 
             GameToken gameTokenColumn = Has4InARowVertical();
-            if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenColumn)); }
+            if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenColumn)); 
+                return; }
 
             //GameToken gameTokenDiagonal = CheckDiagonalRowsForWin();
             //if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenDiagonal)); return; }
@@ -54,12 +57,12 @@ namespace C4.Logic
 
         public GameToken Has4InARowHorizintal()
         {
-            int redCounter = 0;
-            int yellowCounter = 0;
-
-            for (int i = 0; i < GameBoard.Grid.GetLength(0); i++)
+            for (int i = 0; i < GameBoard.Grid.GetLength(0); ++i)
             {
-                for (int j = 0; j < GameBoard.Grid.GetLength(1); j++)
+                int redCounter = 0;
+                int yellowCounter = 0;
+
+                for (int j = 0; j < GameBoard.Grid.GetLength(1); ++j)
                 {
                     if (GameBoard.GameTokenIsRed(i, j))
                     {
@@ -92,11 +95,11 @@ namespace C4.Logic
 
         public GameToken Has4InARowVertical()
         {
-            int yellowCounter = 0;
-            int redCounter = 0;
-
             for (int i = 0; i < GameBoard.Grid.GetLength(1); ++i)
             {
+                int yellowCounter = 0;
+                int redCounter = 0;
+
                 for (int j = 0; j < GameBoard.Grid.GetLength(0); ++j)
                 {
                     if (GameBoard.GameTokenIsRed(j, i))
