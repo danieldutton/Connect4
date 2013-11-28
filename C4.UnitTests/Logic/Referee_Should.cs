@@ -44,6 +44,7 @@ namespace C4.Tests_Unit.Logic
             _sut.GameDrawn += (o, e) => wasCalled = true;
 
             Tile[,] fullGrid = Mother.GetGridOneTokenFromFull();
+            fullGrid[6,0] = new Tile{GameToken = GameToken.Red};
             var fakeGameBoard = GameBoard.GetGameInstance();
             fakeGameBoard.Grid = fullGrid;
 
