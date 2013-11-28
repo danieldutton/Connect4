@@ -34,8 +34,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NameFormatter.cs" />
-    <Compile Include="Interfaces\INameFormatter.cs" />
+    <Compile Include="StringTruncator.cs" />
+    <Compile Include="Interfaces\IStringTruncator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

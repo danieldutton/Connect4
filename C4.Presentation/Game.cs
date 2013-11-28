@@ -29,7 +29,6 @@ namespace C4.Presentation
             {
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
-                    StyleGameTile(i, j);
                     GameBoard.Grid[i, j].Location = new Point(x, y);
                     panelGrid.Controls.Add(GameBoard.Grid[i, j]);
                     
@@ -42,17 +41,6 @@ namespace C4.Presentation
                     }
                 }
             }
-        }
-
-        private void StyleGameTile(int columnNo, int rowNo)
-        {
-            const int tileWidth = 32;
-            const int tileHeight = 32;
-
-            GameBoard.Grid[columnNo, rowNo].BackColor = Color.Gray;
-            GameBoard.Grid[columnNo, rowNo].BorderStyle = BorderStyle.FixedSingle;
-            GameBoard.Grid[columnNo, rowNo].Width = tileWidth;
-            GameBoard.Grid[columnNo, rowNo].Height =tileHeight;   
         }
 
         public void RegisterForConfirmPlayers_PlayersConfirmedEvent(ConfirmPlayers confirmPlayers)

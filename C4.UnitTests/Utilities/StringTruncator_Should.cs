@@ -5,64 +5,64 @@ using System;
 namespace C4.Tests_Unit.Utilities
 {
     [TestFixture]
-    public class NameFormatter_Should
+    public class StringTruncator_Should
     {
-        private NameFormatter _sut;
+        private StringTruncator _sut;
 
         [SetUp]
         public void Init()
         {
-            _sut = new NameFormatter();
+            _sut = new StringTruncator();
         }
 
         [Test]
-        public void FormatName_ReturnAStringValueOfUnknown_IfNameToFormatIsEmpty()
+        public void Truncate_ReturnAStringValueOfUnknown_IfStringToTruncateIsEmpty()
         {
             const string expected = "Unknown";
-            string actual = _sut.FormatName(string.Empty);
+            string actual = _sut.Truncate(string.Empty);
             
             Assert.AreEqual(actual, expected);
         }
 
         [Test]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void FormatName_ThrowAnArgumentNullException_IfNameToFormatIsNull()
+        public void Truncate_ThrowAnArgumentNullException_IfStringToTruncateIsNull()
         {
-            _sut.FormatName(null);
+            _sut.Truncate(null);
         }
 
         [Test]
-        public void FormatName_ReturnAStringOfLengthTen_IfNameToFormatIsGreaterThanTen()
+        public void Truncate_ReturnAStringOfLengthTen_IfStringToTruncateIsGreaterThanTen()
         {
             const int expected = 10;
-            string result = _sut.FormatName("A name with more than ten chars");
+            string result = _sut.Truncate("A name with more than ten chars");
 
             Assert.AreEqual(expected, result.Length);
         }
 
         [Test]
-        public void FormatName_ReturnTheCorrectStringValue_IfNameToFormatLengthIsGreaterThanTen()
+        public void Truncate_ReturnTheCorrectStringValue_IfStringToTruncateLengthIsGreaterThanTen()
         {
             const string expected = "A name wit";
-            string actual = _sut.FormatName("A name with more than ten chars");
+            string actual = _sut.Truncate("A name with more than ten chars");
 
             Assert.AreEqual(expected, actual);
         }
 
         [Test]
-        public void FormatName_ReturnAStringOfLengthTen_IfNameToFormatIsOfLengthTen()
+        public void Truncate_ReturnAStringOfLengthTen_IfStringToTruncateIsOfLengthTen()
         {
             const int expected = 10;
-            string result = _sut.FormatName("test chars");
+            string result = _sut.Truncate("test chars");
 
             Assert.AreEqual(expected, result.Length);
         }
 
         [Test]
-        public void FormatName_LeaveTheNameToFormatUntouched_IfNameToFormatLengthIsLessThanTen()
+        public void Truncate_LeaveTheStringToTruncateIntact_IfStringToTruncateLengthIsLessThanTen()
         {
             const int expected = 4;
-            string result = _sut.FormatName("test");
+            string result = _sut.Truncate("test");
 
             Assert.AreEqual(expected, result.Length);
         }
@@ -72,6 +72,5 @@ namespace C4.Tests_Unit.Utilities
         {
             _sut = null;
         }
-
     }
 }

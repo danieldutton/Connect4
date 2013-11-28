@@ -10,12 +10,12 @@ namespace C4.Presentation
     {
         public event EventHandler<PlayersConfirmedEventArgs> PlayersConfirmed;
 
-        private readonly INameFormatter _nameFormatter;
+        private readonly IStringTruncator _stringTruncator;
         
 
-        public ConfirmPlayers(INameFormatter nameFormatter)
+        public ConfirmPlayers(IStringTruncator stringTruncator)
         {
-            _nameFormatter = nameFormatter;
+            _stringTruncator = stringTruncator;
             InitializeComponent();
         }
 
@@ -23,13 +23,13 @@ namespace C4.Presentation
         {
             var yellowPlayer = new Player
                 {
-                    Name = _nameFormatter.FormatName(_txtBoxYellowPlayerName.Text), 
+                    Name = _stringTruncator.Truncate(_txtBoxYellowPlayerName.Text), 
                     HasCurrentTurn = _rdoBtnYellowPlayerStart.Checked
                 };
             
             var redPlayer = new Player
                 {
-                    Name = _nameFormatter.FormatName(_txtBoxRedPlayerName.Text), 
+                    Name = _stringTruncator.Truncate(_txtBoxRedPlayerName.Text), 
                     HasCurrentTurn = _rdoBtnRedPlayerStart.Checked
                 };
 

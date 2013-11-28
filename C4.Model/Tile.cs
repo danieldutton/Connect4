@@ -1,4 +1,5 @@
-﻿using C4.GridBuilder.Interfaces;
+﻿using System.Drawing;
+using C4.GridBuilder.Interfaces;
 using System.Windows.Forms;
 
 namespace C4.Model
@@ -13,7 +14,16 @@ namespace C4.Model
 
         public Tile()
         {
+            InitTile();            
+        }
+
+        private void InitTile()
+        {
             GameToken = GameToken.Undefined;
+            BackColor = Color.Gray;
+            BorderStyle = BorderStyle.FixedSingle;
+            Width  = 32;
+            Height = 32;
         }
 
         public override string ToString()
