@@ -3,7 +3,6 @@ using C4.Logic.Interfaces;
 using C4.Model;
 using System;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace C4.Logic
 {
@@ -37,13 +36,13 @@ namespace C4.Logic
 
         public void CheckForWinner()
         {
-            if (HasDrawnGame()) { OnGameDrawn(new GameStatusEventArgs(GameToken.Undefined)); return; }
+            if (HasDrawnGame()) { OnGameDrawn(new GameStatusEventArgs(GameToken.Undefined));}
 
             GameToken gameTokenRow = Has4InARowHorizintal();
-            if (gameTokenRow != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenRow)); return; }
+            if (gameTokenRow != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenRow)); }
 
             GameToken gameTokenColumn = Has4InARowVertical();
-            if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenColumn)); return; }
+            if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenColumn)); }
 
             //GameToken gameTokenDiagonal = CheckDiagonalRowsForWin();
             //if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenDiagonal)); return; }
@@ -79,15 +78,10 @@ namespace C4.Logic
                     }
 
                     if (redCounter == 4)
-                    {
                         return GameToken.Red;    
-                    }
                         
-
                     if (yellowCounter == 4)
-                    {
                         return GameToken.Yellow;    
-                    }
                         
                 }
             }
@@ -105,14 +99,14 @@ namespace C4.Logic
                 {
                     if (GameBoard.GameTokenIsRed(j, i))
                     {
-                        yellowCounter++;
-                        redCounter = 0;
+                        redCounter++;
+                       yellowCounter = 0;
                     }
 
                     if (GameBoard.GameTokenIsYellow(j, i))
                     {
-                        redCounter++;
-                        yellowCounter = 0;
+                        yellowCounter++;
+                        redCounter = 0;
                     }
 
                     if (GameBoard.GameTokenIsUndefined(j, i))
@@ -122,14 +116,10 @@ namespace C4.Logic
                     }
 
                     if (yellowCounter == 4)
-                    {
-                        return GameToken.Red;
-                    }
-                    if (redCounter == 4)
-                    {
                         return GameToken.Yellow;
-                        
-                    }
+
+                    if (redCounter == 4)
+                        return GameToken.Red;
                 }
             }
             return GameToken.Undefined;
@@ -137,45 +127,7 @@ namespace C4.Logic
 
         public GameToken Has4InARowDiagonal(GameToken gameToken)
         {
-            int redCounter = 0;
-            int yellowCounter = 0;
-
-
-            for (int i = 0; i < GameBoard.Grid.GetLength(1); i++)
-            {
-                for (int j = 0; j < GameBoard.Grid.GetLength(0); j++)
-                {
-                    if (GameBoard.GameTokenIsRed(j, i))
-                    {
-                        redCounter++;
-                        yellowCounter = 0;
-                    }
-
-                    if (GameBoard.GameTokenIsYellow(j, i))
-                    {
-                        yellowCounter++;
-                        redCounter = 0;
-                    }
-
-                    if (GameBoard.GameTokenIsUndefined(j, i))
-                    {
-                        redCounter = 0;
-                        yellowCounter = 0;
-                    }
-
-                    if (redCounter == 4)
-                    {
-                        MessageBox.Show("Red Win");
-                        return GameToken.Red;
-                    }
-                    if (yellowCounter == 4)
-                    {
-                        MessageBox.Show("Yello Wins");
-                        return GameToken.Yellow;
-                    }
-                }
-            }
-            return GameToken.Undefined;
+            throw new NotImplementedException();
         }
 
         public bool HasDrawnGame()

@@ -19,7 +19,7 @@ namespace C4.Presentation
 
         private void DisplayGameWonNotification(object sender, GameStatusEventArgs e)
         {
-            _lblWinner.Text = e.WinningGameToken.ToString();
+            _lblWinner.Text = e.WinningGameToken.ToString() + " Wins!";
             ShowDialog();
         }
 
@@ -30,7 +30,7 @@ namespace C4.Presentation
 
         private void DisplayGameDrawnNotification(object sender, GameStatusEventArgs e)
         {
-            _lblWinner.Text = e.WinningGameToken.ToString();
+            MessageBox.Show("Game is Drawn");
             ShowDialog();
         }
 

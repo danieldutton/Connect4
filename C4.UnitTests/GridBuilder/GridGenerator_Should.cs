@@ -25,14 +25,14 @@ namespace C4.Tests_Unit.GridBuilder
 
         [Test]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ThrowAnArgumentOutOfRangeExceptionIfANegativeRowsParamIsGiven()
+        public void GetGrid_ThrowAnArgumentOutOfRangeExceptionIfANegativeRowsParamIsGiven()
         {
             _sut.GetGrid(-1, 2);
         }
         
         [Test]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void ThrowAnArgumentOutOfRangeExceptionIfANegativeColumnsParamIsGiven()
+        public void GetGrid_ThrowAnArgumentOutOfRangeExceptionIfANegativeColumnsParamIsGiven()
         {
             _sut.GetGrid(2, -1);
         }

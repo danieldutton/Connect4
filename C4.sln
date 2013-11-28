@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.GridBuilder", "C4.GridBu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.Utilities", "C4.Utilities\C4.Utilities.csproj", "{B8133BD9-47D7-40A9-84E8-90C61ABB8648}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.WinChecker", "C4.WinChecker\C4.WinChecker.csproj", "{308E2A35-44D8-488A-B799-EF9D946C5F25}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,10 +43,6 @@ Global
 		{B8133BD9-47D7-40A9-84E8-90C61ABB8648}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8133BD9-47D7-40A9-84E8-90C61ABB8648}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8133BD9-47D7-40A9-84E8-90C61ABB8648}.Release|Any CPU.Build.0 = Release|Any CPU
-		{308E2A35-44D8-488A-B799-EF9D946C5F25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{308E2A35-44D8-488A-B799-EF9D946C5F25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{308E2A35-44D8-488A-B799-EF9D946C5F25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{308E2A35-44D8-488A-B799-EF9D946C5F25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

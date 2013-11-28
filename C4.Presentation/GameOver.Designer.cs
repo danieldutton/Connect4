@@ -74,7 +74,7 @@
             this.Controls.Add(this._btnExit);
             this.Controls.Add(this._lblWinner);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(204, 155);
+            this.MaximumSize = new System.Drawing.Size(204, 115);
             this.Name = "GameOver";
             this.Text = "Game Over";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCrossClicked);

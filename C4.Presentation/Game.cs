@@ -91,5 +91,6 @@ namespace C4.Presentation
             if (GameBoard.YellowPlayer.HasCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
+
     }
 }
