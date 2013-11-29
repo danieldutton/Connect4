@@ -6,11 +6,11 @@ using System.Linq;
 
 namespace C4.Logic
 {
-    public class Referee 
+    public class Referee : IGameUpdater
     {
         public event EventHandler<GameStatusEventArgs> GameWon;
 
-        public event EventHandler<EventArgs> GameNotWon;
+        public event EventHandler<EventArgs> GameContinues;
 
         public event EventHandler<GameStatusEventArgs> GameDrawn;
 
@@ -47,12 +47,15 @@ namespace C4.Logic
 
             GameToken gameTokenColumn = Has4InARowVertical();
             if (gameTokenColumn != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenColumn)); 
-                return; }
+                return; 
+            }
 
-            //GameToken gameTokenDiagonal = CheckDiagonalRowsForWin();
-            //if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenDiagonal)); return; }
+            //GameToken gameTokenDiagonal = Has4InARowDiagonal(GameToken.Undefined);
+            //if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenDiagonal)); 
+            //    return; 
+            //}
             
-            OnGameNotWon();
+            OnGameContinues();
         }
 
         public GameToken Has4InARowHorizintal()
@@ -148,9 +151,9 @@ namespace C4.Logic
             if (handler != null) handler(this, e);
         }
 
-        protected virtual void OnGameNotWon()
+        protected virtual void OnGameContinues()
         {
-            EventHandler<EventArgs> handler = GameNotWon;
+            EventHandler<EventArgs> handler = GameContinues;
             if (handler != null) handler(this, EventArgs.Empty);
         }
 

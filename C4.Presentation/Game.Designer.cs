@@ -99,7 +99,7 @@
             this.panelDrop6.Size = new System.Drawing.Size(30, 10);
             this.panelDrop6.TabIndex = 6;
             this.panelDrop6.Tag = "6";
-            this.panelDrop6.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
+            this.panelDrop6.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
             // 
             // panelDrop5
             // 
@@ -110,7 +110,7 @@
             this.panelDrop5.Size = new System.Drawing.Size(30, 10);
             this.panelDrop5.TabIndex = 5;
             this.panelDrop5.Tag = "5";
-            this.panelDrop5.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
+            this.panelDrop5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
             // 
             // panelDrop4
             // 
@@ -121,7 +121,7 @@
             this.panelDrop4.Size = new System.Drawing.Size(30, 10);
             this.panelDrop4.TabIndex = 4;
             this.panelDrop4.Tag = "4";
-            this.panelDrop4.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
+            this.panelDrop4.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
             // 
             // panelDrop3
             // 
@@ -132,7 +132,7 @@
             this.panelDrop3.Size = new System.Drawing.Size(30, 10);
             this.panelDrop3.TabIndex = 0;
             this.panelDrop3.Tag = "3";
-            this.panelDrop3.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
+            this.panelDrop3.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
             // 
             // panelDrop2
             // 
@@ -143,7 +143,7 @@
             this.panelDrop2.Size = new System.Drawing.Size(30, 10);
             this.panelDrop2.TabIndex = 2;
             this.panelDrop2.Tag = "2";
-            this.panelDrop2.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
+            this.panelDrop2.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
             // 
             // panelDrop1
             // 
@@ -154,7 +154,7 @@
             this.panelDrop1.Size = new System.Drawing.Size(30, 10);
             this.panelDrop1.TabIndex = 1;
             this.panelDrop1.Tag = "1";
-            this.panelDrop1.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
+            this.panelDrop1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
             // 
             // panelDrop0
             // 
@@ -165,7 +165,8 @@
             this.panelDrop0.Size = new System.Drawing.Size(30, 10);
             this.panelDrop0.TabIndex = 0;
             this.panelDrop0.Tag = "0";
-            this.panelDrop0.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameTokenToSlot_DragEnter);
+            this.panelDrop0.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
+            this.panelDrop0.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
             // 
             // panelGrid
             // 

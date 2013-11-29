@@ -2,7 +2,7 @@
 
 namespace C4.Logic.EventArg
 {
-    public class GameStatusEventArgs
+    public sealed class GameStatusEventArgs
     {
         public GameToken WinningGameToken { get; private set; }
 

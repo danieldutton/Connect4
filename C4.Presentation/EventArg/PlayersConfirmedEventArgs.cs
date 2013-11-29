@@ -3,7 +3,7 @@ using System;
 
 namespace C4.Presentation.EventArg
 {
-    public class PlayersConfirmedEventArgs : EventArgs
+    public sealed class PlayersConfirmedEventArgs : EventArgs
     {
         public Player YellowPlayer { get; private set; }
 

@@ -1165,7 +1165,7 @@ namespace C4.Tests_Unit.Logic
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Yellow));
         }
 
-        //utility methods
+        //utility method
 
         private void TakeMoves(int columnNo, int numOfMoves)
         {

@@ -314,7 +314,7 @@ namespace C4.Tests_Unit.Logic
         }
 
         [Test]
-        public void Has4InARowVerticall_IdentifyFourYellowTokensSpanningIndex_0_3_To_3_3()
+        public void Has4InARowVertical_IdentifyFourYellowTokensSpanningIndex_0_3_To_3_3()
         {
             PushTokenInSlot(0, 3, GameToken.Yellow);
             PushTokenInSlot(1, 3, GameToken.Yellow);

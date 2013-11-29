@@ -2,7 +2,7 @@
 
 namespace C4.Logic.EventArg
 {
-    public class ColumnFullEventArgs : EventArgs
+    public sealed class ColumnFullEventArgs : EventArgs
     {
         public int ColumNumber { get; private set; }
 

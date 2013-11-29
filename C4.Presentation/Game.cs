@@ -57,17 +57,6 @@ namespace C4.Presentation
             GameBoard.YellowPlayer = e.YellowPlayer;
         }
 
-        private void GameTokenToSlot_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.None;
-
-            var columnSlot = sender as Panel;
-
-            int column = int.Parse(columnSlot.Tag.ToString());
-
-            GameBoard.TakeMove(column);
-        }
-
         private void DropRedGameToken_MouseDown(object sender, MouseEventArgs e)
         {
             if (GameBoard.RedPlayer.HasCurrentTurn)
@@ -80,5 +69,15 @@ namespace C4.Presentation
                 DoDragDrop(sender, DragDropEffects.Move);
         }
 
+        private void panelDrop0_DragDrop(object sender, DragEventArgs e)
+        {
+            e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.All;
+
+            var columnSlot = sender as Panel;
+
+            int column = int.Parse(columnSlot.Tag.ToString());
+
+            GameBoard.TakeMove(column);
+        }
     }
 }
