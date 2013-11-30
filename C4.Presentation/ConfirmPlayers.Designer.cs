@@ -102,12 +102,14 @@
             // 
             // _btnConfirm
             // 
+            this._btnConfirm.BackColor = System.Drawing.Color.White;
+            this._btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this._btnConfirm.Location = new System.Drawing.Point(95, 80);
             this._btnConfirm.Name = "_btnConfirm";
             this._btnConfirm.Size = new System.Drawing.Size(75, 23);
             this._btnConfirm.TabIndex = 6;
             this._btnConfirm.Text = "Start";
-            this._btnConfirm.UseVisualStyleBackColor = true;
+            this._btnConfirm.UseVisualStyleBackColor = false;
             this._btnConfirm.Click += new System.EventHandler(this.ConfirmPlayers_Click);
             // 
             // panel1
@@ -163,7 +165,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(261, 115);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

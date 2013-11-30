@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.panel1 = new System.Windows.Forms.Panel();
             this._panelYellowToken = new System.Windows.Forms.Panel();
             this.panelDropPanels = new System.Windows.Forms.Panel();
@@ -41,28 +40,23 @@
             this.panelDrop0 = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
             this.panelYellow = new System.Windows.Forms.Panel();
-            this._lblPlayerYellow = new System.Windows.Forms.Label();
             this.panelRed = new System.Windows.Forms.Panel();
             this._panelRedToken = new System.Windows.Forms.Panel();
-            this._lblPlayerRed = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelHeader = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelDropPanels.SuspendLayout();
             this.panelYellow.SuspendLayout();
             this.panelRed.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this._panelYellowToken);
             this.panel1.Controls.Add(this.panelDropPanels);
             this.panel1.Controls.Add(this.panelGrid);
             this.panel1.Controls.Add(this.panelYellow);
             this.panel1.Controls.Add(this.panelRed);
-            this.panel1.Location = new System.Drawing.Point(4, 59);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(264, 302);
             this.panel1.TabIndex = 0;
@@ -70,9 +64,9 @@
             // _panelYellowToken
             // 
             this._panelYellowToken.BackColor = System.Drawing.Color.Yellow;
-            this._panelYellowToken.Location = new System.Drawing.Point(160, 279);
+            this._panelYellowToken.Location = new System.Drawing.Point(1, 29);
             this._panelYellowToken.Name = "_panelYellowToken";
-            this._panelYellowToken.Size = new System.Drawing.Size(91, 19);
+            this._panelYellowToken.Size = new System.Drawing.Size(91, 18);
             this._panelYellowToken.TabIndex = 2;
             this._panelYellowToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropYellowGameToken_MouseDown);
             // 
@@ -96,7 +90,7 @@
             this.panelDrop6.BackColor = System.Drawing.Color.Brown;
             this.panelDrop6.Location = new System.Drawing.Point(210, 3);
             this.panelDrop6.Name = "panelDrop6";
-            this.panelDrop6.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop6.Size = new System.Drawing.Size(31, 10);
             this.panelDrop6.TabIndex = 6;
             this.panelDrop6.Tag = "6";
             this.panelDrop6.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
@@ -107,7 +101,7 @@
             this.panelDrop5.BackColor = System.Drawing.Color.Brown;
             this.panelDrop5.Location = new System.Drawing.Point(175, 3);
             this.panelDrop5.Name = "panelDrop5";
-            this.panelDrop5.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop5.Size = new System.Drawing.Size(31, 10);
             this.panelDrop5.TabIndex = 5;
             this.panelDrop5.Tag = "5";
             this.panelDrop5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
@@ -118,7 +112,7 @@
             this.panelDrop4.BackColor = System.Drawing.Color.Brown;
             this.panelDrop4.Location = new System.Drawing.Point(140, 3);
             this.panelDrop4.Name = "panelDrop4";
-            this.panelDrop4.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop4.Size = new System.Drawing.Size(31, 10);
             this.panelDrop4.TabIndex = 4;
             this.panelDrop4.Tag = "4";
             this.panelDrop4.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
@@ -129,7 +123,7 @@
             this.panelDrop3.BackColor = System.Drawing.Color.Brown;
             this.panelDrop3.Location = new System.Drawing.Point(105, 3);
             this.panelDrop3.Name = "panelDrop3";
-            this.panelDrop3.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop3.Size = new System.Drawing.Size(31, 10);
             this.panelDrop3.TabIndex = 0;
             this.panelDrop3.Tag = "3";
             this.panelDrop3.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
@@ -140,7 +134,7 @@
             this.panelDrop2.BackColor = System.Drawing.Color.Brown;
             this.panelDrop2.Location = new System.Drawing.Point(70, 3);
             this.panelDrop2.Name = "panelDrop2";
-            this.panelDrop2.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop2.Size = new System.Drawing.Size(31, 10);
             this.panelDrop2.TabIndex = 2;
             this.panelDrop2.Tag = "2";
             this.panelDrop2.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
@@ -151,7 +145,7 @@
             this.panelDrop1.BackColor = System.Drawing.Color.Brown;
             this.panelDrop1.Location = new System.Drawing.Point(35, 3);
             this.panelDrop1.Name = "panelDrop1";
-            this.panelDrop1.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop1.Size = new System.Drawing.Size(31, 10);
             this.panelDrop1.TabIndex = 1;
             this.panelDrop1.Tag = "1";
             this.panelDrop1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
@@ -160,9 +154,9 @@
             // 
             this.panelDrop0.AllowDrop = true;
             this.panelDrop0.BackColor = System.Drawing.Color.Brown;
-            this.panelDrop0.Location = new System.Drawing.Point(1, 3);
+            this.panelDrop0.Location = new System.Drawing.Point(-2, 3);
             this.panelDrop0.Name = "panelDrop0";
-            this.panelDrop0.Size = new System.Drawing.Size(30, 10);
+            this.panelDrop0.Size = new System.Drawing.Size(33, 10);
             this.panelDrop0.TabIndex = 0;
             this.panelDrop0.Tag = "0";
             this.panelDrop0.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
@@ -177,24 +171,17 @@
             // 
             // panelYellow
             // 
-            this.panelYellow.Controls.Add(this._lblPlayerYellow);
+            this.panelYellow.Controls.Add(this.label2);
+            this.panelYellow.Controls.Add(this._panelYellowToken);
             this.panelYellow.Location = new System.Drawing.Point(160, 251);
             this.panelYellow.Name = "panelYellow";
             this.panelYellow.Size = new System.Drawing.Size(94, 47);
             this.panelYellow.TabIndex = 1;
             // 
-            // _lblPlayerYellow
-            // 
-            this._lblPlayerYellow.AutoSize = true;
-            this._lblPlayerYellow.Location = new System.Drawing.Point(4, 5);
-            this._lblPlayerYellow.Name = "_lblPlayerYellow";
-            this._lblPlayerYellow.Size = new System.Drawing.Size(0, 13);
-            this._lblPlayerYellow.TabIndex = 1;
-            // 
             // panelRed
             // 
+            this.panelRed.Controls.Add(this.label1);
             this.panelRed.Controls.Add(this._panelRedToken);
-            this.panelRed.Controls.Add(this._lblPlayerRed);
             this.panelRed.Location = new System.Drawing.Point(10, 251);
             this.panelRed.Name = "panelRed";
             this.panelRed.Size = new System.Drawing.Size(97, 47);
@@ -203,47 +190,43 @@
             // _panelRedToken
             // 
             this._panelRedToken.BackColor = System.Drawing.Color.Red;
-            this._panelRedToken.Location = new System.Drawing.Point(2, 28);
+            this._panelRedToken.Location = new System.Drawing.Point(1, 29);
             this._panelRedToken.Name = "_panelRedToken";
             this._panelRedToken.Size = new System.Drawing.Size(92, 18);
             this._panelRedToken.TabIndex = 2;
             this._panelRedToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropRedGameToken_MouseDown);
             // 
-            // _lblPlayerRed
+            // label1
             // 
-            this._lblPlayerRed.AutoSize = true;
-            this._lblPlayerRed.Location = new System.Drawing.Point(3, 5);
-            this._lblPlayerRed.Name = "_lblPlayerRed";
-            this._lblPlayerRed.Size = new System.Drawing.Size(0, 13);
-            this._lblPlayerRed.TabIndex = 1;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
             // 
-            // pictureBox1
+            // label2
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(262, 40);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panelHeader
-            // 
-            this.panelHeader.Controls.Add(this.pictureBox1);
-            this.panelHeader.Location = new System.Drawing.Point(-4, -1);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(279, 57);
-            this.panelHeader.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(-2, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "label1";
             // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(271, 369);
-            this.Controls.Add(this.panelHeader);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(266, 316);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(287, 403);
+            this.MaximumSize = new System.Drawing.Size(282, 350);
             this.Name = "Game";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
@@ -252,8 +235,6 @@
             this.panelYellow.PerformLayout();
             this.panelRed.ResumeLayout(false);
             this.panelRed.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelHeader.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -264,8 +245,6 @@
         private System.Windows.Forms.Panel panelYellow;
         private System.Windows.Forms.Panel panelRed;
         private System.Windows.Forms.Panel panelGrid;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Panel panelDropPanels;
         private System.Windows.Forms.Panel panelDrop0;
         private System.Windows.Forms.Panel panelDrop6;
@@ -274,10 +253,10 @@
         private System.Windows.Forms.Panel panelDrop3;
         private System.Windows.Forms.Panel panelDrop2;
         private System.Windows.Forms.Panel panelDrop1;
-        private System.Windows.Forms.Label _lblPlayerYellow;
-        private System.Windows.Forms.Label _lblPlayerRed;
         private System.Windows.Forms.Panel _panelRedToken;
         private System.Windows.Forms.Panel _panelYellowToken;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

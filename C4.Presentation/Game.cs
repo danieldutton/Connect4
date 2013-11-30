@@ -1,4 +1,5 @@
-﻿using C4.Logic.Interfaces;
+﻿using System.Media;
+using C4.Logic.Interfaces;
 using C4.Model;
 using C4.Presentation.EventArg;
 using System.Drawing;
@@ -50,8 +51,8 @@ namespace C4.Presentation
 
         private void RegisterPlayersToGameboard(object sender, PlayersConfirmedEventArgs e)
         {
-            _lblPlayerRed.Text = e.RedPlayer.Name;
-            _lblPlayerYellow.Text = e.YellowPlayer.Name;
+            label1.Text = e.RedPlayer.Name;
+            label2.Text = e.YellowPlayer.Name;
 
             GameBoard.RedPlayer = e.RedPlayer;
             GameBoard.YellowPlayer = e.YellowPlayer;
@@ -60,13 +61,26 @@ namespace C4.Presentation
         private void DropRedGameToken_MouseDown(object sender, MouseEventArgs e)
         {
             if (GameBoard.RedPlayer.HasCurrentTurn)
+            {
                 DoDragDrop(sender, DragDropEffects.Move);
+                PlaySound();
+            }                
         }
 
         private void DropYellowGameToken_MouseDown(object sender, MouseEventArgs e)
         {
             if (GameBoard.YellowPlayer.HasCurrentTurn)
+            {
                 DoDragDrop(sender, DragDropEffects.Move);
+                PlaySound();
+            }               
+        }
+
+        private void PlaySound()
+        {
+            var soundPlayer = new SoundPlayer(Properties.Resources.disc_drop_in_frame);
+            soundPlayer.Load();
+            soundPlayer.Play();
         }
 
         private void panelDrop0_DragDrop(object sender, DragEventArgs e)
