@@ -42,8 +42,8 @@
             this.panelYellow = new System.Windows.Forms.Panel();
             this.panelRed = new System.Windows.Forms.Panel();
             this._panelRedToken = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtBoxPlayer1 = new System.Windows.Forms.Label();
+            this.txtBoxPlayer2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelDropPanels.SuspendLayout();
             this.panelYellow.SuspendLayout();
@@ -93,7 +93,7 @@
             this.panelDrop6.Size = new System.Drawing.Size(31, 10);
             this.panelDrop6.TabIndex = 6;
             this.panelDrop6.Tag = "6";
-            this.panelDrop6.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
+            this.panelDrop6.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameToken_DragDrop);
             // 
             // panelDrop5
             // 
@@ -104,7 +104,7 @@
             this.panelDrop5.Size = new System.Drawing.Size(31, 10);
             this.panelDrop5.TabIndex = 5;
             this.panelDrop5.Tag = "5";
-            this.panelDrop5.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
+            this.panelDrop5.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameToken_DragDrop);
             // 
             // panelDrop4
             // 
@@ -115,7 +115,7 @@
             this.panelDrop4.Size = new System.Drawing.Size(31, 10);
             this.panelDrop4.TabIndex = 4;
             this.panelDrop4.Tag = "4";
-            this.panelDrop4.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
+            this.panelDrop4.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameToken_DragDrop);
             // 
             // panelDrop3
             // 
@@ -126,7 +126,7 @@
             this.panelDrop3.Size = new System.Drawing.Size(31, 10);
             this.panelDrop3.TabIndex = 0;
             this.panelDrop3.Tag = "3";
-            this.panelDrop3.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
+            this.panelDrop3.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameToken_DragDrop);
             // 
             // panelDrop2
             // 
@@ -137,7 +137,7 @@
             this.panelDrop2.Size = new System.Drawing.Size(31, 10);
             this.panelDrop2.TabIndex = 2;
             this.panelDrop2.Tag = "2";
-            this.panelDrop2.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
+            this.panelDrop2.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameToken_DragDrop);
             // 
             // panelDrop1
             // 
@@ -148,7 +148,7 @@
             this.panelDrop1.Size = new System.Drawing.Size(31, 10);
             this.panelDrop1.TabIndex = 1;
             this.panelDrop1.Tag = "1";
-            this.panelDrop1.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
+            this.panelDrop1.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameToken_DragDrop);
             // 
             // panelDrop0
             // 
@@ -159,8 +159,8 @@
             this.panelDrop0.Size = new System.Drawing.Size(33, 10);
             this.panelDrop0.TabIndex = 0;
             this.panelDrop0.Tag = "0";
-            this.panelDrop0.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
-            this.panelDrop0.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelDrop0_DragDrop);
+            this.panelDrop0.DragDrop += new System.Windows.Forms.DragEventHandler(this.GameToken_DragDrop);
+            this.panelDrop0.DragEnter += new System.Windows.Forms.DragEventHandler(this.GameToken_DragDrop);
             // 
             // panelGrid
             // 
@@ -171,7 +171,7 @@
             // 
             // panelYellow
             // 
-            this.panelYellow.Controls.Add(this.label2);
+            this.panelYellow.Controls.Add(this.txtBoxPlayer2);
             this.panelYellow.Controls.Add(this._panelYellowToken);
             this.panelYellow.Location = new System.Drawing.Point(160, 251);
             this.panelYellow.Name = "panelYellow";
@@ -180,7 +180,7 @@
             // 
             // panelRed
             // 
-            this.panelRed.Controls.Add(this.label1);
+            this.panelRed.Controls.Add(this.txtBoxPlayer1);
             this.panelRed.Controls.Add(this._panelRedToken);
             this.panelRed.Location = new System.Drawing.Point(10, 251);
             this.panelRed.Name = "panelRed";
@@ -196,27 +196,27 @@
             this._panelRedToken.TabIndex = 2;
             this._panelRedToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropRedGameToken_MouseDown);
             // 
-            // label1
+            // txtBoxPlayer1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.txtBoxPlayer1.AutoSize = true;
+            this.txtBoxPlayer1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPlayer1.ForeColor = System.Drawing.Color.White;
+            this.txtBoxPlayer1.Location = new System.Drawing.Point(0, 9);
+            this.txtBoxPlayer1.Name = "txtBoxPlayer1";
+            this.txtBoxPlayer1.Size = new System.Drawing.Size(42, 17);
+            this.txtBoxPlayer1.TabIndex = 3;
+            this.txtBoxPlayer1.Text = "txtBoxPlayer1";
             // 
-            // label2
+            // txtBoxPlayer2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(-2, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label1";
+            this.txtBoxPlayer2.AutoSize = true;
+            this.txtBoxPlayer2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPlayer2.ForeColor = System.Drawing.Color.White;
+            this.txtBoxPlayer2.Location = new System.Drawing.Point(-2, 9);
+            this.txtBoxPlayer2.Name = "txtBoxPlayer2";
+            this.txtBoxPlayer2.Size = new System.Drawing.Size(42, 17);
+            this.txtBoxPlayer2.TabIndex = 3;
+            this.txtBoxPlayer2.Text = "txtBoxPlayer1";
             // 
             // Game
             // 
@@ -255,8 +255,8 @@
         private System.Windows.Forms.Panel panelDrop1;
         private System.Windows.Forms.Panel _panelRedToken;
         private System.Windows.Forms.Panel _panelYellowToken;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtBoxPlayer2;
+        private System.Windows.Forms.Label txtBoxPlayer1;
     }
 }
 

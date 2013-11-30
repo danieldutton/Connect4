@@ -1,8 +1,8 @@
-﻿using System.Media;
-using C4.Logic.Interfaces;
+﻿using C4.Logic.Interfaces;
 using C4.Model;
 using C4.Presentation.EventArg;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace C4.Presentation
@@ -51,8 +51,8 @@ namespace C4.Presentation
 
         private void RegisterPlayersToGameboard(object sender, PlayersConfirmedEventArgs e)
         {
-            label1.Text = e.RedPlayer.Name;
-            label2.Text = e.YellowPlayer.Name;
+            txtBoxPlayer1.Text = e.RedPlayer.Name;
+            txtBoxPlayer2.Text = e.YellowPlayer.Name;
 
             GameBoard.RedPlayer = e.RedPlayer;
             GameBoard.YellowPlayer = e.YellowPlayer;
@@ -61,29 +61,16 @@ namespace C4.Presentation
         private void DropRedGameToken_MouseDown(object sender, MouseEventArgs e)
         {
             if (GameBoard.RedPlayer.HasCurrentTurn)
-            {
-                DoDragDrop(sender, DragDropEffects.Move);
-                PlaySound();
-            }                
+                DoDragDrop(sender, DragDropEffects.Move);                
         }
 
         private void DropYellowGameToken_MouseDown(object sender, MouseEventArgs e)
         {
             if (GameBoard.YellowPlayer.HasCurrentTurn)
-            {
-                DoDragDrop(sender, DragDropEffects.Move);
-                PlaySound();
-            }               
+                DoDragDrop(sender, DragDropEffects.Move);              
         }
 
-        private void PlaySound()
-        {
-            var soundPlayer = new SoundPlayer(Properties.Resources.disc_drop_in_frame);
-            soundPlayer.Load();
-            soundPlayer.Play();
-        }
-
-        private void panelDrop0_DragDrop(object sender, DragEventArgs e)
+        private void GameToken_DragDrop(object sender, DragEventArgs e)
         {
             e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.All;
 
@@ -92,6 +79,15 @@ namespace C4.Presentation
             int column = int.Parse(columnSlot.Tag.ToString());
 
             GameBoard.TakeMove(column);
+
+            PlayTokenDropFx();
+        }
+
+        private void PlayTokenDropFx()
+        {
+            var soundPlayer = new SoundPlayer(Properties.Resources.disc_drop_in_frame);
+            soundPlayer.Load();
+            soundPlayer.Play();
         }
     }
 }
