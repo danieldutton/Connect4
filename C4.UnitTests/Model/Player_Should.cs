@@ -1,7 +1,7 @@
 ﻿using C4.Model;
 using NUnit.Framework;
 
-namespace C4.Tests_Unit.Model
+namespace C4._UnitTests.Model
 {
     [TestFixture]
     public class Player_Should

@@ -5,7 +5,7 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 
-namespace C4.Tests_Unit.GridBuilder
+namespace C4._UnitTests.GridBuilder
 {
     [TestFixture]
     public class GridGenerator_Should

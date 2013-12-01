@@ -5,7 +5,7 @@ using C4.Model;
 using NUnit.Framework;
 using System.Linq;
 
-namespace C4.Tests_Unit.Logic
+namespace C4._UnitTests.Logic
 {
     [TestFixture]
     public class GameBoard_Should

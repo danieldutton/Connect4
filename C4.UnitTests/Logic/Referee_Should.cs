@@ -3,7 +3,7 @@ using C4.Logic;
 using C4.Model;
 using NUnit.Framework;
 
-namespace C4.Tests_Unit.Logic
+namespace C4._UnitTests.Logic
 {
     [TestFixture]
     public class Referee_Should
@@ -1256,6 +1256,638 @@ namespace C4.Tests_Unit.Logic
             GameToken gameToken = _sut.Has4InARowHorizintal();
 
             Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        #endregion
+
+        #region Has4InARowDiagonal
+        
+        //left to right diagonal
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_3_0_To_0_3()
+        {
+            PushTokenInSlot(3, 0, GameToken.Red);
+            PushTokenInSlot(2, 1, GameToken.Red);
+            PushTokenInSlot(1, 2, GameToken.Red);
+            PushTokenInSlot(0, 3, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_3_0_To_0_3()
+        {
+            PushTokenInSlot(3, 0, GameToken.Yellow);
+            PushTokenInSlot(2, 1, GameToken.Yellow);
+            PushTokenInSlot(1, 2, GameToken.Yellow);
+            PushTokenInSlot(0, 3, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_4_0_To_1_3()
+        {
+            PushTokenInSlot(4, 0, GameToken.Yellow);
+            PushTokenInSlot(3, 1, GameToken.Yellow);
+            PushTokenInSlot(2, 2, GameToken.Yellow);
+            PushTokenInSlot(1, 3, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_4_0_To_1_3()
+        {
+            PushTokenInSlot(4, 0, GameToken.Red);
+            PushTokenInSlot(3, 1, GameToken.Red);
+            PushTokenInSlot(2, 2, GameToken.Red);
+            PushTokenInSlot(1, 3, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_3_1_To_0_4()
+        {
+            PushTokenInSlot(3, 1, GameToken.Yellow);
+            PushTokenInSlot(2, 2, GameToken.Yellow);
+            PushTokenInSlot(1, 3, GameToken.Yellow);
+            PushTokenInSlot(0, 4, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_3_1_To_0_4()
+        {
+            PushTokenInSlot(3, 1, GameToken.Red);
+            PushTokenInSlot(2, 2, GameToken.Red);
+            PushTokenInSlot(1, 3, GameToken.Red);
+            PushTokenInSlot(0, 4, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_5_0_To_2_3()
+        {
+            PushTokenInSlot(5, 0, GameToken.Yellow);
+            PushTokenInSlot(4, 1, GameToken.Yellow);
+            PushTokenInSlot(3, 2, GameToken.Yellow);
+            PushTokenInSlot(2, 3, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_5_0_To_2_3()
+        {
+            PushTokenInSlot(5, 0, GameToken.Red);
+            PushTokenInSlot(4, 1, GameToken.Red);
+            PushTokenInSlot(3, 2, GameToken.Red);
+            PushTokenInSlot(2, 3, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_4_1_To_1_4()
+        {
+            PushTokenInSlot(4, 1, GameToken.Yellow);
+            PushTokenInSlot(3, 2, GameToken.Yellow);
+            PushTokenInSlot(2, 3, GameToken.Yellow);
+            PushTokenInSlot(1, 4, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_4_1_To_1_4()
+        {
+            PushTokenInSlot(4, 1, GameToken.Red);
+            PushTokenInSlot(3, 2, GameToken.Red);
+            PushTokenInSlot(2, 3, GameToken.Red);
+            PushTokenInSlot(1, 4, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_3_2_To_0_5()
+        {
+            PushTokenInSlot(3, 2, GameToken.Yellow);
+            PushTokenInSlot(2, 3, GameToken.Yellow);
+            PushTokenInSlot(1, 4, GameToken.Yellow);
+            PushTokenInSlot(0, 5, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_3_2_To_0_5()
+        {
+            PushTokenInSlot(3, 2, GameToken.Red);
+            PushTokenInSlot(2, 3, GameToken.Red);
+            PushTokenInSlot(1, 4, GameToken.Red);
+            PushTokenInSlot(0, 5, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_5_1_To_2_4()
+        {
+            PushTokenInSlot(5, 1, GameToken.Yellow);
+            PushTokenInSlot(4, 2, GameToken.Yellow);
+            PushTokenInSlot(3, 3, GameToken.Yellow);
+            PushTokenInSlot(2, 4, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_5_1_To_2_4()
+        {
+            PushTokenInSlot(5, 1, GameToken.Red);
+            PushTokenInSlot(4, 2, GameToken.Red);
+            PushTokenInSlot(3, 3, GameToken.Red);
+            PushTokenInSlot(2, 4, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_4_2_To_1_5()
+        {
+            PushTokenInSlot(4, 2, GameToken.Yellow);
+            PushTokenInSlot(3, 3, GameToken.Yellow);
+            PushTokenInSlot(2, 4, GameToken.Yellow);
+            PushTokenInSlot(1, 5, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_4_2_To_1_5()
+        {
+            PushTokenInSlot(4, 2, GameToken.Red);
+            PushTokenInSlot(3, 3, GameToken.Red);
+            PushTokenInSlot(2, 4, GameToken.Red);
+            PushTokenInSlot(1, 5, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_3_3_To_0_6()
+        {
+            PushTokenInSlot(3, 3, GameToken.Yellow);
+            PushTokenInSlot(2, 4, GameToken.Yellow);
+            PushTokenInSlot(1, 5, GameToken.Yellow);
+            PushTokenInSlot(0, 6, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_3_3_To_0_6()
+        {
+            PushTokenInSlot(3, 3, GameToken.Red);
+            PushTokenInSlot(2, 4, GameToken.Red);
+            PushTokenInSlot(1, 5, GameToken.Red);
+            PushTokenInSlot(0, 6, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_5_2_To_2_5()
+        {
+            PushTokenInSlot(5, 2, GameToken.Yellow);
+            PushTokenInSlot(4, 3, GameToken.Yellow);
+            PushTokenInSlot(3, 4, GameToken.Yellow);
+            PushTokenInSlot(2, 5, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_5_2_To_2_5()
+        {
+            PushTokenInSlot(5, 2, GameToken.Red);
+            PushTokenInSlot(4, 3, GameToken.Red);
+            PushTokenInSlot(3, 4, GameToken.Red);
+            PushTokenInSlot(2, 5, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_4_3_To_1_6()
+        {
+            PushTokenInSlot(4, 3, GameToken.Yellow);
+            PushTokenInSlot(3, 4, GameToken.Yellow);
+            PushTokenInSlot(2, 5, GameToken.Yellow);
+            PushTokenInSlot(1, 6, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_4_3_To_1_6()
+        {
+            PushTokenInSlot(4, 3, GameToken.Red);
+            PushTokenInSlot(3, 4, GameToken.Red);
+            PushTokenInSlot(2, 5, GameToken.Red);
+            PushTokenInSlot(1, 6, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_5_3_To_2_6()
+        {
+            PushTokenInSlot(5, 3, GameToken.Yellow);
+            PushTokenInSlot(4, 4, GameToken.Yellow);
+            PushTokenInSlot(3, 5, GameToken.Yellow);
+            PushTokenInSlot(2, 6, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_5_3_To_2_6()
+        {
+            PushTokenInSlot(5, 3, GameToken.Red);
+            PushTokenInSlot(4, 4, GameToken.Red);
+            PushTokenInSlot(3, 5, GameToken.Red);
+            PushTokenInSlot(2, 6, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        //right to left diagonal
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_3_6_To_0_3()
+        {
+            PushTokenInSlot(3, 6, GameToken.Red);
+            PushTokenInSlot(2, 5, GameToken.Red);
+            PushTokenInSlot(1, 4, GameToken.Red);
+            PushTokenInSlot(0, 3, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_3_6_To_0_3()
+        {
+            PushTokenInSlot(3, 6, GameToken.Yellow);
+            PushTokenInSlot(2, 5, GameToken.Yellow);
+            PushTokenInSlot(1, 4, GameToken.Yellow);
+            PushTokenInSlot(0, 3, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_4_6_To_1_3()
+        {
+            PushTokenInSlot(4, 6, GameToken.Yellow);
+            PushTokenInSlot(3, 5, GameToken.Yellow);
+            PushTokenInSlot(2, 4, GameToken.Yellow);
+            PushTokenInSlot(1, 3, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_4_6_To_1_3()
+        {
+            PushTokenInSlot(4, 6, GameToken.Red);
+            PushTokenInSlot(3, 5, GameToken.Red);
+            PushTokenInSlot(2, 4, GameToken.Red);
+            PushTokenInSlot(1, 3, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_3_5_To_0_2()
+        {
+            PushTokenInSlot(3, 5, GameToken.Yellow);
+            PushTokenInSlot(2, 4, GameToken.Yellow);
+            PushTokenInSlot(1, 3, GameToken.Yellow);
+            PushTokenInSlot(0, 2, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_3_5_To_0_2()
+        {
+            PushTokenInSlot(3, 5, GameToken.Red);
+            PushTokenInSlot(2, 4, GameToken.Red);
+            PushTokenInSlot(1, 3, GameToken.Red);
+            PushTokenInSlot(0, 2, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_5_6_To_2_3()
+        {
+            PushTokenInSlot(5, 6, GameToken.Yellow);
+            PushTokenInSlot(4, 5, GameToken.Yellow);
+            PushTokenInSlot(3, 4, GameToken.Yellow);
+            PushTokenInSlot(2, 3, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_5_6_To_2_3()
+        {
+            PushTokenInSlot(5, 6, GameToken.Red);
+            PushTokenInSlot(4, 5, GameToken.Red);
+            PushTokenInSlot(3, 4, GameToken.Red);
+            PushTokenInSlot(2, 3, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_4_5_To_1_2()
+        {
+            PushTokenInSlot(4, 5, GameToken.Yellow);
+            PushTokenInSlot(3, 4, GameToken.Yellow);
+            PushTokenInSlot(2, 3, GameToken.Yellow);
+            PushTokenInSlot(1, 2, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_4_5_To_1_2()
+        {
+            PushTokenInSlot(4, 5, GameToken.Red);
+            PushTokenInSlot(3, 4, GameToken.Red);
+            PushTokenInSlot(2, 3, GameToken.Red);
+            PushTokenInSlot(1, 2, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_3_4_To_0_1()
+        {
+            PushTokenInSlot(3, 4, GameToken.Yellow);
+            PushTokenInSlot(2, 3, GameToken.Yellow);
+            PushTokenInSlot(1, 2, GameToken.Yellow);
+            PushTokenInSlot(0, 1, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_3_4_To_0_1()
+        {
+            PushTokenInSlot(3, 4, GameToken.Red);
+            PushTokenInSlot(2, 3, GameToken.Red);
+            PushTokenInSlot(1, 2, GameToken.Red);
+            PushTokenInSlot(0, 1, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_5_5_To_2_2()
+        {
+            PushTokenInSlot(5, 5, GameToken.Yellow);
+            PushTokenInSlot(4, 4, GameToken.Yellow);
+            PushTokenInSlot(3, 3, GameToken.Yellow);
+            PushTokenInSlot(2, 2, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_5_5_To_2_2()
+        {
+            PushTokenInSlot(5, 5, GameToken.Red);
+            PushTokenInSlot(4, 4, GameToken.Red);
+            PushTokenInSlot(3, 3, GameToken.Red);
+            PushTokenInSlot(2, 2, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_4_4_To_1_1()
+        {
+            PushTokenInSlot(4, 4, GameToken.Yellow);
+            PushTokenInSlot(3, 3, GameToken.Yellow);
+            PushTokenInSlot(2, 2, GameToken.Yellow);
+            PushTokenInSlot(1, 1, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_4_4_To_1_1()
+        {
+            PushTokenInSlot(4, 4, GameToken.Red);
+            PushTokenInSlot(3, 3, GameToken.Red);
+            PushTokenInSlot(2, 2, GameToken.Red);
+            PushTokenInSlot(1, 1, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_3_3_To_0_0()
+        {
+            PushTokenInSlot(3, 3, GameToken.Yellow);
+            PushTokenInSlot(2, 2, GameToken.Yellow);
+            PushTokenInSlot(1, 1, GameToken.Yellow);
+            PushTokenInSlot(0, 0, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_3_3_To_0_0()
+        {
+            PushTokenInSlot(3, 3, GameToken.Red);
+            PushTokenInSlot(2, 2, GameToken.Red);
+            PushTokenInSlot(1, 1, GameToken.Red);
+            PushTokenInSlot(0, 0, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_5_4_To_2_1()
+        {
+            PushTokenInSlot(5, 4, GameToken.Yellow);
+            PushTokenInSlot(4, 3, GameToken.Yellow);
+            PushTokenInSlot(3, 2, GameToken.Yellow);
+            PushTokenInSlot(2, 1, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_5_4_To_2_1()
+        {
+            PushTokenInSlot(5, 4, GameToken.Red);
+            PushTokenInSlot(4, 3, GameToken.Red);
+            PushTokenInSlot(3, 2, GameToken.Red);
+            PushTokenInSlot(2, 1, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_4_3_To_1_0()
+        {
+            PushTokenInSlot(4, 3, GameToken.Yellow);
+            PushTokenInSlot(3, 2, GameToken.Yellow);
+            PushTokenInSlot(2, 1, GameToken.Yellow);
+            PushTokenInSlot(1, 0, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_4_3_To_1_0()
+        {
+            PushTokenInSlot(4, 3, GameToken.Red);
+            PushTokenInSlot(3, 2, GameToken.Red);
+            PushTokenInSlot(2, 1, GameToken.Red);
+            PushTokenInSlot(1, 0, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourRedTokensSpanningIndex_5_3_To_2_0()
+        {
+            PushTokenInSlot(5, 3, GameToken.Yellow);
+            PushTokenInSlot(4, 2, GameToken.Yellow);
+            PushTokenInSlot(3, 1, GameToken.Yellow);
+            PushTokenInSlot(2, 0, GameToken.Yellow);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Yellow, gameToken);
+        }
+
+        [Test]
+        public void HasFourInARowDiagonal_IdentifyFourYellowTokensSpanningIndex_5_3_To_2_0()
+        {
+            PushTokenInSlot(5, 3, GameToken.Red);
+            PushTokenInSlot(4, 2, GameToken.Red);
+            PushTokenInSlot(3, 1, GameToken.Red);
+            PushTokenInSlot(2, 0, GameToken.Red);
+
+            GameToken gameToken = _sut.Has4InARowDiagonal();
+
+            Assert.AreEqual(GameToken.Red, gameToken);
         }
 
         #endregion

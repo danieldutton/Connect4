@@ -1,6 +1,6 @@
 ﻿using C4.Model;
 
-namespace C4.Tests_Unit
+namespace C4._UnitTests
 {
     public static class Mother
     {

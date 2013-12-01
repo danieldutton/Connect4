@@ -2,7 +2,7 @@
 using NUnit.Framework;
 using System;
 
-namespace C4.Tests_Unit.Utilities
+namespace C4._UnitTests.Utilities
 {
     [TestFixture]
     public class StringTruncator_Should
