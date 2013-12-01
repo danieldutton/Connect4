@@ -50,11 +50,11 @@ namespace C4.Logic
                 return; 
             }
 
-            //GameToken gameTokenDiagonal = Has4InARowDiagonal(GameToken.Undefined);
-            //if (gameTokenDiagonal != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenDiagonal)); 
-            //    return; 
-            //}
-            
+            GameToken gameTokenDiag = Has4InARowDiagonal();
+            if (gameTokenDiag != GameToken.Undefined){ OnGameWon(new GameStatusEventArgs(gameTokenDiag));
+                return;
+            }
+  
             OnGameContinues();
         }
 
@@ -133,9 +133,74 @@ namespace C4.Logic
             return GameToken.Undefined;
         }
 
-        public GameToken Has4InARowDiagonal(GameToken gameToken)
+        public GameToken Has4InARowDiagonal()
         {
-            throw new NotImplementedException();
+
+            //diag to left
+            for (int y = 0; y < GameBoard.Grid.GetLength(0) - 3; y++)
+            {
+                for (int x = 0; x < GameBoard.Grid.GetLength(1)- 3; x++)
+                {
+                    if (GameBoard.Grid[y, x].GameToken == GameToken.Yellow
+                        && GameBoard.Grid[y + 1, x + 1].GameToken == GameToken.Yellow
+                        && GameBoard.Grid[y + 2, x + 2].GameToken == GameToken.Yellow
+                        && GameBoard.Grid[y + 3, x + 3].GameToken == GameToken.Yellow
+                    )
+                    {
+                        return GameToken.Yellow;
+                    }
+                }
+            }
+
+            //diag to right
+            for (int y = 0; y < GameBoard.Grid.GetLength(0) - 3; y++)
+            {
+                for (int x = 3; x < GameBoard.Grid.GetLength(1); x++)
+                {
+                    if (GameBoard.Grid[y,x].GameToken == GameToken.Yellow
+                        && GameBoard.Grid[y + 1, x - 1].GameToken == GameToken.Yellow
+                        && GameBoard.Grid[y + 2, x - 2].GameToken == GameToken.Yellow
+                        && GameBoard.Grid[y + 3, x - 3].GameToken == GameToken.Yellow
+                    )
+                    {
+                        return GameToken.Yellow;
+                    }
+                }
+            }
+
+            //diag to left
+            for (int y = 0; y < GameBoard.Grid.GetLength(0) - 3; y++)
+            {
+                for (int x = 0; x < GameBoard.Grid.GetLength(1) - 3; x++)
+                {
+                    if (GameBoard.Grid[y, x].GameToken == GameToken.Red
+                        && GameBoard.Grid[y + 1, x + 1].GameToken == GameToken.Red
+                        && GameBoard.Grid[y + 2, x + 2].GameToken == GameToken.Red
+                        && GameBoard.Grid[y + 3, x + 3].GameToken == GameToken.Red
+                    )
+                    {
+                        return GameToken.Red;
+                    }
+                }
+            }
+
+            //diag to right
+            for (int y = 0; y < GameBoard.Grid.GetLength(0) - 3; y++)
+            {
+                for (int x = 3; x < GameBoard.Grid.GetLength(1); x++)
+                {
+                    if (GameBoard.Grid[y, x].GameToken == GameToken.Red
+                        && GameBoard.Grid[y + 1, x - 1].GameToken == GameToken.Red
+                        && GameBoard.Grid[y + 2, x - 2].GameToken == GameToken.Red
+                        && GameBoard.Grid[y + 3, x - 3].GameToken == GameToken.Red
+                    )
+                    {
+                        return GameToken.Red;
+                    }
+                }
+            }
+
+            return GameToken.Undefined;
         }
 
         public bool HasDrawnGame()

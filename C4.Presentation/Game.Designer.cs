@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this._panelYellowToken = new System.Windows.Forms.Panel();
             this.panelDropPanels = new System.Windows.Forms.Panel();
             this.panelDrop6 = new System.Windows.Forms.Panel();
             this.panelDrop5 = new System.Windows.Forms.Panel();
@@ -40,10 +39,11 @@
             this.panelDrop0 = new System.Windows.Forms.Panel();
             this.panelGrid = new System.Windows.Forms.Panel();
             this.panelYellow = new System.Windows.Forms.Panel();
-            this.panelRed = new System.Windows.Forms.Panel();
-            this._panelRedToken = new System.Windows.Forms.Panel();
-            this.txtBoxPlayer1 = new System.Windows.Forms.Label();
             this.txtBoxPlayer2 = new System.Windows.Forms.Label();
+            this._panelYellowToken = new System.Windows.Forms.Panel();
+            this.panelRed = new System.Windows.Forms.Panel();
+            this.txtBoxPlayer1 = new System.Windows.Forms.Label();
+            this._panelRedToken = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panelDropPanels.SuspendLayout();
             this.panelYellow.SuspendLayout();
@@ -60,15 +60,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(264, 302);
             this.panel1.TabIndex = 0;
-            // 
-            // _panelYellowToken
-            // 
-            this._panelYellowToken.BackColor = System.Drawing.Color.Yellow;
-            this._panelYellowToken.Location = new System.Drawing.Point(1, 29);
-            this._panelYellowToken.Name = "_panelYellowToken";
-            this._panelYellowToken.Size = new System.Drawing.Size(91, 18);
-            this._panelYellowToken.TabIndex = 2;
-            this._panelYellowToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropYellowGameToken_MouseDown);
             // 
             // panelDropPanels
             // 
@@ -178,6 +169,26 @@
             this.panelYellow.Size = new System.Drawing.Size(94, 47);
             this.panelYellow.TabIndex = 1;
             // 
+            // txtBoxPlayer2
+            // 
+            this.txtBoxPlayer2.AutoSize = true;
+            this.txtBoxPlayer2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPlayer2.ForeColor = System.Drawing.Color.White;
+            this.txtBoxPlayer2.Location = new System.Drawing.Point(-2, 9);
+            this.txtBoxPlayer2.Name = "txtBoxPlayer2";
+            this.txtBoxPlayer2.Size = new System.Drawing.Size(87, 17);
+            this.txtBoxPlayer2.TabIndex = 3;
+            this.txtBoxPlayer2.Text = "txtBoxPlayer1";
+            // 
+            // _panelYellowToken
+            // 
+            this._panelYellowToken.BackColor = System.Drawing.Color.Yellow;
+            this._panelYellowToken.Location = new System.Drawing.Point(1, 29);
+            this._panelYellowToken.Name = "_panelYellowToken";
+            this._panelYellowToken.Size = new System.Drawing.Size(91, 18);
+            this._panelYellowToken.TabIndex = 2;
+            this._panelYellowToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropYellowGameToken_MouseDown);
+            // 
             // panelRed
             // 
             this.panelRed.Controls.Add(this.txtBoxPlayer1);
@@ -187,6 +198,17 @@
             this.panelRed.Size = new System.Drawing.Size(97, 47);
             this.panelRed.TabIndex = 1;
             // 
+            // txtBoxPlayer1
+            // 
+            this.txtBoxPlayer1.AutoSize = true;
+            this.txtBoxPlayer1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxPlayer1.ForeColor = System.Drawing.Color.White;
+            this.txtBoxPlayer1.Location = new System.Drawing.Point(0, 9);
+            this.txtBoxPlayer1.Name = "txtBoxPlayer1";
+            this.txtBoxPlayer1.Size = new System.Drawing.Size(87, 17);
+            this.txtBoxPlayer1.TabIndex = 3;
+            this.txtBoxPlayer1.Text = "txtBoxPlayer1";
+            // 
             // _panelRedToken
             // 
             this._panelRedToken.BackColor = System.Drawing.Color.Red;
@@ -195,28 +217,6 @@
             this._panelRedToken.Size = new System.Drawing.Size(92, 18);
             this._panelRedToken.TabIndex = 2;
             this._panelRedToken.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DropRedGameToken_MouseDown);
-            // 
-            // txtBoxPlayer1
-            // 
-            this.txtBoxPlayer1.AutoSize = true;
-            this.txtBoxPlayer1.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPlayer1.ForeColor = System.Drawing.Color.White;
-            this.txtBoxPlayer1.Location = new System.Drawing.Point(0, 9);
-            this.txtBoxPlayer1.Name = "txtBoxPlayer1";
-            this.txtBoxPlayer1.Size = new System.Drawing.Size(42, 17);
-            this.txtBoxPlayer1.TabIndex = 3;
-            this.txtBoxPlayer1.Text = "txtBoxPlayer1";
-            // 
-            // txtBoxPlayer2
-            // 
-            this.txtBoxPlayer2.AutoSize = true;
-            this.txtBoxPlayer2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxPlayer2.ForeColor = System.Drawing.Color.White;
-            this.txtBoxPlayer2.Location = new System.Drawing.Point(-2, 9);
-            this.txtBoxPlayer2.Name = "txtBoxPlayer2";
-            this.txtBoxPlayer2.Size = new System.Drawing.Size(42, 17);
-            this.txtBoxPlayer2.TabIndex = 3;
-            this.txtBoxPlayer2.Text = "txtBoxPlayer1";
             // 
             // Game
             // 

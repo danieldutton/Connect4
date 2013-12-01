@@ -69,7 +69,7 @@
             // 
             // _txtBoxYellowPlayerName
             // 
-            this._txtBoxYellowPlayerName.BackColor = System.Drawing.Color.White;
+            this._txtBoxYellowPlayerName.BackColor = System.Drawing.Color.Gainsboro;
             this._txtBoxYellowPlayerName.Location = new System.Drawing.Point(89, 7);
             this._txtBoxYellowPlayerName.Name = "_txtBoxYellowPlayerName";
             this._txtBoxYellowPlayerName.Size = new System.Drawing.Size(133, 20);
@@ -77,7 +77,7 @@
             // 
             // _txtBoxRedPlayerName
             // 
-            this._txtBoxRedPlayerName.BackColor = System.Drawing.Color.White;
+            this._txtBoxRedPlayerName.BackColor = System.Drawing.Color.Gainsboro;
             this._txtBoxRedPlayerName.Location = new System.Drawing.Point(89, 6);
             this._txtBoxRedPlayerName.Name = "_txtBoxRedPlayerName";
             this._txtBoxRedPlayerName.Size = new System.Drawing.Size(133, 20);

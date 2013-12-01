@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.Tests_Unit", "C4.UnitTests\C4.Tests_Unit.csproj", "{D70026E2-9912-4955-B197-002AF4A0CB1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4._UnitTests", "C4.UnitTests\C4._UnitTests.csproj", "{D70026E2-9912-4955-B197-002AF4A0CB1B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4.Model", "C4.Model\C4.Model.csproj", "{AE61CB1E-073A-473C-A486-576585C361D9}"
 EndProject

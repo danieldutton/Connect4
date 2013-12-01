@@ -1,5 +1,5 @@
-﻿using System.Drawing;
-using C4.GridBuilder.Interfaces;
+﻿using C4.GridBuilder.Interfaces;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace C4.Model

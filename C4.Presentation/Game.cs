@@ -61,13 +61,13 @@ namespace C4.Presentation
         private void DropRedGameToken_MouseDown(object sender, MouseEventArgs e)
         {
             if (GameBoard.RedPlayer.HasCurrentTurn)
-                DoDragDrop(sender, DragDropEffects.Move);                
+                DoDragDrop(sender, DragDropEffects.Move);
         }
 
         private void DropYellowGameToken_MouseDown(object sender, MouseEventArgs e)
         {
             if (GameBoard.YellowPlayer.HasCurrentTurn)
-                DoDragDrop(sender, DragDropEffects.Move);              
+                DoDragDrop(sender, DragDropEffects.Move);
         }
 
         private void GameToken_DragDrop(object sender, DragEventArgs e)
@@ -79,13 +79,13 @@ namespace C4.Presentation
             int column = int.Parse(columnSlot.Tag.ToString());
 
             GameBoard.TakeMove(column);
-
             PlayTokenDropFx();
         }
 
         private void PlayTokenDropFx()
         {
             var soundPlayer = new SoundPlayer(Properties.Resources.disc_drop_in_frame);
+            
             soundPlayer.Load();
             soundPlayer.Play();
         }
