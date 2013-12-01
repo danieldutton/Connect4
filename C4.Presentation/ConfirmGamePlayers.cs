@@ -6,20 +6,20 @@ using System.Windows.Forms;
 
 namespace C4.Presentation
 {
-    public partial class ConfirmPlayers : Form
+    internal partial class ConfirmGamePlayers : Form
     {
         public event EventHandler<PlayersConfirmedEventArgs> PlayersConfirmed;
 
         private readonly IStringTruncator _stringTruncator;
         
 
-        public ConfirmPlayers(IStringTruncator stringTruncator)
+        internal ConfirmGamePlayers(IStringTruncator stringTruncator)
         {
             _stringTruncator = stringTruncator;
             InitializeComponent();
         }
 
-        public void ConfirmPlayers_Click(object sender, EventArgs e)
+        internal void ConfirmPlayers_Click(object sender, EventArgs e)
         {
             var yellowPlayer = new Player
                 {

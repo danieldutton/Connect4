@@ -26,7 +26,7 @@ namespace C4.Presentation
             GameBoard gameBoard = GameBoard.GetGameInstance();
             gameBoard.Grid = grid;
             IStringTruncator stringTruncator = new StringTruncator();
-            var gameOptions = new ConfirmPlayers(stringTruncator);
+            var gameOptions = new ConfirmGamePlayers(stringTruncator);
 
             var referee = new Referee(gameBoard);
             var gameOver = new GameOver();

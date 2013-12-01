@@ -51,11 +51,11 @@
     <Compile Include="Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConfirmPlayers.cs">
+    <Compile Include="ConfirmGamePlayers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConfirmPlayers.Designer.cs">
-      <DependentUpon>ConfirmPlayers.cs</DependentUpon>
+    <Compile Include="ConfirmGamePlayers.Designer.cs">
+      <DependentUpon>ConfirmGamePlayers.cs</DependentUpon>
     </Compile>
     <Compile Include="GameOver.cs">
       <SubType>Form</SubType>
@@ -68,8 +68,8 @@
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConfirmPlayers.resx">
-      <DependentUpon>ConfirmPlayers.cs</DependentUpon>
+    <EmbeddedResource Include="ConfirmGamePlayers.resx">
+      <DependentUpon>ConfirmGamePlayers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameOver.resx">
       <DependentUpon>GameOver.cs</DependentUpon>

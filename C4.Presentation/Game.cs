@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace C4.Presentation
 {
-    public partial class Game : Form
+    internal partial class Game : Form
     {
         public IGameBoard GameBoard { get; private set; }
 
@@ -18,7 +18,7 @@ namespace C4.Presentation
             DrawGameBoard();
         }
 
-        public void DrawGameBoard()
+        internal void DrawGameBoard()
         {
             Tile[,] grid = GameBoard.Grid;
 
@@ -44,9 +44,9 @@ namespace C4.Presentation
             }
         }
 
-        public void RegisterForConfirmPlayers_PlayersConfirmedEvent(ConfirmPlayers confirmPlayers)
+        internal void RegisterForConfirmPlayers_PlayersConfirmedEvent(ConfirmGamePlayers confirmGamePlayers)
         {
-            confirmPlayers.PlayersConfirmed += RegisterPlayersToGameboard;
+            confirmGamePlayers.PlayersConfirmed += RegisterPlayersToGameboard;
         }
 
         private void RegisterPlayersToGameboard(object sender, PlayersConfirmedEventArgs e)

@@ -135,8 +135,6 @@ namespace C4.Logic
 
         public GameToken Has4InARowDiagonal()
         {
-
-            //diag to left
             for (int y = 0; y < GameBoard.Grid.GetLength(0) - 3; y++)
             {
                 for (int x = 0; x < GameBoard.Grid.GetLength(1)- 3; x++)
@@ -152,7 +150,6 @@ namespace C4.Logic
                 }
             }
 
-            //diag to right
             for (int y = 0; y < GameBoard.Grid.GetLength(0) - 3; y++)
             {
                 for (int x = 3; x < GameBoard.Grid.GetLength(1); x++)
@@ -168,7 +165,6 @@ namespace C4.Logic
                 }
             }
 
-            //diag to left
             for (int y = 0; y < GameBoard.Grid.GetLength(0) - 3; y++)
             {
                 for (int x = 0; x < GameBoard.Grid.GetLength(1) - 3; x++)
@@ -184,7 +180,6 @@ namespace C4.Logic
                 }
             }
 
-            //diag to right
             for (int y = 0; y < GameBoard.Grid.GetLength(0) - 3; y++)
             {
                 for (int x = 3; x < GameBoard.Grid.GetLength(1); x++)

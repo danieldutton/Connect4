@@ -5,14 +5,14 @@ using System.Windows.Forms;
 
 namespace C4.Presentation
 {
-    public partial class GameOver : Form
+    internal partial class GameOver : Form
     {
-        public GameOver()
+        internal GameOver()
         {
             InitializeComponent();
         }
 
-        public void RegisterForRefereeGameWonEvent(Referee referee)
+        internal void RegisterForRefereeGameWonEvent(Referee referee)
         {
             referee.GameWon += DisplayGameWonNotification;
         }
@@ -23,20 +23,15 @@ namespace C4.Presentation
             ShowDialog();
         }
 
-        public void RegisterForRefereeGameDrawnEvent(Referee referee)
+        internal void RegisterForRefereeGameDrawnEvent(Referee referee)
         {
-            referee.GameDrawn += DisplayGameDrawnNotification;
+            referee.GameDrawn += DisplayGameDrawnDialog;
         }
 
-        private void DisplayGameDrawnNotification(object sender, GameStatusEventArgs e)
+        private void DisplayGameDrawnDialog(object sender, GameStatusEventArgs e)
         {
             _lblWinner.Text = "Game is Drawn";
             ShowDialog();
-        }
-
-        private void ExitApplication_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void RestartApplication_Click(object sender, EventArgs e)
@@ -48,6 +43,11 @@ namespace C4.Presentation
         {
             if (e.CloseReason == CloseReason.UserClosing)
                 Application.Exit();
-        }        
+        }
+
+        private void ExitApplication_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
