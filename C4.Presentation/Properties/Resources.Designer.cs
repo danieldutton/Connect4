@@ -68,5 +68,14 @@ namespace C4.Presentation.Properties {
                 return ResourceManager.GetStream("disc_drop_in_frame", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream discs_drop_into_box {
+            get {
+                return ResourceManager.GetStream("discs_drop_into_box", resourceCulture);
+            }
+        }
     }
 }

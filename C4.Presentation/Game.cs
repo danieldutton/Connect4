@@ -11,11 +11,13 @@ namespace C4.Presentation
     {
         public IGameBoard GameBoard { get; private set; }
 
+        private bool _allowTokenDrop = true;
+
         public Game(IGameBoard gameBoard)
         {
             GameBoard = gameBoard;
             InitializeComponent();
-            DrawGameBoard();
+            DrawGameBoard();            
         }
 
         internal void DrawGameBoard()
@@ -56,30 +58,63 @@ namespace C4.Presentation
 
             GameBoard.RedPlayer = e.RedPlayer;
             GameBoard.YellowPlayer = e.YellowPlayer;
+
+            HighlightPlayerInTurn();
+        }
+
+        private void HighlightPlayerInTurn()
+        {
+            if (GameBoard.YellowPlayer.HasCurrentTurn)
+                HighlightYellowTurn();
+            else
+                HighlightRedTurn();
+        }
+
+        private void HighlightYellowTurn()
+        {
+            _panelYellowTurn.BackColor = Color.White;
+            _panelRedTurn.BackColor = Color.Black;
+        }
+
+        private void HighlightRedTurn()
+        {
+            _panelRedTurn.BackColor = Color.White;
+            _panelYellowTurn.BackColor = Color.Black;
         }
 
         private void DropRedGameToken_MouseDown(object sender, MouseEventArgs e)
         {
+            _allowTokenDrop = true;
+            
             if (GameBoard.RedPlayer.HasCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
 
         private void DropYellowGameToken_MouseDown(object sender, MouseEventArgs e)
         {
+            _allowTokenDrop = true;
+            
             if (GameBoard.YellowPlayer.HasCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
 
         private void GameToken_DragDrop(object sender, DragEventArgs e)
         {
-            e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.All;
+            if (_allowTokenDrop)
+            {
+                e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.All;
 
-            var columnSlot = sender as Panel;
+                var columnSlot = sender as Panel;
 
-            int column = int.Parse(columnSlot.Tag.ToString());
+                int column = int.Parse(columnSlot.Tag.ToString());
 
-            GameBoard.TakeMove(column);
-            PlayTokenDropFx();
+                GameBoard.TakeMove(column);
+                PlayTokenDropFx();
+                
+                _allowTokenDrop = false;
+                
+                HighlightPlayerInTurn();
+            }           
         }
 
         private void PlayTokenDropFx()

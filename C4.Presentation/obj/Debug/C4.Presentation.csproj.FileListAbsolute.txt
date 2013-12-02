@@ -24,7 +24,6 @@ C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presen
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.Game.resources
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.Properties.Resources.resources
 C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.csproj.GenerateResource.Cache
-C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOptions.resources
 E:\Connect_4\C4.Presentation\bin\Debug\C4.Presentation.exe.config
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.exe
 E:\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.pdb
@@ -71,3 +70,7 @@ C:\Users\Danny\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentat
 C:\Users\Danny\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.Properties.Resources.resources
 C:\Users\Danny\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.csproj.GenerateResource.Cache
 C:\Users\Danny\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.ConfirmGamePlayers.resources
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.Utilities.dll
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\bin\Debug\C4.Utilities.pdb
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.ConfirmGamePlayers.resources
+C:\Users\lee-anna\Documents\GitHub\Connect_4\C4.Presentation\obj\Debug\C4.Presentation.GameOver.resources
