@@ -32,16 +32,16 @@ namespace C4._UnitTests.Utilities
         }
 
         [Test]
-        public void Truncate_ReturnAStringOfLengthTen_IfStringToTruncateIsGreaterThanTen()
+        public void Truncate_ReturnATrimmedStringOfLengthTen_IfInputStringIsLongerThanTenCharacters()
         {
             const int expected = 10;
-            string result = _sut.Truncate("A name with more than ten chars");
+            string actual = _sut.Truncate("A name with more than ten chars");
 
-            Assert.AreEqual(expected, result.Length);
+            Assert.AreEqual(expected, actual.Length);
         }
 
         [Test]
-        public void Truncate_ReturnTheCorrectStringValue_IfStringToTruncateLengthIsGreaterThanTen()
+        public void Truncate_ReturnTheCorrectTrimmedStringValue_IfInputStringIsLongerThanTenCharacters()
         {
             const string expected = "A name wit";
             string actual = _sut.Truncate("A name with more than ten chars");
@@ -50,21 +50,39 @@ namespace C4._UnitTests.Utilities
         }
 
         [Test]
-        public void Truncate_ReturnAStringOfLengthTen_IfStringToTruncateIsOfLengthTen()
+        public void Truncate_ReturnAStringOfLengthTen_IfInputStringIsTenCharacters()
         {
             const int expected = 10;
-            string result = _sut.Truncate("test chars");
+            string actual = _sut.Truncate("test chars");
 
-            Assert.AreEqual(expected, result.Length);
+            Assert.AreEqual(expected, actual.Length);
         }
 
         [Test]
-        public void Truncate_LeaveTheStringToTruncateIntact_IfStringToTruncateLengthIsLessThanTen()
+        public void Truncate_ReturnTheCorrectStringValue_IfInputStringIsTenCharacters()
+        {
+            const string expected = "test chars";
+            string actual = _sut.Truncate("test chars");
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void Truncate_LeaveTheStringToTruncateIntact_IfInputStringIsLessThanTenCharacters()
         {
             const int expected = 4;
-            string result = _sut.Truncate("test");
+            string actual = _sut.Truncate("test");
 
-            Assert.AreEqual(expected, result.Length);
+            Assert.AreEqual(expected, actual.Length);
+        }
+
+        [Test]
+        public void Truncate_ReturnTheCorrectStringValue_IfInputStringIsLessThanTenCharacters()
+        {
+            const string expected = "test";
+            string actual = _sut.Truncate("test");
+
+            Assert.AreEqual(expected, actual);
         }
 
         [TearDown]

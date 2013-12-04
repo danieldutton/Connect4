@@ -31,6 +31,7 @@
             this._lblWinner = new System.Windows.Forms.Label();
             this._btnExit = new System.Windows.Forms.Button();
             this._btnPlayAgain = new System.Windows.Forms.Button();
+            this._panelWinningColour = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // _lblWinner
@@ -38,7 +39,7 @@
             this._lblWinner.AutoSize = true;
             this._lblWinner.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._lblWinner.ForeColor = System.Drawing.Color.White;
-            this._lblWinner.Location = new System.Drawing.Point(12, 21);
+            this._lblWinner.Location = new System.Drawing.Point(37, 20);
             this._lblWinner.Name = "_lblWinner";
             this._lblWinner.Size = new System.Drawing.Size(43, 14);
             this._lblWinner.TabIndex = 0;
@@ -64,12 +65,20 @@
             this._btnPlayAgain.UseVisualStyleBackColor = true;
             this._btnPlayAgain.Click += new System.EventHandler(this.RestartApplication_Click);
             // 
+            // _panelWinningColour
+            // 
+            this._panelWinningColour.Location = new System.Drawing.Point(15, 20);
+            this._panelWinningColour.Name = "_panelWinningColour";
+            this._panelWinningColour.Size = new System.Drawing.Size(16, 16);
+            this._panelWinningColour.TabIndex = 4;
+            // 
             // GameOver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(188, 81);
+            this.Controls.Add(this._panelWinningColour);
             this.Controls.Add(this._btnPlayAgain);
             this.Controls.Add(this._btnExit);
             this.Controls.Add(this._lblWinner);
@@ -88,5 +97,6 @@
         private System.Windows.Forms.Label _lblWinner;
         private System.Windows.Forms.Button _btnExit;
         private System.Windows.Forms.Button _btnPlayAgain;
+        private System.Windows.Forms.Panel _panelWinningColour;
     }
 }

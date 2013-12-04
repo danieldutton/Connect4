@@ -3,7 +3,7 @@ using System;
 
 namespace C4.Logic.Interfaces
 {
-    public interface IGameUpdater
+    public interface IGameStatusReporter
     {
         event EventHandler<GameStatusEventArgs> GameWon;
 

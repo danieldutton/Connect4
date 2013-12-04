@@ -35,14 +35,15 @@
             this._panelYellowSquare = new System.Windows.Forms.Panel();
             this._panelRedSquare = new System.Windows.Forms.Panel();
             this._btnConfirm = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this._panelRdoButtons = new System.Windows.Forms.Panel();
             this._rdoBtnRedPlayerStart = new System.Windows.Forms.RadioButton();
             this._rdoBtnYellowPlayerStart = new System.Windows.Forms.RadioButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this._panelPlayer1Master = new System.Windows.Forms.Panel();
+            this._panelPlayer2Master = new System.Windows.Forms.Panel();
+            this._lblPlaysFirst = new System.Windows.Forms.Label();
+            this._panelRdoButtons.SuspendLayout();
+            this._panelPlayer1Master.SuspendLayout();
+            this._panelPlayer2Master.SuspendLayout();
             this.SuspendLayout();
             // 
             // _lblPlayer1
@@ -104,7 +105,7 @@
             // 
             this._btnConfirm.BackColor = System.Drawing.Color.White;
             this._btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this._btnConfirm.Location = new System.Drawing.Point(95, 80);
+            this._btnConfirm.Location = new System.Drawing.Point(94, 85);
             this._btnConfirm.Name = "_btnConfirm";
             this._btnConfirm.Size = new System.Drawing.Size(75, 23);
             this._btnConfirm.TabIndex = 6;
@@ -112,14 +113,15 @@
             this._btnConfirm.UseVisualStyleBackColor = false;
             this._btnConfirm.Click += new System.EventHandler(this.ConfirmPlayers_Click);
             // 
-            // panel1
+            // _panelRdoButtons
             // 
-            this.panel1.Controls.Add(this._rdoBtnRedPlayerStart);
-            this.panel1.Controls.Add(this._rdoBtnYellowPlayerStart);
-            this.panel1.Location = new System.Drawing.Point(230, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(22, 69);
-            this.panel1.TabIndex = 7;
+            this._panelRdoButtons.Controls.Add(this._lblPlaysFirst);
+            this._panelRdoButtons.Controls.Add(this._rdoBtnRedPlayerStart);
+            this._panelRdoButtons.Controls.Add(this._rdoBtnYellowPlayerStart);
+            this._panelRdoButtons.Location = new System.Drawing.Point(233, 14);
+            this._panelRdoButtons.Name = "_panelRdoButtons";
+            this._panelRdoButtons.Size = new System.Drawing.Size(54, 69);
+            this._panelRdoButtons.TabIndex = 7;
             // 
             // _rdoBtnRedPlayerStart
             // 
@@ -141,47 +143,57 @@
             this._rdoBtnYellowPlayerStart.TabStop = true;
             this._rdoBtnYellowPlayerStart.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // _panelPlayer1Master
             // 
-            this.panel2.Controls.Add(this._panelYellowSquare);
-            this.panel2.Controls.Add(this._lblPlayer1);
-            this.panel2.Controls.Add(this._txtBoxYellowPlayerName);
-            this.panel2.Location = new System.Drawing.Point(2, 12);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(227, 34);
-            this.panel2.TabIndex = 9;
+            this._panelPlayer1Master.Controls.Add(this._panelYellowSquare);
+            this._panelPlayer1Master.Controls.Add(this._lblPlayer1);
+            this._panelPlayer1Master.Controls.Add(this._txtBoxYellowPlayerName);
+            this._panelPlayer1Master.Location = new System.Drawing.Point(5, 14);
+            this._panelPlayer1Master.Name = "_panelPlayer1Master";
+            this._panelPlayer1Master.Size = new System.Drawing.Size(227, 34);
+            this._panelPlayer1Master.TabIndex = 9;
             // 
-            // panel3
+            // _panelPlayer2Master
             // 
-            this.panel3.Controls.Add(this._panelRedSquare);
-            this.panel3.Controls.Add(this._lblPlayer2);
-            this.panel3.Controls.Add(this._txtBoxRedPlayerName);
-            this.panel3.Location = new System.Drawing.Point(2, 47);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(227, 34);
-            this.panel3.TabIndex = 10;
+            this._panelPlayer2Master.Controls.Add(this._panelRedSquare);
+            this._panelPlayer2Master.Controls.Add(this._lblPlayer2);
+            this._panelPlayer2Master.Controls.Add(this._txtBoxRedPlayerName);
+            this._panelPlayer2Master.Location = new System.Drawing.Point(5, 49);
+            this._panelPlayer2Master.Name = "_panelPlayer2Master";
+            this._panelPlayer2Master.Size = new System.Drawing.Size(227, 34);
+            this._panelPlayer2Master.TabIndex = 10;
+            // 
+            // _lblPlaysFirst
+            // 
+            this._lblPlaysFirst.AutoSize = true;
+            this._lblPlaysFirst.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._lblPlaysFirst.ForeColor = System.Drawing.Color.White;
+            this._lblPlaysFirst.Location = new System.Drawing.Point(-3, 27);
+            this._lblPlaysFirst.Name = "_lblPlaysFirst";
+            this._lblPlaysFirst.Size = new System.Drawing.Size(56, 13);
+            this._lblPlaysFirst.TabIndex = 11;
+            this._lblPlaysFirst.Text = "Plays First";
             // 
             // ConfirmGamePlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(261, 115);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(291, 114);
+            this.Controls.Add(this._panelPlayer2Master);
+            this.Controls.Add(this._panelPlayer1Master);
+            this.Controls.Add(this._panelRdoButtons);
             this.Controls.Add(this._btnConfirm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(277, 149);
             this.Name = "ConfirmGamePlayers";
             this.Text = "Confirm Players";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCrossClicked_FormClosing);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this._panelRdoButtons.ResumeLayout(false);
+            this._panelRdoButtons.PerformLayout();
+            this._panelPlayer1Master.ResumeLayout(false);
+            this._panelPlayer1Master.PerformLayout();
+            this._panelPlayer2Master.ResumeLayout(false);
+            this._panelPlayer2Master.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -195,10 +207,11 @@
         private System.Windows.Forms.Panel _panelYellowSquare;
         private System.Windows.Forms.Panel _panelRedSquare;
         private System.Windows.Forms.Button _btnConfirm;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel _panelRdoButtons;
         private System.Windows.Forms.RadioButton _rdoBtnRedPlayerStart;
         private System.Windows.Forms.RadioButton _rdoBtnYellowPlayerStart;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel _panelPlayer1Master;
+        private System.Windows.Forms.Panel _panelPlayer2Master;
+        private System.Windows.Forms.Label _lblPlaysFirst;
     }
 }

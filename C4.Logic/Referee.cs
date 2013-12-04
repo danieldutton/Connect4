@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace C4.Logic
 {
-    public class Referee : IGameUpdater
+    public class Referee : IGameStatusReporter
     {
         public event EventHandler<GameStatusEventArgs> GameWon;
 

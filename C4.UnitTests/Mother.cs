@@ -40,8 +40,6 @@ namespace C4._UnitTests
                 }
             }
 
-            grid[6, 0].GameToken = GameToken.Undefined;
-
             return grid;
         }
 

@@ -7,7 +7,7 @@ namespace C4._UnitTests.Model
     public class Tile_Should
     {
         [Test]
-        public void ToString_ShouldReturnTheCorrectStringValue()
+        public void ToString_ReturnTheCorrectStringValue()
         {
             var sut = new Tile { ColumnNumber = 0, RowNumber = 1, GameToken = GameToken.Red};
 

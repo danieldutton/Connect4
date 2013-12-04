@@ -17,7 +17,8 @@ namespace C4.Presentation
         {
             GameBoard = gameBoard;
             InitializeComponent();
-            DrawGameBoard();            
+            DrawGameBoard(); 
+           
         }
 
         internal void DrawGameBoard()
@@ -33,11 +34,11 @@ namespace C4.Presentation
                 for (int j = 0; j < grid.GetLength(1); j++)
                 {
                     GameBoard.Grid[i, j].Location = new Point(x, y);
-                    panelGrid.Controls.Add(GameBoard.Grid[i, j]);
+                    _panelGameGrid.Controls.Add(GameBoard.Grid[i, j]);
                     
                     x += tileOffSet;
                     
-                    if (x > panelGrid.Width)
+                    if (x > _panelGameGrid.Width)
                     {
                         y += 35;
                         x = 0;
@@ -53,8 +54,8 @@ namespace C4.Presentation
 
         private void RegisterPlayersToGameboard(object sender, PlayersConfirmedEventArgs e)
         {
-            txtBoxPlayer1.Text = e.RedPlayer.Name;
-            txtBoxPlayer2.Text = e.YellowPlayer.Name;
+            _lblPlayer1.Text = e.RedPlayer.Name;
+            _lblBoxPlayer2.Text = e.YellowPlayer.Name;
 
             GameBoard.RedPlayer = e.RedPlayer;
             GameBoard.YellowPlayer = e.YellowPlayer;
@@ -85,7 +86,7 @@ namespace C4.Presentation
         private void DropRedGameToken_MouseDown(object sender, MouseEventArgs e)
         {
             _allowTokenDrop = true;
-            
+
             if (GameBoard.RedPlayer.HasCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
@@ -93,7 +94,7 @@ namespace C4.Presentation
         private void DropYellowGameToken_MouseDown(object sender, MouseEventArgs e)
         {
             _allowTokenDrop = true;
-            
+
             if (GameBoard.YellowPlayer.HasCurrentTurn)
                 DoDragDrop(sender, DragDropEffects.Move);
         }
@@ -105,7 +106,6 @@ namespace C4.Presentation
                 e.Effect = e.Data.GetDataPresent(typeof(Label)) ? DragDropEffects.Move : DragDropEffects.All;
 
                 var columnSlot = sender as Panel;
-
                 int column = int.Parse(columnSlot.Tag.ToString());
 
                 GameBoard.TakeMove(column);

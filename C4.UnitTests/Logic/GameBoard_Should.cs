@@ -22,12 +22,11 @@ namespace C4._UnitTests.Logic
             
             _sut = GameBoard.GetGameInstance();
             _sut.Grid = grid;
-            Player yellowPlayer = new Player {HasCurrentTurn = true};
-            Player redPlayer = new Player();
+            var yellowPlayer = new Player {HasCurrentTurn = true};
+            var redPlayer = new Player();
             _sut.YellowPlayer = yellowPlayer;
             _sut.RedPlayer = redPlayer;
         }   
-
 
         [Test]
         public void getGameInstance_OnlyEverReturnTheOneSingletonInstanceOfGameBoard()
@@ -1163,6 +1162,78 @@ namespace C4._UnitTests.Logic
             Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 6).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Yellow));
+        }
+
+        [Test]
+        public void ChosenSlotIsFree_ReturnTrueIfChosenSlotIsFree()
+        {
+            Tile[,] grid = Mother.GetGridOneTokenFromFull();
+            _sut.Grid = grid;
+
+            Assert.IsTrue(_sut.ChosenSlotIsFree(6, 0));
+        }
+
+        [Test]
+        public void ChosenSlotIsFree_ReturnFalseIfChosenSlotIsTaken()
+        {
+            Tile[,] grid = Mother.GetGridAllRedTokens();
+            _sut.Grid = grid;
+
+            Assert.IsFalse(_sut.ChosenSlotIsFree(0, 0));
+        }
+
+        [Test]
+        public void GameTokenIsRed_ReturnTrueIfARedTokenIsInTheSpecifiedGridPosition()
+        {
+            Tile[,] grid = Mother.GetGridAllRedTokens();
+            _sut.Grid = grid;
+
+            Assert.IsTrue(_sut.GameTokenIsRed(0, 0));
+        }
+
+        [Test]
+        public void GameTokenIsRed_ReturnFalseIfARedTokenIsNotInInTheSpecifiedGridPosition()
+        {
+            Tile[,] grid = Mother.GetGridAllYellowTokens();
+            _sut.Grid = grid;
+
+            Assert.IsFalse(_sut.GameTokenIsRed(0, 0));
+        }
+
+        [Test]
+        public void GameTokenIsYellow_ReturnTrueIfAYellowTokenIsInInTheSpecifiedGridPosition()
+        {
+            Tile[,] grid = Mother.GetGridAllYellowTokens();
+            _sut.Grid = grid;
+
+            Assert.IsTrue(_sut.GameTokenIsYellow(0, 0));
+        }
+
+        [Test]
+        public void GameTokenIsYellow_ReturnFalseIfAYellowTokenIsNotInInTheSpecifiedGridPosition()
+        {
+            Tile[,] grid = Mother.GetGridAllRedTokens();
+            _sut.Grid = grid;
+
+            Assert.IsFalse(_sut.GameTokenIsYellow(0, 0));
+        }
+
+        [Test]
+        public void GameTokenIsUndefined_ReturnTrueIfTheGameTokenIsUndefined()
+        {
+            Tile[,] grid = Mother.GetGridOneTokenFromFull();
+            _sut.Grid = grid;
+
+            Assert.IsTrue(_sut.GameTokenIsUndefined(6, 0));
+        }
+
+        [Test]
+        public void GameTokenIsUndefined_ReturnFalseIfTheGameTokenIsYellowOrRed()
+        {
+            Tile[,] grid = Mother.GetGridOneTokenFromFull();
+            _sut.Grid = grid;
+
+            Assert.IsFalse(_sut.GameTokenIsUndefined(5, 0));
         }
 
         //utility method

@@ -35,8 +35,6 @@ namespace C4._UnitTests.Logic
             _sut = new Referee(_gameBoardStub);
         }
 
-        #region CheckForWinner
-
         [Test]
         public void CheckForWinner_CallEventInvocatorOnGameDrawnIfTheGameGridIsFullAndGameIsDrawn()
         {
@@ -54,8 +52,6 @@ namespace C4._UnitTests.Logic
 
             Assert.IsTrue(wasCalled);
         }
-
-        #endregion
 
         #region Has4InARowVertical
 
@@ -1898,7 +1894,7 @@ namespace C4._UnitTests.Logic
         [Test]
         public void HasDrawnGame_ReturnTrueIfGridIsFull()
         {
-            Tile[,] fullGrid = Mother.GetGridAllRedTokens();
+            Tile[,] fullGrid = Mother.GetGridAllYellowTokens();
             _gameBoardStub.Grid = fullGrid;
 
             bool actual = _sut.HasDrawnGame();
