@@ -36,17 +36,15 @@ namespace C4._UnitTests.Logic
         }
 
         [Test]
-        public void CheckForWinner_CallEventInvocatorOnGameDrawnIfTheGameGridIsFullAndGameIsDrawn()
+        public void CheckForWinner_RaiseAGameDrawnEventIfTheGridIsFullandGameIsDrawn()
         {
             bool wasCalled = false;
             _sut.GameDrawn += (o, e) => wasCalled = true;
 
-            Tile[,] fullGrid = Mother.GetGridOneTokenFromFull();
+            Tile[,] drawnGrid = Mother.GetGridGameDrawn();
             
-            //add last token to make full
-            fullGrid[6,0] = new Tile{GameToken = GameToken.Red};
             var fakeGameBoard = GameBoard.GetGameInstance();
-            fakeGameBoard.Grid = fullGrid;
+            fakeGameBoard.Grid = drawnGrid;
 
             _sut.CheckForWinner();
 

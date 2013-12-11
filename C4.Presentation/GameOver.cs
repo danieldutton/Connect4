@@ -1,10 +1,10 @@
-﻿using System.Drawing;
-using System.Media;
-using C4.Logic;
+﻿using C4.Logic;
 using C4.Logic.EventArg;
-using System;
-using System.Windows.Forms;
 using C4.Model;
+using System;
+using System.Drawing;
+using System.Media;
+using System.Windows.Forms;
 
 namespace C4.Presentation
 {

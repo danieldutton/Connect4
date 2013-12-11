@@ -185,6 +185,7 @@
             this.Controls.Add(this._panelRdoButtons);
             this.Controls.Add(this._btnConfirm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(307, 148);
             this.Name = "ConfirmGamePlayers";
             this.Text = "Confirm Players";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCrossClicked_FormClosing);

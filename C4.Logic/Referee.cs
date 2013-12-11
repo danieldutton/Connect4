@@ -35,11 +35,7 @@ namespace C4.Logic
         }
 
         public void CheckForWinner()
-        {
-            if (HasDrawnGame()) { OnGameDrawn(new GameStatusEventArgs(GameToken.Undefined));
-                return;
-            }
-
+        {            
             GameToken gameTokenRow = Has4InARowHorizintal();
             if (gameTokenRow != GameToken.Undefined) { OnGameWon(new GameStatusEventArgs(gameTokenRow));
                 return;
@@ -52,6 +48,12 @@ namespace C4.Logic
 
             GameToken gameTokenDiag = Has4InARowDiagonal();
             if (gameTokenDiag != GameToken.Undefined){ OnGameWon(new GameStatusEventArgs(gameTokenDiag));
+                return;
+            }
+
+            if (HasDrawnGame())
+            {
+                OnGameDrawn(new GameStatusEventArgs(GameToken.Undefined));
                 return;
             }
   
