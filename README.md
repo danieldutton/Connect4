@@ -1,4 +1,4 @@
-Connect-4
+Connect4
 =========
 
-My Take on the classic Connect 4 game
+My take on the classic Connect 4 game
