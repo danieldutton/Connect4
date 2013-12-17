@@ -1,4 +1,4 @@
-Connect_4
+Connect-4
 =========
 
 My Take on the classic Connect 4 game
