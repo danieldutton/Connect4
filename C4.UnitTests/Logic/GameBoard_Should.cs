@@ -66,7 +66,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 0, numOfMoves: 1);
 
             var grid =_sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 5 && x.ColumnNumber == 0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 5 && x.YPosition == 0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -87,7 +87,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 0, numOfMoves: 2);
 
             var grid =_sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 4 && x.ColumnNumber == 0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 4 && x.YPosition == 0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -108,7 +108,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 0, numOfMoves: 3);
 
             var grid =_sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 3 && x.ColumnNumber == 0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 3 && x.YPosition == 0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -129,7 +129,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 0, numOfMoves: 4);
 
             var grid =_sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 2 && x.ColumnNumber == 0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 2 && x.YPosition == 0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -150,7 +150,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 0, numOfMoves: 5);
 
             var grid =_sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 1 && x.ColumnNumber == 0).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 1 && x.YPosition == 0).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -182,7 +182,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 0, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 0).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 0).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Red));
         }
@@ -193,7 +193,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 0, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 0).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 0).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Yellow));
         }
@@ -227,7 +227,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 1, numOfMoves: 1);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 5 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 5 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -248,7 +248,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 1, numOfMoves: 2);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 4 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 4 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -269,7 +269,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 1, numOfMoves: 3);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 3 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 3 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -290,7 +290,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 1, numOfMoves: 4);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 2 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 2 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -311,7 +311,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 1, numOfMoves: 5);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 1 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 1 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -343,7 +343,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 1, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 1).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Red));
         }
@@ -354,7 +354,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 1, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 1).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Yellow));
         }
@@ -388,7 +388,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 2, numOfMoves: 1);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 5 && x.ColumnNumber == 2).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 5 && x.YPosition == 2).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -409,7 +409,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 2, numOfMoves: 2);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 4 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 4 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -430,7 +430,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 2, numOfMoves: 3);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 3 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 3 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -451,7 +451,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 2, numOfMoves: 4);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 2 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 2 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -472,7 +472,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 2, numOfMoves: 5);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 1 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 1 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -504,7 +504,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 2, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 2).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 2).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Red));
         }
@@ -515,7 +515,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 2, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 2).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 2).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Yellow));
         }
@@ -549,7 +549,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 3, numOfMoves: 1);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 5 && x.ColumnNumber == 3).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 5 && x.YPosition == 3).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -570,7 +570,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 3, numOfMoves: 2);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 4 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 4 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -591,7 +591,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 3, numOfMoves: 3);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 3 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 3 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -612,7 +612,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 3, numOfMoves: 4);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 2 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 2 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -633,7 +633,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 3, numOfMoves: 5);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 1 && x.ColumnNumber == 1).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 1 && x.YPosition == 1).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -665,7 +665,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 3, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 3).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 3).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Red));
         }
@@ -676,7 +676,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 3, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 3).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 3).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Yellow));
         }
@@ -710,7 +710,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 4, numOfMoves: 1);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 5 && x.ColumnNumber == 4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 5 && x.YPosition == 4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -731,7 +731,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 4, numOfMoves: 2);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 4 && x.ColumnNumber == 4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 4 && x.YPosition == 4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -752,7 +752,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 4, numOfMoves: 3);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 3 && x.ColumnNumber == 4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 3 && x.YPosition == 4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -773,7 +773,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 4, numOfMoves: 4);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 2 && x.ColumnNumber == 4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 2 && x.YPosition == 4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -794,7 +794,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 4, numOfMoves: 5);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 1 && x.ColumnNumber == 4).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 1 && x.YPosition == 4).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -826,7 +826,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 4, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 4).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 4).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Red));
         }
@@ -837,7 +837,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 4, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 4).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 4).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Yellow));
         }
@@ -871,7 +871,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 5, numOfMoves: 1);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 5 && x.ColumnNumber == 5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 5 && x.YPosition == 5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -892,7 +892,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 5, numOfMoves: 2);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 4 && x.ColumnNumber == 5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 4 && x.YPosition == 5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -913,7 +913,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 5, numOfMoves: 3);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 3 && x.ColumnNumber == 5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 3 && x.YPosition == 5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -934,7 +934,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 5, numOfMoves: 4);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 2 && x.ColumnNumber == 5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 2 && x.YPosition == 5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -955,7 +955,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 5, numOfMoves: 5);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 1 && x.ColumnNumber == 5).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 1 && x.YPosition == 5).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -987,7 +987,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 5, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 5).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 5).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Red));
         }
@@ -998,7 +998,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 5, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 5).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 5).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Yellow));
         }
@@ -1032,7 +1032,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 6, numOfMoves: 1);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 5 && x.ColumnNumber == 6).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 5 && x.YPosition == 6).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1053,7 +1053,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 6, numOfMoves: 2);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 4 && x.ColumnNumber == 6).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 4 && x.YPosition == 6).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1074,7 +1074,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 6, numOfMoves: 3);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 3 && x.ColumnNumber == 6).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 3 && x.YPosition == 6).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1095,7 +1095,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 6, numOfMoves: 4);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 2 && x.ColumnNumber == 6).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 2 && x.YPosition == 6).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1116,7 +1116,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 6, numOfMoves: 5);
 
             var grid = _sut.Grid;
-            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 1 && x.ColumnNumber == 6).ToArray();
+            Tile[] undefinedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 1 && x.YPosition == 6).ToArray();
 
             Assert.IsTrue(undefinedTiles.All(x => x.GameToken == GameToken.Undefined));
         }
@@ -1148,7 +1148,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 6, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 6).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 6).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 == 0).All(x => x.GameToken == GameToken.Red));
         }
@@ -1159,7 +1159,7 @@ namespace C4._UnitTests.Logic
             TakeMoves(columnNo: 6, numOfMoves: 6);
 
             var grid = _sut.Grid;
-            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.RowNumber < 6 && x.ColumnNumber == 6).ToArray();
+            Tile[] definedTiles = grid.Cast<Tile>().Where(x => x.XPosition < 6 && x.YPosition == 6).ToArray();
 
             Assert.IsTrue(definedTiles.Where((x, index) => index % 2 != 0).All(x => x.GameToken == GameToken.Yellow));
         }

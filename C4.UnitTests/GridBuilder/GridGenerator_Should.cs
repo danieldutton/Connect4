@@ -38,7 +38,7 @@ namespace C4._UnitTests.GridBuilder
         }
 
         [Test]
-        public void GetGrid_GenerateAGridWithSixRows()
+        public void GetGrid_GenerateAGridWith_SixRows()
         {
             const int expected = 6;
             int actual = _sut.GetGrid(Rows, Columns).GetLength(0);
@@ -47,7 +47,7 @@ namespace C4._UnitTests.GridBuilder
         }
 
         [Test]
-        public void GetGrid_GenerateAGridWithSevenColumns()
+        public void GetGrid_GenerateAGridWith_SevenColumns()
         {
             const int expected = 7;
             int actual = _sut.GetGrid(Rows, Columns).GetLength(1);
@@ -56,7 +56,7 @@ namespace C4._UnitTests.GridBuilder
         }
 
         [Test]
-        public void GetGrid_GenerateAGridWithATotalOfFortyTwoElements()
+        public void GetGrid_GenerateAGridWith_FortyTwoElements()
         {
             const int expected = 42;
             int actual = _sut.GetGrid(Rows, Columns).Length;
@@ -65,7 +65,7 @@ namespace C4._UnitTests.GridBuilder
         }
 
         [Test]
-        public void GetGrid_GenerateAGridThatContainsNoNullElements()
+        public void GetGrid_GenerateAGridWith_NoNullElements()
         {
             Tile[] grid = _sut.GetGrid(Rows, Columns).Cast<Tile>().ToArray();
             
@@ -94,7 +94,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[0, 0].RowNumber;
+            int actual = grid[0, 0].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -105,7 +105,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[0, 0].ColumnNumber;
+            int actual = grid[0, 0].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -116,7 +116,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[0, 1].RowNumber;
+            int actual = grid[0, 1].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -127,7 +127,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[0, 1].ColumnNumber;
+            int actual = grid[0, 1].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -138,7 +138,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[0, 2].RowNumber;
+            int actual = grid[0, 2].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -149,7 +149,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[0, 2].ColumnNumber;
+            int actual = grid[0, 2].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -160,7 +160,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[0, 3].RowNumber;
+            int actual = grid[0, 3].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -171,7 +171,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[0, 3].ColumnNumber;
+            int actual = grid[0, 3].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -182,7 +182,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[0, 4].RowNumber;
+            int actual = grid[0, 4].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -193,7 +193,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[0, 4].ColumnNumber;
+            int actual = grid[0, 4].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -205,7 +205,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[0, 5].RowNumber;
+            int actual = grid[0, 5].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -216,7 +216,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[0, 5].ColumnNumber;
+            int actual = grid[0, 5].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -227,7 +227,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[0, 6].RowNumber;
+            int actual = grid[0, 6].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -238,7 +238,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 6;
-            int actual = grid[0, 6].ColumnNumber;
+            int actual = grid[0, 6].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -249,7 +249,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[1, 0].RowNumber;
+            int actual = grid[1, 0].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -260,7 +260,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[1, 0].ColumnNumber;
+            int actual = grid[1, 0].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -271,7 +271,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[1, 1].RowNumber;
+            int actual = grid[1, 1].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -282,7 +282,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[1, 1].ColumnNumber;
+            int actual = grid[1, 1].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -293,7 +293,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[1, 2].RowNumber;
+            int actual = grid[1, 2].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -304,7 +304,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[1, 2].ColumnNumber;
+            int actual = grid[1, 2].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -315,7 +315,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[1, 3].RowNumber;
+            int actual = grid[1, 3].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -326,7 +326,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[1, 3].ColumnNumber;
+            int actual = grid[1, 3].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -337,7 +337,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[1, 4].RowNumber;
+            int actual = grid[1, 4].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -348,7 +348,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[1, 4].ColumnNumber;
+            int actual = grid[1, 4].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -359,7 +359,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[1, 5].RowNumber;
+            int actual = grid[1, 5].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -370,7 +370,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[1, 5].ColumnNumber;
+            int actual = grid[1, 5].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -381,7 +381,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[1, 6].RowNumber;
+            int actual = grid[1, 6].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -392,7 +392,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 6;
-            int actual = grid[1, 6].ColumnNumber;
+            int actual = grid[1, 6].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -403,7 +403,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[2, 0].RowNumber;
+            int actual = grid[2, 0].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -414,7 +414,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[2, 0].ColumnNumber;
+            int actual = grid[2, 0].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -425,7 +425,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[2, 1].RowNumber;
+            int actual = grid[2, 1].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -436,7 +436,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[2, 1].ColumnNumber;
+            int actual = grid[2, 1].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -447,7 +447,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[2, 2].RowNumber;
+            int actual = grid[2, 2].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -458,7 +458,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[2, 2].ColumnNumber;
+            int actual = grid[2, 2].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -469,7 +469,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[2, 3].RowNumber;
+            int actual = grid[2, 3].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -480,7 +480,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[2, 3].ColumnNumber;
+            int actual = grid[2, 3].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -491,7 +491,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[2, 4].RowNumber;
+            int actual = grid[2, 4].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -502,7 +502,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[2, 4].ColumnNumber;
+            int actual = grid[2, 4].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -513,7 +513,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[2, 5].RowNumber;
+            int actual = grid[2, 5].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -524,7 +524,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[2, 5].ColumnNumber;
+            int actual = grid[2, 5].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -535,7 +535,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[2, 6].RowNumber;
+            int actual = grid[2, 6].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -546,7 +546,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 6;
-            int actual = grid[2, 6].ColumnNumber;
+            int actual = grid[2, 6].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -557,7 +557,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[3, 0].RowNumber;
+            int actual = grid[3, 0].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -568,7 +568,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[3, 0].ColumnNumber;
+            int actual = grid[3, 0].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -579,7 +579,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[3, 1].RowNumber;
+            int actual = grid[3, 1].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -590,7 +590,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[3, 1].ColumnNumber;
+            int actual = grid[3, 1].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -601,7 +601,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[3, 2].RowNumber;
+            int actual = grid[3, 2].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -612,7 +612,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[3, 3].ColumnNumber;
+            int actual = grid[3, 3].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -623,7 +623,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[3, 3].RowNumber;
+            int actual = grid[3, 3].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -634,7 +634,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[0, 0].ColumnNumber;
+            int actual = grid[0, 0].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -645,7 +645,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[3, 4].RowNumber;
+            int actual = grid[3, 4].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -656,7 +656,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[3, 4].ColumnNumber;
+            int actual = grid[3, 4].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -667,7 +667,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[3, 5].RowNumber;
+            int actual = grid[3, 5].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -678,7 +678,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[3, 5].ColumnNumber;
+            int actual = grid[3, 5].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -689,7 +689,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[3, 6].RowNumber;
+            int actual = grid[3, 6].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -700,7 +700,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 6;
-            int actual = grid[3, 6].ColumnNumber;
+            int actual = grid[3, 6].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -711,7 +711,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[4, 0].RowNumber;
+            int actual = grid[4, 0].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -722,7 +722,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[4, 0].ColumnNumber;
+            int actual = grid[4, 0].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -733,7 +733,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[4, 1].RowNumber;
+            int actual = grid[4, 1].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -744,7 +744,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[4, 1].ColumnNumber;
+            int actual = grid[4, 1].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -755,7 +755,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[4, 2].RowNumber;
+            int actual = grid[4, 2].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -766,7 +766,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[4, 2].ColumnNumber;
+            int actual = grid[4, 2].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -777,7 +777,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[4, 3].RowNumber;
+            int actual = grid[4, 3].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -788,7 +788,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[4, 3].ColumnNumber;
+            int actual = grid[4, 3].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -799,7 +799,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[4, 4].RowNumber;
+            int actual = grid[4, 4].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -810,7 +810,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[4, 4].ColumnNumber;
+            int actual = grid[4, 4].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -821,7 +821,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[4, 5].RowNumber;
+            int actual = grid[4, 5].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -832,7 +832,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[4, 5].ColumnNumber;
+            int actual = grid[4, 5].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -843,7 +843,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[4, 6].RowNumber;
+            int actual = grid[4, 6].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -854,7 +854,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 6;
-            int actual = grid[4, 6].ColumnNumber;
+            int actual = grid[4, 6].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -865,7 +865,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[5, 0].RowNumber;
+            int actual = grid[5, 0].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -876,7 +876,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 0;
-            int actual = grid[5, 0].ColumnNumber;
+            int actual = grid[5, 0].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -887,7 +887,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[5, 1].RowNumber;
+            int actual = grid[5, 1].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -898,7 +898,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 1;
-            int actual = grid[5, 1].ColumnNumber;
+            int actual = grid[5, 1].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -909,7 +909,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[5, 2].RowNumber;
+            int actual = grid[5, 2].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -920,7 +920,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 2;
-            int actual = grid[5, 2].ColumnNumber;
+            int actual = grid[5, 2].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -931,7 +931,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[5, 3].RowNumber;
+            int actual = grid[5, 3].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -942,7 +942,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 3;
-            int actual = grid[5, 3].ColumnNumber;
+            int actual = grid[5, 3].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -953,7 +953,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[5, 4].RowNumber;
+            int actual = grid[5, 4].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -964,7 +964,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 4;
-            int actual = grid[5, 4].ColumnNumber;
+            int actual = grid[5, 4].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -975,7 +975,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[5, 5].RowNumber;
+            int actual = grid[5, 5].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -986,7 +986,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[5, 5].ColumnNumber;
+            int actual = grid[5, 5].YPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -997,7 +997,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 5;
-            int actual = grid[5, 6].RowNumber;
+            int actual = grid[5, 6].XPosition;
 
             Assert.AreEqual(expected, actual);
         }
@@ -1008,7 +1008,7 @@ namespace C4._UnitTests.GridBuilder
             Tile[,] grid = _sut.GetGrid(Rows, Columns);
 
             const int expected = 6;
-            int actual = grid[5, 6].ColumnNumber;
+            int actual = grid[5, 6].YPosition;
 
             Assert.AreEqual(expected, actual);
         }

@@ -9,9 +9,9 @@ namespace C4._UnitTests.Model
         [Test]
         public void ToString_ReturnTheCorrectStringValue()
         {
-            var sut = new Tile { ColumnNumber = 0, RowNumber = 1, GameToken = GameToken.Red};
+            var sut = new Tile { YPosition = 0, XPosition = 1, GameToken = GameToken.Red};
 
-            const string expected = "[Tile] RowNumber:1 ColumnNumber:0 GameToken:Red";
+            const string expected = "[Tile] XPosition:1 YPosition:0 GameToken:Red";
             string actual = sut.ToString();
 
             Assert.AreEqual(expected, actual);

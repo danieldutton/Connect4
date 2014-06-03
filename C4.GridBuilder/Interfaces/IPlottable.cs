@@ -2,8 +2,8 @@
 {
     public interface IPlottable
     {
-        int RowNumber { get; set; }
+        int XPosition { get; set; }
         
-        int ColumnNumber { get; set; }
+        int YPosition { get; set; }
     }
 }

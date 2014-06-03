@@ -7,8 +7,8 @@
     <ProjectGuid>{D70026E2-9912-4955-B197-002AF4A0CB1B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>C4._UnitTests</RootNamespace>
-    <AssemblyName>C4._UnitTests</AssemblyName>
+    <RootNamespace>C4.UnitTests</RootNamespace>
+    <AssemblyName>C4.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
