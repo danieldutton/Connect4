@@ -1,45 +1,24 @@
 ﻿using C4.GridBuilder;
 using C4.GridBuilder.Interfaces;
-using C4.Logic;
-using C4.Model;
+using C4.GridBuilder.Model;
 using System;
 using System.Windows.Forms;
-using C4.Utilities;
-using C4.Utilities.Interfaces;
 
 namespace C4.Presentation
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            IGridGenerator<Tile> gridGenerator = new GridGenerator<Tile>();
-            Tile[,] grid = gridGenerator.GetGrid(6, 7);
-            
-            GameBoard gameBoard = GameBoard.GetGameInstance();
-            gameBoard.Grid = grid;
-            IStringTruncator stringTruncator = new StringTruncator();
-            var gameOptions = new ConfirmGamePlayers(stringTruncator);
+            IGridBuilder<Tile> gridBuilder = new GridBuilder<Tile>();
 
-            var referee = new Referee(gameBoard);
-            var gameOver = new GameOver();
-            
-            gameOver.RegisterForRefereeGameWonEvent(referee);
-            gameOver.RegisterForRefereeGameDrawnEvent(referee);
-            
-            var game = new Game(gameBoard);
-            game.RegisterForConfirmPlayers_PlayersConfirmedEvent(gameOptions);
-            
-            gameOptions.ShowDialog();
+            var gameSetup = new GameSetup(gridBuilder);
 
-            Application.Run(game);
+            Application.Run(gameSetup);
         }
     }
 }

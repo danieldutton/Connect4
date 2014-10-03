@@ -1,6 +1,6 @@
-﻿using C4.Model;
+﻿using C4.GridBuilder.Model;
 
-namespace C4._UnitTests
+namespace C4.UnitTests
 {
     public static class Mother
     {

@@ -1,58 +1,57 @@
-﻿using C4.Logic;
-using C4.Logic.EventArg;
-using C4.Model;
+﻿using C4.GridBuilder.Model;
 using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using C4.Presentation.ExtMethods;
 
 namespace C4.Presentation
 {
     internal partial class GameOver : Form
     {
-        internal GameOver()
+        private readonly GameToken _winningColour;
+
+        private readonly SoundPlayer _soundPlayer;
+
+
+        public GameOver(GameToken winningColour)
         {
+            _winningColour = winningColour;
+            _soundPlayer = new SoundPlayer();
+            
             InitializeComponent();
+            DisplayWinner();
+            PlaySoundFX();
         }
 
-        internal void RegisterForRefereeGameWonEvent(Referee referee)
+        public void DisplayWinner()
         {
-            referee.GameWon += DisplayGameWonDialog;
+            _lblWinner.Text = string.Format("{0} Wins!", _winningColour);
+
+            switch (_winningColour)
+            {
+                case GameToken.Yellow:
+                    _panelWinningColour.BackColor = Color.Yellow;
+                    _lblWinner.Text = "Yellow Wins";
+                    break;
+                case GameToken.Red:
+                    _panelWinningColour.BackColor = Color.Red;
+                    _lblWinner.Text = "Red Wins";
+                    break;
+                default:
+                    _lblWinner.Text = "Game Tied";
+                    break;
+            }               
         }
 
-        private void DisplayGameWonDialog(object sender, GameStatusEventArgs e)
+        public void PlaySoundFX()
         {
-            _lblWinner.Text = e.WinningGameToken.ToString() + " Wins!";
-
-            _panelWinningColour.BackColor = e.WinningGameToken == GameToken.Yellow ? Color.Yellow : Color.Red;
-
-            PlayGameOverFx();
-            ShowDialog();
-        }
-
-        internal void RegisterForRefereeGameDrawnEvent(Referee referee)
-        {
-            referee.GameDrawn += DisplayGameDrawnDialog;
-        }
-
-        private void DisplayGameDrawnDialog(object sender, GameStatusEventArgs e)
-        {
-            _lblWinner.Text = "Game is Drawn";
-            PlayGameOverFx();
-            ShowDialog();            
+            _soundPlayer.PlaySoundFX(Properties.Resources.discs_drop_into_box);
         }
 
         private void RestartApplication_Click(object sender, EventArgs e)
         {
             Application.Restart();
-        }
-
-        private void PlayGameOverFx()
-        {
-            var soundPlayer = new SoundPlayer(Properties.Resources.discs_drop_into_box);
-
-            soundPlayer.Load();
-            soundPlayer.Play();
         }
 
         private void FormCrossClicked(object sender, FormClosingEventArgs e)

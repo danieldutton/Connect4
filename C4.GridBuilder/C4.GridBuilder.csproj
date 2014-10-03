@@ -32,11 +32,17 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GridGenerator.cs" />
-    <Compile Include="Interfaces\IGridGenerator.cs" />
+    <Compile Include="Model\GameToken.cs" />
+    <Compile Include="GridBuilder.cs" />
+    <Compile Include="Interfaces\IGridBuilder.cs" />
     <Compile Include="Interfaces\IPlottable.cs" />
+    <Compile Include="Model\Tile.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
