@@ -1,7 +1,6 @@
 ﻿using C4.GridBuilder.Model;
 using C4.Presentation.ExtMethods;
 using C4.Presentation.Model;
-using C4.WinAnalyser;
 using C4.WinAnalyser.Interfaces;
 using System.Drawing;
 using System.Linq;
@@ -15,17 +14,21 @@ namespace C4.Presentation
         private readonly Player _yellowPlayer;
 
         private readonly Player _redPlayer;
+        
+        private readonly IWinTypeFactory _winTypeFactory;
 
         private readonly Tile[,] _gameGrid;
 
         private readonly SoundPlayer _soundPlayer;
 
 
-        public GameGrid(Tile[,] gameGrid, Player yellowPlayer, Player redPlayer)
+        public GameGrid(Tile[,] gameGrid, Player yellowPlayer, 
+            Player redPlayer, IWinTypeFactory winTypeFactory)
         {
             _gameGrid = gameGrid;
             _yellowPlayer = yellowPlayer;
             _redPlayer = redPlayer;
+            _winTypeFactory = winTypeFactory;
             _soundPlayer = new SoundPlayer();
 
             InitializeComponent();
@@ -109,7 +112,7 @@ namespace C4.Presentation
             HighlightCurrentPlayer();
         }
 
-        public void AcceptToken(int columnNo)
+        private void AcceptToken(int columnNo)
         {
             if (_gameGrid[0, columnNo].IsEmpty())
             {
@@ -119,12 +122,12 @@ namespace C4.Presentation
                     {
                         if (_yellowPlayer.HasCurrentTurn)
                         {
-                            DropToken(rowNo, columnNo, GameToken.Red, Color.Yellow);
+                            DropToken(rowNo, columnNo, GameToken.Yellow, Color.Yellow);
                             AllowRedPlayersTurn();
                         }
                         else if (_redPlayer.HasCurrentTurn)
                         {
-                            DropToken(rowNo, columnNo, GameToken.Yellow, Color.Red);
+                            DropToken(rowNo, columnNo, GameToken.Red, Color.Red);
                             AllowYellowPlayersTurn();
                         }
 
@@ -134,7 +137,7 @@ namespace C4.Presentation
             }
         }
 
-        public void DropToken(int rowNo, int columnNo, GameToken gameToken, Color colour)
+        private void DropToken(int rowNo, int columnNo, GameToken gameToken, Color colour)
         {
             _gameGrid[rowNo, columnNo].GameToken = gameToken;
             _gameGrid[rowNo, columnNo].BackColor = colour;
@@ -161,48 +164,54 @@ namespace C4.Presentation
 
         private void CheckForHorizontalWin()
         {
-            IFourInARow winAnalyser = new Horizontal();
-
-            bool yellowHorizontalWins = winAnalyser.HasFourInARow(_gameGrid, GameToken.Yellow);
-            bool redHorizontalWins = winAnalyser.HasFourInARow(_gameGrid, GameToken.Red);
+            IFourInARow result = _winTypeFactory.CreateInstance("Horizontal");
+            
+            bool yellowHorizontalWins = result.HasFourInARow(_gameGrid, GameToken.Yellow);
+            bool redHorizontalWins = result.HasFourInARow(_gameGrid, GameToken.Red);
 
             if (yellowHorizontalWins)
-                MessageBox.Show(string.Format("{0} Wins Horizontal", GameToken.Yellow));
+                DisplayGameResults(GameToken.Yellow);
 
             else if (redHorizontalWins)
-                MessageBox.Show(string.Format("{0} Wins Horizontal", GameToken.Red));
+                DisplayGameResults(GameToken.Red);
         }
 
         private void CheckForVerticalWin()
         {
-            IFourInARow winAnalyser = new Vertical();
+            IFourInARow result = _winTypeFactory.CreateInstance("Vertical");
 
-            bool yellowVerticalWins = winAnalyser.HasFourInARow(_gameGrid, GameToken.Yellow);
-            bool redVerticalWins = winAnalyser.HasFourInARow(_gameGrid, GameToken.Red);
+            bool yellowVerticalWins = result.HasFourInARow(_gameGrid, GameToken.Yellow);
+            bool redVerticalWins = result.HasFourInARow(_gameGrid, GameToken.Red);
 
             if (yellowVerticalWins)
-                MessageBox.Show(string.Format("{0} Wins Vertical", GameToken.Yellow));
+                DisplayGameResults(GameToken.Yellow);
 
             else if (redVerticalWins)
-                MessageBox.Show(string.Format("{0} Wins Vertical", GameToken.Red));
+                DisplayGameResults(GameToken.Red);
         }
 
         private void CheckForDiagonalWin()
         {
-            IFourInARow winAnalyser = new Diagonal();
+            IFourInARow result = _winTypeFactory.CreateInstance("Diagonal");
 
-            bool yellowDiagonalWins = winAnalyser.HasFourInARow(_gameGrid, GameToken.Yellow);
-            bool redDiagonalWins = winAnalyser.HasFourInARow(_gameGrid, GameToken.Red);
+            bool yellowDiagonalWins = result.HasFourInARow(_gameGrid, GameToken.Yellow);
+            bool redDiagonalWins = result.HasFourInARow(_gameGrid, GameToken.Red);
 
             if (yellowDiagonalWins)
-                MessageBox.Show(string.Format("{0} Wins Diagonal", GameToken.Yellow));
+                DisplayGameResults(GameToken.Yellow);    
 
             else if (redDiagonalWins)
-                MessageBox.Show(string.Format("{0} Wins Diagonal", GameToken.Red));
+                DisplayGameResults(GameToken.Red);   
         }
 
-        //this needs extracting and placing elsewhere
-        public void HasDrawnGame()
+        private void DisplayGameResults(GameToken gameToken)
+        {
+            var gameOverForm = new GameOver(gameToken);
+            gameOverForm.Show();    
+        }
+
+        //this probably needs extracting and placing elsewhere
+        private void HasDrawnGame()
         {
             Tile[] flattenedGrid = _gameGrid.Cast<Tile>().ToArray();
 

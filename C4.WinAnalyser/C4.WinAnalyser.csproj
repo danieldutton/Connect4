@@ -35,11 +35,13 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diagonal.cs" />
-    <Compile Include="Horizontal.cs" />
+    <Compile Include="Strategies\Diagonal.cs" />
+    <Compile Include="WinTypeFactory.cs" />
+    <Compile Include="Strategies\Horizontal.cs" />
+    <Compile Include="Interfaces\IWinTypeFactory.cs" />
     <Compile Include="Interfaces\IFourInARow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vertical.cs" />
+    <Compile Include="Strategies\Vertical.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\C4.GridBuilder\C4.GridBuilder.csproj">
@@ -47,6 +49,7 @@
       <Name>C4.GridBuilder</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,7 +1,7 @@
 ﻿using C4.GridBuilder.Model;
 using C4.WinAnalyser.Interfaces;
 
-namespace C4.WinAnalyser
+namespace C4.WinAnalyser.Strategies
 {
     public class Vertical : IFourInARow
     {

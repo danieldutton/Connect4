@@ -2,6 +2,8 @@
 using C4.GridBuilder.Model;
 using C4.Presentation.ExtMethods;
 using C4.Presentation.Model;
+using C4.WinAnalyser;
+using C4.WinAnalyser.Interfaces;
 using System;
 using System.Windows.Forms;
 
@@ -50,8 +52,10 @@ namespace C4.Presentation
         private void LaunchGameForm(Player yellowPlayer, Player redPlayer)
         {
             Tile[,] grid = _gridBuilder.GetGrid(rows:6, columns:7);
+
+            IWinTypeFactory winTypeFactory = new WinTypeFactory();
             
-            var gameGrid = new GameGrid(grid, yellowPlayer, redPlayer);
+            var gameGrid = new GameGrid(grid, yellowPlayer, redPlayer, winTypeFactory);
             gameGrid.ShowDialog();
             
             Dispose();   

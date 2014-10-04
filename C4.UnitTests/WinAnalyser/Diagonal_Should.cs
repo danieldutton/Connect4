@@ -1,6 +1,7 @@
 ﻿using C4.GridBuilder;
 using C4.GridBuilder.Model;
 using C4.WinAnalyser;
+using C4.WinAnalyser.Strategies;
 using NUnit.Framework;
 
 namespace C4.UnitTests.WinAnalyser

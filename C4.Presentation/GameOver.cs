@@ -1,9 +1,9 @@
 ﻿using C4.GridBuilder.Model;
+using C4.Presentation.ExtMethods;
 using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
-using C4.Presentation.ExtMethods;
 
 namespace C4.Presentation
 {
@@ -20,8 +20,13 @@ namespace C4.Presentation
             _soundPlayer = new SoundPlayer();
             
             InitializeComponent();
-            DisplayWinner();
             PlaySoundFX();
+            DisplayWinner();            
+        }
+
+        public void PlaySoundFX()
+        {
+            _soundPlayer.PlaySoundFX(Properties.Resources.discs_drop_into_box);
         }
 
         public void DisplayWinner()
@@ -41,12 +46,7 @@ namespace C4.Presentation
                 default:
                     _lblWinner.Text = "Game Tied";
                     break;
-            }               
-        }
-
-        public void PlaySoundFX()
-        {
-            _soundPlayer.PlaySoundFX(Properties.Resources.discs_drop_into_box);
+            } 
         }
 
         private void RestartApplication_Click(object sender, EventArgs e)
